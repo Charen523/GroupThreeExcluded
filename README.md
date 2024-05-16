@@ -22,7 +22,7 @@
 
 ### ✨프로젝트  
 
- `Info` **Unity를 활용한 고전게임 재해석하기**
+ `Info` **Unity를 활용한 고전게임 재해석하기 - dodge**
 
  `Stack` C#, Unity-2022.3.17f, Visual Studio2022-17.9.6   
 
