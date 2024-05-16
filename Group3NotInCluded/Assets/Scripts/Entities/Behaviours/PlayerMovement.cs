@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
 
     private PlayerInputController controller;
+    private PlayerStatHandler playerStatus;
     private Rigidbody2D rb;
 
     private bool isBoost;
@@ -15,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         controller = GetComponent<PlayerInputController>();
+        playerStatus = GetComponent<PlayerStatHandler>();
         rb = GetComponent<Rigidbody2D>();   
     }
 
