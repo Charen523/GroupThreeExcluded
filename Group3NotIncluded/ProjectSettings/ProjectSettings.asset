@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 26
-  productGUID: a38ea3baab674ad458583b4a0e621270
+  productGUID: f138107da4aadda4e9a370d18c9ca79c
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: Group3NotIncluded
+  productName: Group3NotInCluded
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -137,8 +137,6 @@ PlayerSettings:
   vulkanEnableLateAcquireNextImage: 0
   vulkanEnableCommandBufferRecycling: 1
   loadStoreDebugModeEnabled: 0
-  visionOSBundleVersion: 1.0
-  tvOSBundleVersion: 1.0
   bundleVersion: 1.0
   preloadedAssets: []
   metroInputSource: 0
@@ -721,14 +719,14 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: Group3NotIncluded
+  metroPackageName: Group3NotInCluded
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-  metroApplicationDescription: Group3NotIncluded
+  metroApplicationDescription: Group3NotInCluded
   wsaImages: {}
   metroTileShortName: 
   metroTileShowName: 0
@@ -796,10 +794,10 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: eb2144f3-a30a-4247-98a6-085cad9ad522
+  cloudProjectId: c2841121-8286-4679-95b0-a516f8add824
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Group3NotIncluded
+  projectName: Group3NotInCluded
   organizationId: sjeong888
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
