@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
 
     private bool isBoost;
-    private readonly float SPEED = 5f; //캐릭터 스탯으로 이동 필요.
+    private float speed;
     private Vector2 playerDirection = Vector2.zero;
 
     private void Awake()
@@ -45,6 +45,7 @@ public class PlayerMovement : MonoBehaviour
     private void ApplyMovement(Vector2 direction)
     {
         //boost 중이면 이속 * 3
-        rb.velocity = direction * SPEED * (isBoost ? 3 : 1);
+        speed = playerStatus.currentStat.speed;
+        rb.velocity = direction * speed * (isBoost ? 3 : 1);
     }
 }
