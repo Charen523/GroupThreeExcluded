@@ -425,9 +425,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1763901898}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d21ad91df8be866469c7d92ccc092a6f, type: 3}
+  m_Script: {fileID: 11500000, guid: 1a49bdd885aa0ee40bcfe62d14815374, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menuPanel: {fileID: 0}
+  rankPanel: {fileID: 0}
+  soloName: []
+  soloTime: []
+  CoopName: []
+  CoopTime: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
