@@ -5,12 +5,7 @@ public class AudioManager : MonoBehaviour
     public static AudioManager Instance;
 
     public AudioSource audioSource;
-    public AudioClip clip;
-
-    private void Awake()
-    {
-        
-    }
+    public AudioClip clip; //여러 효과음 받을 것 대비해 배열로 바꾸는 것 추천.
 
     void Start()
     {

@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-public class SceneManager : MonoBehaviour
+public class ScreenManager : MonoBehaviour
 {
-
+    //위치 UI 스크립트 쪽으로바꿔야 함.
     [Header("PanelList")]
     public GameObject menuPanel;
     public GameObject rankPanel;
@@ -19,25 +19,23 @@ public class SceneManager : MonoBehaviour
     public TextMeshProUGUI[] CoopName;
     public TextMeshProUGUI[] CoopTime;
 
-    private void Awake()
-    {
-        
-    }
-
-
     public void LoadSoloMode()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("SoloScene");
+        SceneManager.LoadScene("SoloScene");
     }
 
     public void LoadCoopMode()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("CoopScene");
+        SceneManager.LoadScene("CoopScene");
     }
 
     public void LoadVersusMode()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("VersusScene");
+        SceneManager.LoadScene("VersusScene");
     }
 
+    public void LoadStartScene()
+    {
+        SceneManager.LoadScene("StartScene");
+    }
 }

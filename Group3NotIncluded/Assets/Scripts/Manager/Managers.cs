@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class Managers : MonoBehaviour
 {
     public static Managers Instance;
-    public SceneManager sceneManager;
+    public ScreenManager sceneManager;
     public EnemyManager enemyManager;
     public AudioManager audioManager;
     public GameManager gameManager;
@@ -21,7 +21,7 @@ public class Managers : MonoBehaviour
             Destroy(this.gameObject); 
         }
 
-        sceneManager = GetComponent<SceneManager>();
+        sceneManager = GetComponent<ScreenManager>();
         enemyManager = GetComponent<EnemyManager>();
         audioManager = GetComponent<AudioManager>();
         gameManager = GetComponent<GameManager>();
