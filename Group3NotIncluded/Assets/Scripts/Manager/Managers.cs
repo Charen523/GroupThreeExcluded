@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Managers : MonoBehaviour
 {
@@ -19,5 +20,10 @@ public class Managers : MonoBehaviour
             Destroy(gameObject);
         }
 
+        loginManager = GetComponent<LoginManager>();
+        enemyManager = GetComponent<EnemyManager>();
+        audioManager = GetComponent<AudioManager>();
+        gameManager = GetComponent<GameManager>();
     }
+
 }
