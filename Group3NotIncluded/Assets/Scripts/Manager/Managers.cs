@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class Managers : MonoBehaviour
 {
     public static Managers Instance;
-    public LoginManager loginManager;
+    public SceneManager sceneManager;
     public EnemyManager enemyManager;
     public AudioManager audioManager;
     public GameManager gameManager;
@@ -14,13 +14,14 @@ public class Managers : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
-        else
+        else if (Instance != this) 
         {
-            Destroy(gameObject);
+            Destroy(this.gameObject); 
         }
 
-        loginManager = GetComponent<LoginManager>();
+        sceneManager = GetComponent<SceneManager>();
         enemyManager = GetComponent<EnemyManager>();
         audioManager = GetComponent<AudioManager>();
         gameManager = GetComponent<GameManager>();

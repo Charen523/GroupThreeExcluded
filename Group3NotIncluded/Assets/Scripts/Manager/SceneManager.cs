@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-public class LoginManager : MonoBehaviour
+public class SceneManager : MonoBehaviour
 {
 
     [Header("PanelList")]
@@ -27,17 +27,17 @@ public class LoginManager : MonoBehaviour
 
     public void LoadSoloMode()
     {
-        SceneManager.LoadScene("SoloScene");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("SoloScene");
     }
 
     public void LoadCoopMode()
     {
-        SceneManager.LoadScene("CoopScene");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("CoopScene");
     }
 
     public void LoadVersusMode()
     {
-        SceneManager.LoadScene("VersusScene");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("VersusScene");
     }
 
 }
