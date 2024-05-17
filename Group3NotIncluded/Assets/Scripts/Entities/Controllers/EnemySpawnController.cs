@@ -69,14 +69,4 @@ public class EnemySpawnController : MonoBehaviour
     {
         return rotationZ;
     }
-
-    private enum SpawnWall
-    {
-        Floor,
-        FloorAdd,
-        Ceiling,
-        CeilingAdd,
-        LeftWall,
-        RightWall
-    }
 }
