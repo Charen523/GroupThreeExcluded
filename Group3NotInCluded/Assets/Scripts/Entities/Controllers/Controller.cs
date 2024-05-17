@@ -1,43 +1,23 @@
 using System;
 using UnityEngine;
 
-public class Controller : MonoBehaviour
+public abstract class Controller : MonoBehaviour
 {
+    //°ø¿ë event.
     public event Action<AttackSO> OnAttackEvent;
 
-    private float timeSinceLastAttack = float.MaxValue;
-
-    protected EnemyStatHandler stats { get; private set; }
-
-    protected virtual void Awake()
-    {
-        stats = GetComponent<EnemyStatHandler>();
-    }
+    protected float timeSinceLastAttack = float.MaxValue;
 
     protected virtual void Update()
     {
         HandleAttackDelay();
     }
 
-    protected void HandleAttackDelay()
-    {
-        // °ø°Ý µô·¹ÀÌ
-        if (timeSinceLastAttack <= stats.currentStat.attackSO.delay)
-        {
-            timeSinceLastAttack += Time.deltaTime;
-        }
-        // °ø°Ý
-        if (timeSinceLastAttack > stats.currentStat.attackSO.delay)
-        {
-            timeSinceLastAttack = 0;
-            CallAttackEvent(stats.currentStat.attackSO);
-        }
-    }
+    //ÃÑ¾Ë ºóµµ.
+    protected abstract void HandleAttackDelay(); 
 
     public void CallAttackEvent(AttackSO attackSO)
     {
         OnAttackEvent?.Invoke(attackSO);
     }
-
-
 }
