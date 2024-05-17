@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 [Serializable]
-public class PlayerStat : EnemyStat
+public class PlayerStat : UnitStat
 {
     //EnemyStat으로부터 maxHealth와 attackSO 상속받음.
     public StatsChangeType statsChangeType;
