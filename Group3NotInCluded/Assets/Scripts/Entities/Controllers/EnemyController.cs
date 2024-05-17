@@ -17,8 +17,10 @@ public class EnemyController : Controller
     private float positionY;
     private float rotationZ;
 
-    private void Awake()
+
+    protected override void Awake()
     {   
+        base.Awake();
         // 적 생성 위치 정해주기
         enemySpawnController = GetComponent<EnemySpawnController>();
         stats = GetComponent<EnemyStatHandler>();
@@ -53,9 +55,10 @@ public class EnemyController : Controller
     {
         return (ClosestTarget.position - transform.position).normalized;
     }
+
     private void TryShootAtTarget(Vector2 directionToTarget)
     {
-        return;  // 수정 필요
+        CallLookEvent(directionToTarget);
     }
 
     protected override void HandleAttackDelay()

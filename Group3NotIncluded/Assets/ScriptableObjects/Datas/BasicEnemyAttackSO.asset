@@ -20,8 +20,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   bulletNameTag: Bullet
-  duration: 3
+  duration: 10
   spread: 1
   numberOfProjectilesPerShot: 1
   multipleProjectilesAngle: 1
-  projectileColor: {r: 1, g: 1, b: 1, a: 0}
+  projectileColor: {r: 1, g: 1, b: 1, a: 1}
