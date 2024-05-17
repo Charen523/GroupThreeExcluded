@@ -83,7 +83,7 @@
                 {
                     "name": "",
                     "id": "88169695-4240-48cc-864f-4276b73324f8",
-                    "path": "<Keyboard>/r",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyboardMouse",
@@ -175,7 +175,7 @@
                 {
                     "name": "",
                     "id": "6d624a2b-4097-4f12-8bab-1864918c073e",
-                    "path": "<Keyboard>/comma",
+                    "path": "<Keyboard>/enter",
                     "interactions": "Press(behavior=2)",
                     "processors": "",
                     "groups": "KeyboardMouse",
