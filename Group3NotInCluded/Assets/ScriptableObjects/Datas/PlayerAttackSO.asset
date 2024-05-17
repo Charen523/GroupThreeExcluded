@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 470092131106e7042b48cbf94b7737b6, type: 3}
-  m_Name: BasicEnemyAttackSO
+  m_Name: PlayerAttackSO
   m_EditorClassIdentifier: 
-  size: 0.5
-  delay: 2
+  size: 1
+  delay: 1
   power: 1
-  speed: 2
+  speed: 1
   target:
     serializedVersion: 2
-    m_Bits: 256
-  bulletNameTag: Bullet
-  duration: 10
-  spread: 1
-  numberOfProjectilesPerShot: 1
-  multipleProjectilesAngle: 1
+    m_Bits: 64
+  bulletNameTag: 
+  duration: 0
+  spread: 0
+  numberOfProjectilesPerShot: 0
+  multipleProjectilesAngle: 0
   projectileColor: {r: 1, g: 1, b: 1, a: 1}
