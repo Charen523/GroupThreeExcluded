@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour
+public class EnemyController : Controller
 {
     private EnemySpawnController enemySpawnController;
 
@@ -15,8 +15,10 @@ public class EnemyController : MonoBehaviour
     private float positionY;
     private float rotationZ;
 
-    private void Awake()
+
+    protected override void Awake()
     {   
+        base.Awake();
         // 적 생성 위치 정해주기
         enemySpawnController = GetComponent<EnemySpawnController>();
 
@@ -41,19 +43,13 @@ public class EnemyController : MonoBehaviour
         TryShootAtTarget(directionToTarget);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     protected Vector2 DirectionToTarget()
     {
         return (ClosestTarget.position - transform.position).normalized;
     }
+
     private void TryShootAtTarget(Vector2 directionToTarget)
     {
-        return;  // 수정 필요
+        CallLookEvent(directionToTarget);
     }
-
 }

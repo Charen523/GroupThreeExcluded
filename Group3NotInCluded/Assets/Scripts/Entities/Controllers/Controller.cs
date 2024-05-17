@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Controller : MonoBehaviour
 {
+    public event Action<Vector2> OnLookEvent;
     public event Action<AttackSO> OnAttackEvent;
 
     private float timeSinceLastAttack = float.MaxValue;
@@ -39,5 +40,8 @@ public class Controller : MonoBehaviour
         OnAttackEvent?.Invoke(attackSO);
     }
 
-
+    public void CallLookEvent(Vector2 direction)
+    {
+        OnLookEvent?.Invoke(direction);
+    }
 }
