@@ -17,8 +17,13 @@ public class PlayerStatHandler : MonoBehaviour
 
     private void UpdatePlayerStat()
     {
+        currentStat = new PlayerStat();
+
         currentStat.statsChangeType = baseStat.statsChangeType;
         currentStat.maxHealth = baseStat.maxHealth;
         currentStat.speed = baseStat.speed;
+        currentStat.bulletSpeed = baseStat.bulletSpeed;
+        currentStat.bulletFrequency = baseStat.bulletFrequency;
+        currentStat.boostGage = baseStat.boostGage;
     }
 }
