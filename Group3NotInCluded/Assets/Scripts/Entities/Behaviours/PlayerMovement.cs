@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
     private void ApplyMovement(Vector2 direction)
     {
         //boost 중이면 이속 * 3
-        speed = playerStatus.currentStat.speed;
+        speed = playerStatus.GetSpeed();
         rb.velocity = direction * speed * (isBoost ? 3 : 1);
     }
 }

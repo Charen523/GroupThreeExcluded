@@ -9,7 +9,6 @@ public class PlayerInputController : Controller
     public event Action<Vector2> OnMoveEvent; //움직임 이벤트
     public event Action<bool> OnBoostEvent;
     
-    //부모 클래스의 stats와 이름을 동일하게 유지할 필요O.
     protected PlayerStatHandler stats { get; private set; }
 
     //멀티플레이 구현할 때 플레이어1과 2 각각 스크립트 만들 것 대비.
