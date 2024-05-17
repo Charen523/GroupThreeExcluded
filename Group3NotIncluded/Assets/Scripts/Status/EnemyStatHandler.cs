@@ -1,27 +1,15 @@
 using UnityEngine;
 
-public class EnemyStatHandler : UnitStatHandler
+public class EnemyStatHandler : UnitStatHandler<EnemyStat>
 {
-    [SerializeField] private EnemyStat baseStats;
-    public EnemyStat currentStat { get; private set; }
-
     protected override void Awake()
     {
         base.Awake();
     }
 
-    protected void UpdateEnemyStat()
+    protected override void UpdateStat()
     {
-        AttackSO attackSO = null;
-        if (baseStats.attackSO != null)
-        {
-            attackSO = Instantiate(baseStats.attackSO);
-        }
-
-        currentStat = new EnemyStat
-        {
-            attackSO = attackSO,
-            maxHealth = baseStats.maxHealth
-        };
+        base.UpdateStat();
+        // 여기에 추가적인 EnemyStat 초기화 로직이 필요하면 추가합니다.
     }
 }
