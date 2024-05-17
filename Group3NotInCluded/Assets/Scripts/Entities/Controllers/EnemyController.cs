@@ -18,9 +18,8 @@ public class EnemyController : Controller
     private float rotationZ;
 
 
-    protected override void Awake()
+    protected void Awake()
     {   
-        base.Awake();
         // 적 생성 위치 정해주기
         enemySpawnController = GetComponent<EnemySpawnController>();
         stats = GetComponent<EnemyStatHandler>();
