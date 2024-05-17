@@ -22,6 +22,10 @@ public class PlayerInputController : Controller
     public void OnMove(InputAction.CallbackContext context)
     {
         OnMoveEvent?.Invoke(context.ReadValue<Vector2>().normalized);
+
+        //test
+        Vector2 playerAimDirection = context.ReadValue<Vector2>().normalized;
+        CallLookEvent(playerAimDirection);
     }
 
     //Boost를 누르고 있는 동안 true.
