@@ -20,15 +20,6 @@ public class EnemyManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-
         Time.timeScale = 1.0f;
         ObjectPool = GetComponent<ObjectPool>();
     }
