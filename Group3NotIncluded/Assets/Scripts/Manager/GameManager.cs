@@ -24,8 +24,6 @@ public class GameManager : MonoBehaviour
 
     //totalScore과 gameScore을 분리?
 
-    public static event Action OnGameEnd;
-
     private int score;
     private float currentTime;
 
@@ -87,7 +85,7 @@ public class GameManager : MonoBehaviour
     public void EndGame()
     {
         Time.timeScale = 0f;
-        OnGameEnd?.Invoke(); //게임종료 이벤트.
+        //게임종료 이벤트.
         //endTime.text = timer.text;
         //totalScore.text = gameScore.text;
         //endPanel.SetActive(true);

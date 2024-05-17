@@ -1,13 +1,20 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Managers : MonoBehaviour
 {
+    /*매니저 모음*/
     public static Managers Instance;
-    public ScreenManager sceneManager;
-    public EnemyManager enemyManager;
-    public AudioManager audioManager;
-    public GameManager gameManager;
+    private GameManager gameManager;
+    private ScreenManager screenManager;
+    private AudioManager audioManager;
+    private EnemyManager enemyManager;
+
+    /*이벤트 모음*/
+    public event Action OnPause;
+    public event Action OnResume;
+    public event Action OnGameOver;
 
     private void Awake()
     {
@@ -15,16 +22,16 @@ public class Managers : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+
+            gameManager = gameObject.AddComponent<GameManager>();
+            screenManager = gameObject.AddComponent<ScreenManager>();
+            audioManager = gameObject.AddComponent<AudioManager>();
+            enemyManager = gameObject.AddComponent<EnemyManager>();
         }
         else if (Instance != this) 
         {
             Destroy(this.gameObject); 
         }
-
-        sceneManager = GetComponent<ScreenManager>();
-        enemyManager = GetComponent<EnemyManager>();
-        audioManager = GetComponent<AudioManager>();
-        gameManager = GetComponent<GameManager>();
     }
 
 }
