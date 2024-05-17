@@ -42,6 +42,8 @@ GameObject:
   - component: {fileID: 7919333433184180094}
   - component: {fileID: 5892734625737983720}
   - component: {fileID: 2273676812043380523}
+  - component: {fileID: 7869766898412596046}
+  - component: {fileID: 2067742443420752822}
   m_Layer: 0
   m_Name: BasicEnemy
   m_TagString: Untagged
@@ -90,6 +92,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c8842ea21a31a54390f2adb311f2c0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7869766898412596046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7973110710505284440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa6865ccbac291a4d9811522232c9303, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileSpawnPosition: {fileID: 3043196658260363013}
+  testBulletPrefab: {fileID: 4886392530267407625, guid: 8a1e27aeca5c0d84cadc47ca331257f4, type: 3}
+--- !u!114 &2067742443420752822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7973110710505284440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a408deb6454886948bd41668cc522dfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseStats:
+    maxHealth: 3
+    attackSO: {fileID: 11400000, guid: 03c2e56a505e8b44bb519f4fe580bc93, type: 2}
 --- !u!1 &8348353016229339331
 GameObject:
   m_ObjectHideFlags: 0

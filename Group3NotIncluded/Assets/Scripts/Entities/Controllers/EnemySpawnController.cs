@@ -11,6 +11,32 @@ public class EnemySpawnController : MonoBehaviour
 
     private void Awake()
     {
+        SetSpawnPoint();
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+  
+    }
+
+    public float CallSpawnPointX()
+    {
+        return spawnPointX;
+    }
+
+    public float CallSpawnPointY()
+    {
+        return spawnPointY;
+    }
+
+    public float CallRotationZ()
+    {
+        return rotationZ;
+    }
+
+    public void SetSpawnPoint()
+    {
         spawnWall = Random.Range(0, 6);
 
         // 0~1 = 바닥, 2~3 = 천장, 4 = 왼쪽 벽, 5 = 오른쪽 벽
@@ -47,26 +73,5 @@ public class EnemySpawnController : MonoBehaviour
                 rotationZ = 90;
                 break;
         }
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-  
-    }
-
-    public float CallSpawnPointX()
-    {
-        return spawnPointX;
-    }
-
-    public float CallSpawnPointY()
-    {
-        return spawnPointY;
-    }
-
-    public float CallRotationZ()
-    {
-        return rotationZ;
     }
 }

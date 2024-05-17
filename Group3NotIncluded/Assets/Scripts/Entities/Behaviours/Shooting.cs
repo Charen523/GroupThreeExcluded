@@ -19,6 +19,7 @@ public class Shooting : MonoBehaviour
 
     private void Start()
     {
+        controller.OnLookEvent += OnAim;
         controller.OnAttackEvent += OnShoot;
     }
 
@@ -28,6 +29,7 @@ public class Shooting : MonoBehaviour
         {
             return;
         }
+
 
         float projectilesAngleSpace = attackSO.multipleProjectilesAngle;
         int numberOfProjectilesPerShot = attackSO.numberOfProjectilesPerShot;
@@ -45,14 +47,22 @@ public class Shooting : MonoBehaviour
 
     private void CreateProjectile(AttackSO attackSO, float angle)
     {
-        GameObject bullet = testBulletPrefab;
+        GameObject bullet = Instantiate(testBulletPrefab);
 
         bullet.transform.position = projectileSpawnPosition.position;
         ProjectileController projectileController = bullet.GetComponent<ProjectileController>();
+        projectileController.InitializeAttack(RotateVector2(aimDirection, angle), attackSO);
+    }
+
+    private static Vector2 RotateVector2(Vector2 aimDirection, float angle)
+    {
+        // 벡터 회전하기 : 쿼터니언 * 벡터 순
+        return Quaternion.Euler(0, 0, angle) * aimDirection;
     }
 
     private void OnAim(Vector2 newAimDirection)
     {
+        Debug.Log("발사1");
         // 총알 발사 방향 설정
         aimDirection = newAimDirection;
     }
