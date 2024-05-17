@@ -9,6 +9,8 @@ public class EnemyManager : MonoBehaviour
 
     [SerializeField] private GameObject basicEnemy;
 
+    public ObjectPool ObjectPool { get; private set; }  // 오브젝트 풀
+
     // 적 생성 시간
     private float time;
     [SerializeField] private float spawnTime = 3;
@@ -28,6 +30,7 @@ public class EnemyManager : MonoBehaviour
         }
 
         Time.timeScale = 1.0f;
+        ObjectPool = GetComponent<ObjectPool>();
     }
 
     // Start is called before the first frame update
