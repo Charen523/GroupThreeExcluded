@@ -10,8 +10,8 @@ public class BoostSystem : MonoBehaviour
 
 	public float CurrentBoostGage { get; private set; }
     
-	[SerializeField] private float boostConsume = 2f;
-	[SerializeField] private float boostRecover = 0.5f;
+	[SerializeField] private float boostConsume = 1f;
+	[SerializeField] private float boostRecover = 1f;
 
     private float MaxBoostGage;
     private bool isBoosting;
@@ -20,12 +20,12 @@ public class BoostSystem : MonoBehaviour
     {
         controller = GetComponent<PlayerInputController>();
 		statHandler = GetComponent<PlayerStatHandler>();
-        MaxBoostGage = statHandler.currentStat.maxBoostGage;
-        CurrentBoostGage = MaxBoostGage;
     }
 
     private void Start()
 	{
+        MaxBoostGage = statHandler.currentStat.maxBoostGage;
+        CurrentBoostGage = MaxBoostGage;
         controller.OnBoostEvent += OnBoost;
     }
 
