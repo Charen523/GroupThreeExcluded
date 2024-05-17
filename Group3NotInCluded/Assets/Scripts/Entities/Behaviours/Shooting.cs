@@ -47,8 +47,10 @@ public class Shooting : MonoBehaviour
     {
         GameObject bullet = testBulletPrefab;
 
-        bullet.transform.position = projectileSpawnPosition.position;
-        ProjectileController projectileController = bullet.GetComponent<ProjectileController>();
+        //bullet.transform.position = projectileSpawnPosition.position;
+        //ProjectileController projectileController = bullet.GetComponent<ProjectileController>();
+        //projectileController.InitializeAttack(aimDirection, attackSO);
+        Instantiate(bullet, projectileSpawnPosition.position, Quaternion.identity);
     }
 
     private void OnAim(Vector2 newAimDirection)

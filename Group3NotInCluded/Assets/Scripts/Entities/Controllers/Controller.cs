@@ -19,7 +19,7 @@ public class Controller : MonoBehaviour
         HandleAttackDelay();
     }
 
-    private void HandleAttackDelay()
+    protected void HandleAttackDelay()
     {
         // 공격 딜레이
         if (timeSinceLastAttack <= stats.currentStat.attackSO.delay)
