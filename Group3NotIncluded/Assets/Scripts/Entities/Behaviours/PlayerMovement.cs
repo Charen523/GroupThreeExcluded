@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -7,6 +5,7 @@ public class PlayerMovement : MonoBehaviour
 
     private PlayerInputController controller;
     private PlayerStatHandler playerStatus;
+    private BoostSystem boostSystem;
     private Rigidbody2D rb;
 
     private bool isBoost;
@@ -18,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     {
         controller = GetComponent<PlayerInputController>();
         playerStatus = GetComponent<PlayerStatHandler>();
+        boostSystem = GetComponent<BoostSystem>();
         rb = GetComponent<Rigidbody2D>();   
     }
 
@@ -32,6 +32,8 @@ public class PlayerMovement : MonoBehaviour
     {
         ApplyMovement(playerDirection);
         ApplyRotate(playerDirection);
+
+        isBoost = isBoost && boostSystem.CanBoost;
     }
 
     private void Move(Vector2 direction)
