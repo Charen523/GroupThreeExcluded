@@ -9,12 +9,14 @@ public class BoostSystem : MonoBehaviour
 	private PlayerStatHandler statHandler;
 
 	public float CurrentBoostGage { get; private set; }
-    
+    public bool CanBoost => CurrentBoostGage > 0;
+
 	[SerializeField] private float boostConsume = 1f;
 	[SerializeField] private float boostRecover = 1f;
 
     private float MaxBoostGage;
     private bool isBoosting;
+    private bool boostButtonPressed;
 
     private void Awake()
     {
@@ -42,7 +44,7 @@ public class BoostSystem : MonoBehaviour
                 isBoosting = false;
             }
         }
-		else
+		else if (CurrentBoostGage < MaxBoostGage && !boostButtonPressed)
 		{
 			RecoverBoost();
 		}
@@ -52,6 +54,8 @@ public class BoostSystem : MonoBehaviour
 
     public void OnBoost(bool onBoost)
     {
+        boostButtonPressed = onBoost;
+
         if (onBoost && CurrentBoostGage > 0)
         {
             isBoosting = true;
@@ -73,14 +77,11 @@ public class BoostSystem : MonoBehaviour
 
 	private void RecoverBoost()
 	{
-		if (!isBoosting && CurrentBoostGage < MaxBoostGage)
-		{
-            CurrentBoostGage += boostRecover * Time.deltaTime;
+        CurrentBoostGage += boostRecover * Time.deltaTime;
 
-            if (CurrentBoostGage > MaxBoostGage)
-			{
-				CurrentBoostGage = MaxBoostGage;
-			}
-		}
-	}
+        if (CurrentBoostGage > MaxBoostGage)
+        {
+            CurrentBoostGage = MaxBoostGage;
+        }
+    }
 }
