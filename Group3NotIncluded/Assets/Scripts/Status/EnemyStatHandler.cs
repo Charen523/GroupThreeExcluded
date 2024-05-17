@@ -1,13 +1,13 @@
 using UnityEngine;
 
-public class EnemyStatHandler : MonoBehaviour
+public class EnemyStatHandler : UnitStatHandler
 {
     [SerializeField] private EnemyStat baseStats;
     public EnemyStat currentStat { get; private set; }
 
-    protected virtual void Awake()
+    protected override void Awake()
     {
-        UpdateEnemyStat();
+        base.Awake();
     }
 
     protected void UpdateEnemyStat()
