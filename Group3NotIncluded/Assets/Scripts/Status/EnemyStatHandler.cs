@@ -5,12 +5,12 @@ public class EnemyStatHandler : MonoBehaviour
     [SerializeField] private EnemyStat baseStats;
     public EnemyStat currentStat { get; private set; }
 
-    private void Awake()
+    protected virtual void Awake()
     {
         UpdateEnemyStat();
     }
 
-    private void UpdateEnemyStat()
+    protected void UpdateEnemyStat()
     {
         AttackSO attackSO = null;
         if (baseStats.attackSO != null)
@@ -18,7 +18,10 @@ public class EnemyStatHandler : MonoBehaviour
             attackSO = Instantiate(baseStats.attackSO);
         }
 
-        currentStat = new EnemyStat { attackSO = attackSO };
-        currentStat.maxHealth = baseStats.maxHealth;
+        currentStat = new EnemyStat
+        {
+            attackSO = attackSO,
+            maxHealth = baseStats.maxHealth
+        };
     }
 }
