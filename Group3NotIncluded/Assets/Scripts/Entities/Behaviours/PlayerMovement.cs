@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isBoost;
     private float speed;
+    private readonly float rotationSpeed = 0.1f;
     private Vector2 playerDirection = Vector2.zero;
 
     private void Awake()
@@ -30,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         ApplyMovement(playerDirection);
+        ApplyRotate(playerDirection);
     }
 
     private void Move(Vector2 direction)
@@ -45,7 +47,18 @@ public class PlayerMovement : MonoBehaviour
     private void ApplyMovement(Vector2 direction)
     {
         //boost 중이면 이속 * 3
-        speed = playerStatus.currentStat.speed;
-        rb.velocity = direction * speed * (isBoost ? 3 : 1);
+        speed = playerStatus.GetSpeed();
+        rb.velocity = direction * speed * (isBoost ? 3 : 1) * Time.deltaTime;
+    }
+
+    private void ApplyRotate(Vector2 direction)
+    {
+        if (playerDirection != Vector2.zero)
+        {
+            float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
+            Quaternion targetRotation = Quaternion.Euler(0, 0, targetAngle);
+
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed);
+        }
     }
 }

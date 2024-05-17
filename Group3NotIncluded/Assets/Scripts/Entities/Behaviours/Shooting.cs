@@ -5,12 +5,9 @@ using Random = UnityEngine.Random;
 public class Shooting : MonoBehaviour
 {
     [SerializeField] private Transform projectileSpawnPosition;
-    private Vector2 aimDirection = Vector2.right;
+    private Vector2 aimDirection = Vector2.zero;
 
     private Controller controller;
-
-    //TODO : 오브젝트 풀 이용
-    public GameObject testBulletPrefab;
 
     private void Awake()
     {
@@ -25,10 +22,11 @@ public class Shooting : MonoBehaviour
 
     private void OnShoot(AttackSO attackSO)
     {
-        if (attackSO == null)
+        if (attackSO == null || aimDirection == Vector2.zero)
         {
             return;
         }
+
 
 
         float projectilesAngleSpace = attackSO.multipleProjectilesAngle;
@@ -47,11 +45,12 @@ public class Shooting : MonoBehaviour
 
     private void CreateProjectile(AttackSO attackSO, float angle)
     {
-        GameObject bullet = Instantiate(testBulletPrefab);
+        GameObject bullet = EnemyManager.Instance.ObjectPool.SpawnFromPool(attackSO.bulletNameTag);
 
         bullet.transform.position = projectileSpawnPosition.position;
         ProjectileController projectileController = bullet.GetComponent<ProjectileController>();
         projectileController.InitializeAttack(RotateVector2(aimDirection, angle), attackSO);
+        Debug.Log("Fire");
     }
 
     private static Vector2 RotateVector2(Vector2 aimDirection, float angle)
@@ -62,7 +61,7 @@ public class Shooting : MonoBehaviour
 
     private void OnAim(Vector2 newAimDirection)
     {
-        Debug.Log("발사1");
+        Debug.Log("OnAim");
         // 총알 발사 방향 설정
         aimDirection = newAimDirection;
     }

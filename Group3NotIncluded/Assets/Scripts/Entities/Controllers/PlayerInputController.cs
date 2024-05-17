@@ -1,17 +1,14 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerInputController : Controller
 {
-    public event Action<Vector2> OnMoveEvent; //움직임 이벤트
+    public event Action<Vector2> OnMoveEvent; 
     public event Action<bool> OnBoostEvent;
     
     protected PlayerStatHandler stats { get; private set; }
 
-    //멀티플레이 구현할 때 플레이어1과 2 각각 스크립트 만들 것 대비.
     protected virtual void Awake() 
     {
         stats = GetComponent<PlayerStatHandler>();
