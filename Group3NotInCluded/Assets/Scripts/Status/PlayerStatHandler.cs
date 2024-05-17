@@ -1,29 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerStatHandler : MonoBehaviour
+public class PlayerStatHandler : UnitStatHandler<PlayerStat>
 {
-    [SerializeField] private PlayerStat baseStat;
-    public PlayerStat currentStat { get; private set; }
-    //강의에 있던 건데 아마 연산에 쓰임. 
-    //예상: 버프 발생시 리스트로 추가해서 계산?
-    //public List<CharacterStat> statsModifiers = new List<CharacterStat>();
-
-    private void Awake()
+    protected override void Awake()
     {
-        UpdatePlayerStat();
+        UpdateStat();
     }
 
-    private void UpdatePlayerStat()
+    protected override void UpdateStat()
     {
-        currentStat = new PlayerStat();
+        base.UpdateStat();
 
-        currentStat.statsChangeType = baseStat.statsChangeType;
-        currentStat.maxHealth = baseStat.maxHealth;
-        currentStat.speed = baseStat.speed;
-        currentStat.bulletSpeed = baseStat.bulletSpeed;
-        currentStat.bulletFrequency = baseStat.bulletFrequency;
-        currentStat.boostGage = baseStat.boostGage;
+        currentStat.statsChangeType = baseStats.statsChangeType;
+        currentStat.speed = baseStats.speed;
+        currentStat.boostGage = baseStats.boostGage;
     }
 }

@@ -43,7 +43,6 @@ GameObject:
   - component: {fileID: 5892734625737983720}
   - component: {fileID: 2273676812043380523}
   - component: {fileID: 7869766898412596046}
-  - component: {fileID: -669273203535423340}
   - component: {fileID: 2067742443420752822}
   m_Layer: 0
   m_Name: BasicEnemy
@@ -107,18 +106,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileSpawnPosition: {fileID: 3043196658260363013}
   testBulletPrefab: {fileID: 4886392530267407625, guid: 8a1e27aeca5c0d84cadc47ca331257f4, type: 3}
---- !u!114 &-669273203535423340
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7973110710505284440}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20da86279c2d75a4aa6b53345696aaff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2067742443420752822
 MonoBehaviour:
   m_ObjectHideFlags: 0

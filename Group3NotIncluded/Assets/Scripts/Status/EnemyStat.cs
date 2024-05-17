@@ -2,8 +2,7 @@ using System;
 using UnityEngine;
 
 [Serializable]
-public class EnemyStat
+public class EnemyStat : UnitStat
 {
-    [Range(1, 5)] public int maxHealth;
-    public AttackSO attackSO;
+    //Enemy고유 스탯이 생기면 세부 구현.
 }
