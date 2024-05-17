@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerStatHandler : UnitStatHandler<PlayerStat>
@@ -13,6 +14,11 @@ public class PlayerStatHandler : UnitStatHandler<PlayerStat>
 
         currentStat.statsChangeType = baseStats.statsChangeType;
         currentStat.speed = baseStats.speed;
-        currentStat.boostGage = baseStats.boostGage;
+        currentStat.maxBoostGage = baseStats.maxBoostGage;
+    }
+
+    public float GetSpeed()
+    {
+        return currentStat.speed;
     }
 }
