@@ -20,27 +20,22 @@ public class EnemyController : Controller
 
     protected void Awake()
     {   
-        // 적 생성 위치 정해주기
-        enemySpawnController = GetComponent<EnemySpawnController>();
         stats = GetComponent<EnemyStatHandler>();
 
-        positionX = enemySpawnController.CallSpawnPointX();
-        positionY = enemySpawnController.CallSpawnPointY();
-        rotationZ = enemySpawnController.CallRotationZ();
-
-        transform.position = new Vector3(positionX, positionY, 0);
-        transform.rotation = Quaternion.Euler(0, 0, rotationZ);
     }
     // Start is called before the first frame update
     protected virtual void Start()
     {
         gameManager = Managers.Instance.gameManager;
-        ClosestTarget = gameManager.CallPlayerPos(0);
+        //ClosestTarget = gameManager.CallPlayerPos(0);
     }
 
     protected override void Update()
     {
         base.Update(); // 부모 클래스의 Update 메서드 호출
+
+        // 가장 가까운 플레이어 찾기
+        SetClosestTarget();
     }
 
     protected virtual void FixedUpdate()
@@ -72,5 +67,23 @@ public class EnemyController : Controller
             timeSinceLastAttack = 0;
             CallAttackEvent(stats.currentStat.attackSO);
         }
+    }
+
+    public void SetClosestTarget()
+    {
+        Transform player1Pos = gameManager.CallPlayerPos(0);
+
+        if (gameManager.CallPlayerPos(1) == null)
+        {
+            ClosestTarget = player1Pos;
+            return;
+        }
+
+        Transform player2Pos = gameManager.CallPlayerPos(1);
+        
+        float distanceToPlayer1 = Vector2.Distance(transform.position, player1Pos.position);
+        float distanceToPlayer2 = Vector2.Distance(transform.position, player2Pos.position);
+
+        ClosestTarget = distanceToPlayer1 < distanceToPlayer2 ? player1Pos : player2Pos;
     }
 }

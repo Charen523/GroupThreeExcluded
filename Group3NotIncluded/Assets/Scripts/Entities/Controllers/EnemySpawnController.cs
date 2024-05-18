@@ -39,7 +39,8 @@ public class EnemySpawnController : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        Instantiate(basicEnemy, transform);
+        SetSpawnPoint();
+        Instantiate(basicEnemy, new Vector3( spawnPointX, spawnPointY, 0), Quaternion.Euler(0, 0, rotationZ) ,transform);
     }
 
     public float CallSpawnPointX()

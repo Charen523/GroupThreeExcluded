@@ -31,7 +31,14 @@ public class GameManager : MonoBehaviour
         managers = GetComponent<Managers>();
         SceneManager.sceneLoaded += OnSceneLoaded;
 
+
+        // 플레이어 위치 담기
+        int playerCount = GameObject.FindGameObjectsWithTag("Player").Length;
         playerPos[0] = GameObject.FindGameObjectsWithTag("Player")[0].transform;
+        if (playerCount >= 2)
+        {
+            playerPos[1] = GameObject.FindGameObjectsWithTag("Player")[1].transform;
+        }
 
         ObjectPool = GetComponent<ObjectPool>();
     }
