@@ -43,7 +43,7 @@
     - art: UI 개선
     - fix: 버그 수정
     - chore: 기타 잡일
-    - docs: 리드미 수정(다른 문서가 없어서...?)
+    - docs: 리드미 등 문서 수정
  
 - branch
     - dev (하루에 한 번 main 업데이트)
