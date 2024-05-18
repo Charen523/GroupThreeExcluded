@@ -20,7 +20,6 @@ public class EnemyManager : MonoBehaviour
 
     private void Awake()
     {
-        Time.timeScale = 1.0f;
         ObjectPool = GetComponent<ObjectPool>();
     }
 
