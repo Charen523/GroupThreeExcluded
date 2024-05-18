@@ -12,8 +12,7 @@ public class Managers : MonoBehaviour
     private EnemyManager enemyManager;
 
     /*이벤트 모음*/
-    public event Action OnPause;
-    public event Action OnResume;
+    public event Action<bool> OnPause;
     public event Action OnGameOver;
 
     private void Awake()
@@ -34,4 +33,13 @@ public class Managers : MonoBehaviour
         }
     }
 
+    public void OnPauseEvent(bool pause)
+    {
+        OnPause?.Invoke(pause);
+    }
+
+    public void OngameOverEvent()
+    {
+        OnGameOver?.Invoke();
+    }
 }
