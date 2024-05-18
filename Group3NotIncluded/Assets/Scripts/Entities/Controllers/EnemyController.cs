@@ -34,7 +34,7 @@ public class EnemyController : Controller
     // Start is called before the first frame update
     protected virtual void Start()
     {
-        enemyManager = EnemyManager.Instance;
+        enemyManager = Managers.Instance.enemyManager;
         ClosestTarget = enemyManager.CallPlayer1Pos();
     }
 

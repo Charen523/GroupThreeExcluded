@@ -27,8 +27,6 @@ public class Shooting : MonoBehaviour
             return;
         }
 
-
-
         float projectilesAngleSpace = attackSO.multipleProjectilesAngle;
         int numberOfProjectilesPerShot = attackSO.numberOfProjectilesPerShot;
 
@@ -45,12 +43,11 @@ public class Shooting : MonoBehaviour
 
     private void CreateProjectile(AttackSO attackSO, float angle)
     {
-        GameObject bullet = EnemyManager.Instance.ObjectPool.SpawnFromPool(attackSO.bulletNameTag);
+        GameObject bullet = Managers.Instance.enemyManager.ObjectPool.SpawnFromPool(attackSO.bulletNameTag);
 
         bullet.transform.position = projectileSpawnPosition.position;
         ProjectileController projectileController = bullet.GetComponent<ProjectileController>();
         projectileController.InitializeAttack(RotateVector2(aimDirection, angle), attackSO);
-        Debug.Log("Fire");
     }
 
     private static Vector2 RotateVector2(Vector2 aimDirection, float angle)
@@ -61,12 +58,7 @@ public class Shooting : MonoBehaviour
 
     private void OnAim(Vector2 newAimDirection)
     {
-        Debug.Log("OnAim");
         // 총알 발사 방향 설정
         aimDirection = newAimDirection;
     }
-
-
-
-
 }

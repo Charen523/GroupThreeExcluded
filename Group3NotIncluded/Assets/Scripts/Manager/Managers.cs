@@ -52,13 +52,17 @@ public class Managers : MonoBehaviour
                 audioManager.GetComponent<AudioManager>();
             }
 
+            //if (enemyManager == null)
+            //{
+            //    enemyManager = gameObject.AddComponent<EnemyManager>();
+            //}
+            //else
+            //{
+            //    enemyManager.GetComponent<EnemyManager>();
+            //}
             if (enemyManager == null)
             {
-                enemyManager = gameObject.AddComponent<EnemyManager>();
-            }
-            else
-            {
-                enemyManager.GetComponent<EnemyManager>();
+                enemyManager = GetComponentInChildren<EnemyManager>();
             }
 
             isInitialized = true; // 초기화 완료
