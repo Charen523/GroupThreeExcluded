@@ -5934,6 +5934,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 488f33f7eab7ffa418eb4516d7b7ef54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectileSpawnPoint: {fileID: 4999253497544844035}
 --- !u!4 &6543901208883473967
 Transform:
   m_ObjectHideFlags: 0
@@ -5986,6 +5987,7 @@ GameObject:
   - component: {fileID: 3225500274980780109}
   - component: {fileID: 8020152171965218239}
   - component: {fileID: 3656783490627329961}
+  - component: {fileID: 8663756123298277376}
   m_Layer: 8
   m_Name: Player1
   m_TagString: Player
@@ -6273,6 +6275,19 @@ MonoBehaviour:
   m_DefaultActionMap: Player1
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &8663756123298277376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6856310359849622830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa6865ccbac291a4d9811522232c9303, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileSpawnPosition: {fileID: 4999253497544844035}
 --- !u!1 &8716723904526452811
 GameObject:
   m_ObjectHideFlags: 0

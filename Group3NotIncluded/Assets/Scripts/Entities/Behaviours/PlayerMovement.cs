@@ -13,6 +13,10 @@ public class PlayerMovement : MonoBehaviour
     private readonly float rotationSpeed = 0.1f;
     private Vector2 playerDirection = Vector2.zero;
 
+    // 플레이어 조준점 계싼
+    [SerializeField] private Transform projectileSpawnPoint;
+    private Vector2 playerAimDirection = Vector2.zero;
+
     private void Awake()
     {
         controller = GetComponent<PlayerInputController>();
@@ -34,6 +38,9 @@ public class PlayerMovement : MonoBehaviour
         ApplyRotate(playerDirection);
 
         isBoost = isBoost && boostSystem.CanBoost;
+
+        // 플레이어 조준
+        controller.CallLookEvent(AngleToDirection(transform, projectileSpawnPoint));
     }
 
     private void Move(Vector2 direction)
@@ -62,5 +69,12 @@ public class PlayerMovement : MonoBehaviour
 
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed);
         }
+    }
+
+
+    // 플레이어 조준점 계산
+    private Vector2 AngleToDirection(Transform playerPos, Transform spawnPos)
+    {
+        return (spawnPos.position - playerPos.position).normalized;
     }
 }
