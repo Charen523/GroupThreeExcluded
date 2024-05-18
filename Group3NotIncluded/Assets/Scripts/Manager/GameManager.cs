@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
 {
     //위치 UI스크립트 쪽으로 바꿔야 함.
     //[Header ("UI")]
-    //public TextMeshProUGUI timer;
     //public TextMeshProUGUI gameScore;
     //public GameObject[] playerHpUI; 
     //public int playerHpCount;
@@ -22,15 +21,28 @@ public class GameManager : MonoBehaviour
     //public TextMeshProUGUI totalScore;
     //public TextMeshProUGUI endTime;
 
-    //totalScore과 gameScore을 분리?
+    //totalScore과 gameScore을 분리한 이유?
 
+    private Managers managers;
+
+    private bool isPaused;
     private int score;
     private float currentTime;
+
+    private void Awake()
+    {
+        managers = GetComponent<Managers>();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        Time.timeScale = 1.0f;
+        managers.OnPause += GetPauseStatus;
+        managers.OnGameOver += EndGame;
+
+        Time.timeScale = 1f;
+        currentTime = 0f;
+
         // 플레이어 생성 구현
 
         //플레이어 Hp 구현
@@ -41,17 +53,21 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // 현재 시간 UI에 표시
+        //인게임 시간의 흐름 계산.
         currentTime += Time.deltaTime;
-        //timer.text = currentTime.ToString("N2");
+    }
 
-        // 몬스터 생성 구현(Invoke 또는 Couroutine 사용하여 시간차 두기)
+    private void GetPauseStatus(bool pause)
+    {
+        isPaused = pause; //추후 필요없으면 삭제.
 
-        // 특정 조건 달성(플레이어 체력 0)시 게임 종료
-        //if (playerHpCount <= 0)
-        //{
-        //    EndGame();
-        //}
+        if (isPaused)
+        {
+            Time.timeScale = 0f;
+        }else
+        {
+            Time.timeScale = 1f;
+        }
     }
 
     // 프리펩화 한 Hp UI를 playerHpCount수 만큼 생성
@@ -59,6 +75,11 @@ public class GameManager : MonoBehaviour
     private void CreateHpUI()
     {
         Vector3 position = new Vector3(10f, 0f, 0f); //좌표 수정 필요!
+    }
+
+    public float GetTime()
+    {
+        return currentTime;
     }
 
     // 적이 처치될 때 마다 호출
@@ -80,13 +101,10 @@ public class GameManager : MonoBehaviour
     //}
 
 
-    // 게임 종료 및 EndPanel 열기
-    //Evenet로 EndPanel쪽에 신호 보내면 좋을듯?
+    //게임종료 이벤트.
     public void EndGame()
     {
         Time.timeScale = 0f;
-        //게임종료 이벤트.
-        //endTime.text = timer.text;
         //totalScore.text = gameScore.text;
         //endPanel.SetActive(true);
     }

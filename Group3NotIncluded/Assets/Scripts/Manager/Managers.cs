@@ -4,16 +4,19 @@ using UnityEngine.SceneManagement;
 
 public class Managers : MonoBehaviour
 {
-    /*매니저 모음*/
     public static Managers Instance;
-    private GameManager gameManager;
-    private ScreenManager screenManager;
-    private AudioManager audioManager;
-    private EnemyManager enemyManager;
+
+    /*Hiearchy에서 부여안하면 자동으로 들어옴.*/
+    public GameManager gameManager;
+    public ScreenManager screenManager;
+    public AudioManager audioManager;
+    public EnemyManager enemyManager;
 
     /*이벤트 모음*/
     public event Action<bool> OnPause;
     public event Action OnGameOver;
+
+    private bool isInitialized = false;
 
     private void Awake()
     {
@@ -22,10 +25,43 @@ public class Managers : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
 
-            gameManager = gameObject.AddComponent<GameManager>();
-            screenManager = gameObject.AddComponent<ScreenManager>();
-            audioManager = gameObject.AddComponent<AudioManager>();
-            enemyManager = gameObject.AddComponent<EnemyManager>();
+            if (gameManager == null)
+            {
+                gameManager = gameObject.AddComponent<GameManager>();
+            }
+            else
+            {
+                gameManager.GetComponent<GameManager>();
+            }
+
+            if (screenManager == null)
+            {
+                screenManager = gameObject.AddComponent<ScreenManager>();
+            }
+            else
+            {
+                screenManager.GetComponent<ScreenManager>();
+            }
+
+            if (audioManager == null)
+            {
+                audioManager = gameObject.AddComponent<AudioManager>();
+            }
+            else
+            {
+                audioManager.GetComponent<AudioManager>();
+            }
+
+            if (enemyManager == null)
+            {
+                enemyManager = gameObject.AddComponent<EnemyManager>();
+            }
+            else
+            {
+                enemyManager.GetComponent<EnemyManager>();
+            }
+
+            isInitialized = true; // 초기화 완료
         }
         else if (Instance != this) 
         {
@@ -33,12 +69,17 @@ public class Managers : MonoBehaviour
         }
     }
 
+    public bool IsInitialized()
+    {
+        return isInitialized;
+    }
+
     public void OnPauseEvent(bool pause)
     {
         OnPause?.Invoke(pause);
     }
 
-    public void OngameOverEvent()
+    public void OnGameOverEvent()
     {
         OnGameOver?.Invoke();
     }
