@@ -43,7 +43,7 @@ public class Shooting : MonoBehaviour
 
     private void CreateProjectile(AttackSO attackSO, float angle)
     {
-        GameObject bullet = Managers.Instance.enemyManager.ObjectPool.SpawnFromPool(attackSO.bulletNameTag);
+        GameObject bullet = Managers.Instance.gameManager.ObjectPool.SpawnFromPool(attackSO.bulletNameTag);
 
         bullet.transform.position = projectileSpawnPosition.position;
         ProjectileController projectileController = bullet.GetComponent<ProjectileController>();

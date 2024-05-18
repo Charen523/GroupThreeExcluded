@@ -8,7 +8,7 @@ public class EnemyController : Controller
 {
     private EnemySpawnController enemySpawnController;
 
-    private EnemyManager enemyManager;
+    private GameManager gameManager;
 
     protected EnemyStatHandler stats { get; private set; }
     protected Transform ClosestTarget { get; private set; }
@@ -34,8 +34,8 @@ public class EnemyController : Controller
     // Start is called before the first frame update
     protected virtual void Start()
     {
-        enemyManager = Managers.Instance.enemyManager;
-        ClosestTarget = enemyManager.CallPlayer1Pos();
+        gameManager = Managers.Instance.gameManager;
+        ClosestTarget = gameManager.CallPlayerPos(0);
     }
 
     protected override void Update()

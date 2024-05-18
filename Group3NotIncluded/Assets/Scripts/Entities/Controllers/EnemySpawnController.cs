@@ -9,6 +9,12 @@ public class EnemySpawnController : MonoBehaviour
     float rotationZ;
     int spawnWall;
 
+    [SerializeField] private GameObject basicEnemy;
+
+    // 적 생성 시간
+    private float time;
+    [SerializeField] private float spawnTime = 3;
+
     private void Awake()
     {
         SetSpawnPoint();
@@ -18,6 +24,22 @@ public class EnemySpawnController : MonoBehaviour
     void Start()
     {
   
+    }
+
+    private void Update()
+    {
+        time += Time.deltaTime;
+
+        if (time >= spawnTime)
+        {
+            SpawnEnemy();
+            time = 0;
+        }
+    }
+
+    private void SpawnEnemy()
+    {
+        Instantiate(basicEnemy, transform);
     }
 
     public float CallSpawnPointX()

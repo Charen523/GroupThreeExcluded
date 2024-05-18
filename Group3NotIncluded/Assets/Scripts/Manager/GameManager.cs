@@ -22,10 +22,18 @@ public class GameManager : MonoBehaviour
     private int score;
     private float currentTime;
 
+    // 플레이어 위치
+    [SerializeField] private Transform[] playerPos = new Transform[2];
+    public ObjectPool ObjectPool { get; private set; }  // 오브젝트 풀
+
     private void Awake()
     {
         managers = GetComponent<Managers>();
         SceneManager.sceneLoaded += OnSceneLoaded;
+
+        playerPos[0] = GameObject.FindGameObjectsWithTag("Player")[0].transform;
+
+        ObjectPool = GetComponent<ObjectPool>();
     }
 
     //씬 로드 시 데이터 초기화.
@@ -105,5 +113,11 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0f;
         //totalScore.text = gameScore.text;
         //endPanel.SetActive(true);
+    }
+
+    // 플레이어 위치 반환
+    public Transform CallPlayerPos(int num = 0)
+    {
+        return playerPos[num];
     }
 }

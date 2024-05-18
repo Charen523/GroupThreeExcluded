@@ -27,12 +27,13 @@ public class Managers : MonoBehaviour
 
             if (gameManager == null)
             {
-                gameManager = gameObject.AddComponent<GameManager>();
+                gameManager = GetComponentInChildren<GameManager>();
+                //gameManager = gameObject.AddComponent<GameManager>();
             }
-            else
-            {
-                gameManager.GetComponent<GameManager>();
-            }
+            //else
+            //{
+            //    gameManager.GetComponent<GameManager>();
+            //}
 
             if (screenManager == null)
             {
@@ -52,17 +53,13 @@ public class Managers : MonoBehaviour
                 audioManager.GetComponent<AudioManager>();
             }
 
-            //if (enemyManager == null)
-            //{
-            //    enemyManager = gameObject.AddComponent<EnemyManager>();
-            //}
-            //else
-            //{
-            //    enemyManager.GetComponent<EnemyManager>();
-            //}
             if (enemyManager == null)
             {
-                enemyManager = GetComponentInChildren<EnemyManager>();
+                enemyManager = gameObject.AddComponent<EnemyManager>();
+            }
+            else
+            {
+                enemyManager.GetComponent<EnemyManager>();
             }
 
             isInitialized = true; // 초기화 완료
