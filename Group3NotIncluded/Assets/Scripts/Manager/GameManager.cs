@@ -1,27 +1,20 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     //위치 UI스크립트 쪽으로 바꿔야 함.
     //[Header ("UI")]
-    //public TextMeshProUGUI gameScore;
+    //public TextMeshProUGUI gameScore;//이런거 와이어프레임엔 없는데.
     //public GameObject[] playerHpUI; 
-    //public int playerHpCount;
+    //public int playerHpCount; 이거 왜 public?
 
     //[Header("PanelList")]
-    //public GameObject menuPanel;
     //public GameObject endPanel;
 
     //[Header("EndPanel")] //EndPanel에 들어갈 정보
-    //public TextMeshProUGUI totalScore;
-    //public TextMeshProUGUI endTime;
-
-    //totalScore과 gameScore을 분리한 이유?
+    //public TextMeshProUGUI totalScore; //gameScore 분리 이유?
+    //public TextMeshProUGUI endTime; //굳이?
 
     private Managers managers;
 
@@ -32,29 +25,36 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         managers = GetComponent<Managers>();
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    // Start is called before the first frame update
+    //씬 로드 시 데이터 초기화.
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        InitializeGameData();
+    }
+    
     void Start()
     {
         managers.OnPause += GetPauseStatus;
         managers.OnGameOver += EndGame;
 
-        Time.timeScale = 1f;
-        currentTime = 0f;
-
-        // 플레이어 생성 구현
-
-        //플레이어 Hp 구현
-        CreateHpUI();
+        InitializeGameData(); //게임 초기화
     }
 
-
-    // Update is called once per frame
     void Update()
     {
         //인게임 시간의 흐름 계산.
         currentTime += Time.deltaTime;
+    }
+
+    private void InitializeGameData()
+    {
+        Time.timeScale = 1f;
+        currentTime = 0f;
+        score = 0;
+        isPaused = false;
+        //CreateHpUI();
     }
 
     private void GetPauseStatus(bool pause)
@@ -77,12 +77,12 @@ public class GameManager : MonoBehaviour
         Vector3 position = new Vector3(10f, 0f, 0f); //좌표 수정 필요!
     }
 
+    //currentTime을 timeText에 전달하는 메서드.
     public float GetTime()
     {
         return currentTime;
     }
 
-    // 적이 처치될 때 마다 호출
     // 점수 증가
     public void AddScore()
     {
@@ -93,13 +93,11 @@ public class GameManager : MonoBehaviour
 
     //HealthSystem과 연계하는 것으로 수정 필요.
     // 플레이어가 공격에 맞을 때 마다 호출
-    // 플레이어 Hp UI 1개 소멸
     //public void DecreaseHp()
     //{
     //    Destroy(playerHpUI[playerHpCount - 1]);
     //    playerHpCount--;
     //}
-
 
     //게임종료 이벤트.
     public void EndGame()
