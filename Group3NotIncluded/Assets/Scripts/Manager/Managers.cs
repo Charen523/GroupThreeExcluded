@@ -11,6 +11,7 @@ public class Managers : MonoBehaviour
     public ScreenManager screenManager;
     public AudioManager audioManager;
     public EnemyManager enemyManager;
+    public RankingManager rankingManager;
 
     /*이벤트 모음*/
     public event Action<bool> OnPause;
@@ -60,6 +61,15 @@ public class Managers : MonoBehaviour
             else
             {
                 enemyManager.GetComponent<EnemyManager>();
+            }
+            
+            if(rankingManager == null)
+            {
+                rankingManager = gameObject.AddComponent<RankingManager>();
+            }
+            else
+            {
+                rankingManager = GetComponent<RankingManager>();
             }
 
             isInitialized = true; // 초기화 완료
