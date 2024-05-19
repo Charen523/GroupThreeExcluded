@@ -36,7 +36,9 @@ public class HealthSystem : MonoBehaviour
 
         // TODO : 지우기
         // 테스트 용
-        OnDeath += TestGameEnd;
+        OnDeath += DisabledHP;
+        OnDeath += DestroyEnemy;
+        OnDamage += DisabledHP;
     }
 
     protected virtual void Update()
@@ -89,8 +91,12 @@ public class HealthSystem : MonoBehaviour
     }
 
     // 테스트용
-    protected virtual void TestGameEnd()
+    protected virtual void DestroyEnemy()
     {
         //Destroy(gameObject);
+    }
+
+    protected virtual void DisabledHP()
+    {
     }
 }

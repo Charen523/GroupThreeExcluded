@@ -1,6 +1,10 @@
-﻿public class EnemyHealthSystem : HealthSystem
+﻿using UnityEngine;
+
+public class EnemyHealthSystem : HealthSystem
 {
-    protected EnemyStatHandler enemyStatHandler; 
+    protected EnemyStatHandler enemyStatHandler;
+
+    [SerializeField] [Range(1, 5)] private int score = 1;
 
     public override float MaxHealth => enemyStatHandler.currentStat.maxHealth;
 
@@ -13,7 +17,8 @@
     {
         CurrentHealth = enemyStatHandler.currentStat.maxHealth;
 
-        OnDeath += TestGameEnd;
+        OnDeath += DestroyEnemy;
+        OnDeath += AddScore;
     }
 
     protected override void Update()
@@ -26,8 +31,14 @@
         CurrentHealth = health;
     }
 
-    protected override void TestGameEnd()
+    protected override void DestroyEnemy()
     {
         Destroy(gameObject);
+    }
+
+    protected void AddScore()
+    {
+        EnemyManager.Instance.AddScore(score);
+        Debug.Log(EnemyManager.Instance.CallCurrentScore());
     }
 }
