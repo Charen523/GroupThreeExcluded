@@ -2454,7 +2454,7 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   screenManager: {fileID: 0}
   audioManager: {fileID: 0}
-  enemyManager: {fileID: 0}
+  rankingManager: {fileID: 0}
 --- !u!4 &974304174
 Transform:
   m_ObjectHideFlags: 0
