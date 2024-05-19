@@ -24,7 +24,7 @@ public class Managers : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
 
-            gameManager = gameObject.GetComponent<GameManager>();
+            gameManager = gameObject.GetComponentInChildren<GameManager>();
             screenManager = gameObject.GetComponent<ScreenManager>();
             audioManager = gameObject.GetComponent<AudioManager>();
             rankingManager = GetComponent<RankingManager>();
