@@ -66,7 +66,7 @@ public class RankingManager : MonoBehaviour
         {
             Vector3 position = new Vector3(0, 200 - i * 100, 0);
             Quaternion rotation = Quaternion.Euler(0, 0, 0);
-            RankData.text = "time: "+ soloRankTime[0].ToString() + "\n" +  "score: " + soloRankScore[0].ToString(); 
+            RankData.text = "time: " + soloRankTime[0].ToString() + "\n" + "score: " + soloRankScore[0].ToString();
 
             TextMeshProUGUI data = Instantiate(RankData, position, rotation);
             data.transform.SetParent(SoloRankBox.transform, false); //프리펩 위치를 SoloRank의 자식으로 이동
@@ -76,12 +76,12 @@ public class RankingManager : MonoBehaviour
 
     public void PrintCoopRankList()
     {
-        
+
         for (int i = 0; i < 5; i++) //for (int i = 0; i < ranktime.Count; i++), 현재는 출력 확인용 5번반복
         {
             Vector3 position = new Vector3(0, 200 - i * 100, 0);
             Quaternion rotation = Quaternion.Euler(0, 0, 0); //용도?
-            RankData.text = "time: "+ soloRankTime[0].ToString() + "\n" +  "score: " + soloRankScore[0].ToString(); 
+            RankData.text = "time: " + soloRankTime[0].ToString() + "\n" + "score: " + soloRankScore[0].ToString();
 
             TextMeshProUGUI data = Instantiate(RankData, position, rotation);
             data.transform.SetParent(CoopRankBox.transform, false); //프리펩 위치를 CoopRank의 자식으로 이동

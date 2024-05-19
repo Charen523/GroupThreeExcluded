@@ -10,7 +10,6 @@ public class Managers : MonoBehaviour
     public GameManager gameManager;
     public ScreenManager screenManager;
     public AudioManager audioManager;
-    public EnemyManager enemyManager;
     public RankingManager rankingManager;
 
     /*이벤트 모음*/
@@ -26,50 +25,17 @@ public class Managers : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
 
-            if (gameManager == null)
-            {
-                gameManager = GetComponentInChildren<GameManager>();
-                //gameManager = gameObject.AddComponent<GameManager>();
-            }
-            //else
-            //{
-            //    gameManager.GetComponent<GameManager>();
-            //}
+            gameManager = gameObject.AddComponent<GameManager>();
+            screenManager = gameObject.AddComponent<ScreenManager>();
 
-            if (screenManager == null)
-            {
-                screenManager = gameObject.AddComponent<ScreenManager>();
-            }
-            else
-            {
-                screenManager.GetComponent<ScreenManager>();
-            }
-
+            //inspector창에서 부여하면 안만듬.
             if (audioManager == null)
-            {
                 audioManager = gameObject.AddComponent<AudioManager>();
-            }
-            else
-            {
-                audioManager.GetComponent<AudioManager>();
-            }
 
-            if (enemyManager == null)
-            {
-                enemyManager = gameObject.AddComponent<EnemyManager>();
-            }
-            else
-            {
-                enemyManager.GetComponent<EnemyManager>();
-            }
-            
-            if(rankingManager == null)
+            //inspector창에서 부여하면 새로 안만듬.
+            if (rankingManager == null)
             {
                 rankingManager = gameObject.AddComponent<RankingManager>();
-            }
-            else
-            {
-                rankingManager = GetComponent<RankingManager>();
             }
 
             isInitialized = true; // 초기화 완료
