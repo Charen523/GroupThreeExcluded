@@ -3,25 +3,25 @@ using UnityEngine;
 
 public class ProjectileController : MonoBehaviour
 {
-    [SerializeField] private LayerMask levelCollisionLayer;
+    [SerializeField] protected LayerMask levelCollisionLayer;
 
-    private AttackSO attackData;
-    private float currentDuration;
-    private Vector2 direction;
-    private bool isReady;
+    protected AttackSO attackData;
+    protected float currentDuration;
+    protected Vector2 direction;
+    protected bool isReady;
 
-    private Rigidbody2D _rigidbody;
-    private SpriteRenderer _spriteRenderer;
+    protected Rigidbody2D _rigidbody;
+    protected SpriteRenderer _spriteRenderer;
 
 
 
-    private void Awake()
+    protected virtual void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         if (!isReady)
         {
@@ -38,7 +38,7 @@ public class ProjectileController : MonoBehaviour
         _rigidbody.velocity = direction * attackData.speed;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected void OnTriggerEnter2D(Collider2D collision)
     {
         if (IsLayerMatched(levelCollisionLayer.value, collision.gameObject.layer))
         {
@@ -56,7 +56,7 @@ public class ProjectileController : MonoBehaviour
         }
     }
 
-    private bool IsLayerMatched(int layerMask, int objectLayer)
+    protected bool IsLayerMatched(int layerMask, int objectLayer)
     {
         return layerMask == (layerMask | (1 << objectLayer));
     }
@@ -71,14 +71,16 @@ public class ProjectileController : MonoBehaviour
         currentDuration = 0;
         _spriteRenderer.color = attackData.projectileColor;
 
+        transform.up = this.direction;
+
         isReady = true;
     }
 
-    private void UpdateProjectileSprite()
+    protected void UpdateProjectileSprite()
     {
         transform.localScale = Vector3.one * attackData.size;
     }
-    private void DestroyProjectile()
+    protected void DestroyProjectile()
     {
         gameObject.SetActive(false);
     }
