@@ -12,6 +12,10 @@ public class EnemySpawnController : MonoBehaviour
     [SerializeField] [Range(1, 10)] private int StartEnemyCount;
 
     [SerializeField] private GameObject basicEnemy;
+    [SerializeField] private GameObject multipleShotEnemy;
+
+    // 난이도 보정
+    private float difTime = 0;
 
     // 적 생성 시간
     private float time;
@@ -34,11 +38,21 @@ public class EnemySpawnController : MonoBehaviour
     private void Update()
     {
         time += Time.deltaTime;
+        difTime += Time.deltaTime;
 
         if (time >= spawnTime)
         {
             SpawnEnemy();
+
+            //난이도 증가
+            if (difTime >= 10)
+            {
+                //SpawnMultipleShotEnemy();
+            }
+
             time = 0;
+
+
         }
     }
 
@@ -46,6 +60,12 @@ public class EnemySpawnController : MonoBehaviour
     {
         SetSpawnPoint();
         Instantiate(basicEnemy, new Vector3( spawnPointX, spawnPointY, 0), Quaternion.Euler(0, 0, rotationZ) ,transform);
+    }
+
+    private void SpawnMultipleShotEnemy()
+    {
+        SetSpawnPoint();
+        Instantiate(multipleShotEnemy, new Vector3(spawnPointX, spawnPointY, 0), Quaternion.Euler(0, 0, rotationZ), transform);
     }
 
     public float CallSpawnPointX()
