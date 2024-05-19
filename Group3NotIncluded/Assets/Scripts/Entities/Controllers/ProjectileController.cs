@@ -50,8 +50,6 @@ public class ProjectileController : MonoBehaviour
             if (healthSystem != null)
             {
                 bool isAttackApplied = healthSystem.ChangeHealth(-attackData.power);
-                Debug.Log(isAttackApplied);
-                Debug.Log(healthSystem.CurrentHealth);
             }
 
             DestroyProjectile();

@@ -7,7 +7,7 @@ public class HealthSystem : MonoBehaviour
 {
     [SerializeField] protected float healthChangeDelay = 0.5f; // 체력이 변할 때까지의 딜레이
 
-    protected PlayerStatHandler statsHandler;
+    protected PlayerStatHandler playerStatHandler;
     protected float timeSinceLastChange = float.MaxValue;         // 마지막 체력 변화 이후의 시간
     protected bool isAttacked = false;
 
@@ -16,28 +16,30 @@ public class HealthSystem : MonoBehaviour
     public event Action OnHeal;
     public event Action OnDeath;
     public event Action OnInvincibilityEnd;
+    
 
-    public float MaxHealth => statsHandler.currentStat.maxHealth;
+    // TODO : 플레이어 스탯 핸들러와 에너미 스탯 핸들러를 통합해야 할듯?
+    public virtual float MaxHealth => playerStatHandler.currentStat.maxHealth;
     
     public float CurrentHealth { get; protected set; }
 
-    protected void Awake()
+    protected virtual void Awake()
     {
 
         // TODO : 플레이어 스탯 핸들러와 에너미 스탯 핸들러를 통합해야 할듯?
-        statsHandler = GetComponent<PlayerStatHandler>();
+        playerStatHandler = GetComponent<PlayerStatHandler>();
     }
 
-    void Start()
+    protected virtual void Start()
     {
-        CurrentHealth = statsHandler.currentStat.maxHealth;
+        CurrentHealth = playerStatHandler.currentStat.maxHealth;
 
         // TODO : 지우기
         // 테스트 용
         OnDeath += TestGameEnd;
     }
 
-    void Update()
+    protected virtual void Update()
     {
         if (isAttacked && timeSinceLastChange < healthChangeDelay)
         {
@@ -87,8 +89,8 @@ public class HealthSystem : MonoBehaviour
     }
 
     // 테스트용
-    protected void TestGameEnd()
+    protected virtual void TestGameEnd()
     {
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 }
