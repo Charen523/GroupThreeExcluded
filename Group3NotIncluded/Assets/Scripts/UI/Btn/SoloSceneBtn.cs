@@ -1,9 +1,10 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SoloSceneBtn : MonoBehaviour
 {
     public void LoadSoloScene()
     {
-        Managers.Instance.screenManager.LoadSoloMode();
+        SceneManager.LoadScene(1);
     }
 }

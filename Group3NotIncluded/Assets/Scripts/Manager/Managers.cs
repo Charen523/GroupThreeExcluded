@@ -7,7 +7,6 @@ public class Managers : MonoBehaviour
     public static Managers Instance;
 
     public GameManager gameManager;
-    public ScreenManager screenManager;
     public AudioManager audioManager;
     public RankingManager rankingManager;
 
@@ -25,7 +24,6 @@ public class Managers : MonoBehaviour
             DontDestroyOnLoad(gameObject);
 
             gameManager = gameObject.GetComponent<GameManager>();
-            screenManager = gameObject.GetComponent<ScreenManager>();
             audioManager = gameObject.GetComponent<AudioManager>();
             rankingManager = GetComponent<RankingManager>();
 
