@@ -14,9 +14,15 @@ public class PausePanel : MonoBehaviour
         pausePanel = GetComponent<GameObject>();
     }
 
-    private void Update()
+    private void OnEnable()
     {
         //Panel의 SetActive가 true일 때 pause.
-        managers.OnPauseEvent(pausePanel.activeSelf);
+        managers.OnPauseEvent(true);
+    }
+
+    private void OnDisable()
+    {
+        //Panel의 SetActive가 true일 때 pause.
+        managers.OnPauseEvent(false);
     }
 }
