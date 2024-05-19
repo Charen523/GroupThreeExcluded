@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class ProjectileController : MonoBehaviour
 {
+    [SerializeField] private LayerMask levelCollisionLayer;
+
     private AttackSO attackData;
     private float currentDuration;
     private Vector2 direction;
@@ -30,10 +32,35 @@ public class ProjectileController : MonoBehaviour
 
         if (currentDuration >= attackData.duration)
         {
-            DestoryProjectile();
+            DestroyProjectile();
         }
 
         _rigidbody.velocity = direction * attackData.speed;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (IsLayerMatched(levelCollisionLayer.value, collision.gameObject.layer))
+        {
+            DestroyProjectile();
+        }
+        else if (IsLayerMatched(attackData.target.value, collision.gameObject.layer))
+        {
+            HealthSystem healthSystem = collision.GetComponent<HealthSystem>();
+            if (healthSystem != null)
+            {
+                bool isAttackApplied = healthSystem.ChangeHealth(-attackData.power);
+                Debug.Log(isAttackApplied);
+                Debug.Log(healthSystem.CurrentHealth);
+            }
+
+            DestroyProjectile();
+        }
+    }
+
+    private bool IsLayerMatched(int layerMask, int objectLayer)
+    {
+        return layerMask == (layerMask | (1 << objectLayer));
     }
 
 
@@ -53,7 +80,7 @@ public class ProjectileController : MonoBehaviour
     {
         transform.localScale = Vector3.one * attackData.size;
     }
-    private void DestoryProjectile()
+    private void DestroyProjectile()
     {
         gameObject.SetActive(false);
     }
