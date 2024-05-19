@@ -1422,7 +1422,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba1768c246377db48a6cb28d235d606f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  StartEnemyCount: 0
   basicEnemy: {fileID: 7973110710505284440, guid: 8b8db70f510d03649ae12b124f29f2a4, type: 3}
+  multipleShotEnemy: {fileID: 0}
   spawnTime: 3
 --- !u!1 &672007088
 GameObject:
@@ -4815,9 +4817,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d21ad91df8be866469c7d92ccc092a6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPos:
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!1 &1935555903
 GameObject:
   m_ObjectHideFlags: 0
