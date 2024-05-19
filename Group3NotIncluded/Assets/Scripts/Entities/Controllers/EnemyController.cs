@@ -8,7 +8,7 @@ public class EnemyController : Controller
 {
     private EnemySpawnController enemySpawnController;
 
-    private GameManager gameManager;
+    private EnemyManager enemyManager;
 
     protected EnemyStatHandler stats { get; private set; }
     protected Transform ClosestTarget { get; private set; }
@@ -26,7 +26,7 @@ public class EnemyController : Controller
     // Start is called before the first frame update
     protected virtual void Start()
     {
-        gameManager = Managers.Instance.gameManager;
+        enemyManager = EnemyManager.Instance;
         //ClosestTarget = gameManager.CallPlayerPos(0);
     }
 
@@ -71,15 +71,15 @@ public class EnemyController : Controller
 
     public void SetClosestTarget()
     {
-        Transform player1Pos = gameManager.CallPlayerPos(0);
+        Transform player1Pos = enemyManager.CallPlayerPos(0);
 
-        if (gameManager.CallPlayerPos(1) == null)
+        if (enemyManager.CallPlayerPos(1) == null)
         {
             ClosestTarget = player1Pos;
             return;
         }
 
-        Transform player2Pos = gameManager.CallPlayerPos(1);
+        Transform player2Pos = enemyManager.CallPlayerPos(1);
         
         float distanceToPlayer1 = Vector2.Distance(transform.position, player1Pos.position);
         float distanceToPlayer2 = Vector2.Distance(transform.position, player2Pos.position);
