@@ -9,12 +9,13 @@ public class RankingManager : MonoBehaviour
     // SoloScene으로 이동하면 오브젝트가 소멸되는 문제가 있음. 
     // StartScene이 시작될때 자동으로 오브젝트를 넣어주도록 수정 필요
 
-
+    //배열로 바꾸거나 해서 랭킹 개수가 일정 이상 넘어가면 사라지게 할 필요있음. 모르면 튜터 찾아가셈.
     private List<float> soloRankTime; // 시간 기록들 저장할 리스트
     private List<int> soloRankScore; // 점수 기록들 저장할 리스트
     public GameObject SoloRankBox;
     private Queue<TextMeshProUGUI> soloRankDataQueue; // 기록 출력하는 텍스트 프리펩 모아놓을 큐
 
+    //위와 마찬가지. 그리고 데이터 관리를 할 때 list가 아니라 dictionary로 해서 우리가 입력받을 이름과 점수데이터 연결 필요.
     private List<float> coopRankTime; // 시간 기록들 저장할 리스트
     private List<int> coopRankScore; // 점수 기록들 저장할 리스트
     public GameObject CoopRankBox;
@@ -79,7 +80,7 @@ public class RankingManager : MonoBehaviour
         for (int i = 0; i < 5; i++) //for (int i = 0; i < ranktime.Count; i++), 현재는 출력 확인용 5번반복
         {
             Vector3 position = new Vector3(0, 200 - i * 100, 0);
-            Quaternion rotation = Quaternion.Euler(0, 0, 0);
+            Quaternion rotation = Quaternion.Euler(0, 0, 0); //용도?
             RankData.text = "time: "+ soloRankTime[0].ToString() + "\n" +  "score: " + soloRankScore[0].ToString(); 
 
             TextMeshProUGUI data = Instantiate(RankData, position, rotation);
