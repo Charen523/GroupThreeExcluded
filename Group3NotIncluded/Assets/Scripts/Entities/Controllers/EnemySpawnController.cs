@@ -9,6 +9,8 @@ public class EnemySpawnController : MonoBehaviour
     float rotationZ;
     int spawnWall;
 
+    [SerializeField] [Range(1, 10)] private int StartEnemyCount;
+
     [SerializeField] private GameObject basicEnemy;
 
     // 적 생성 시간
@@ -17,13 +19,16 @@ public class EnemySpawnController : MonoBehaviour
 
     private void Awake()
     {
-        SetSpawnPoint();
+
     }
 
     // Start is called before the first frame update
     void Start()
     {
-  
+        for (int i = 0; i < StartEnemyCount; i++)
+        {
+            SpawnEnemy();
+        }
     }
 
     private void Update()
@@ -67,32 +72,38 @@ public class EnemySpawnController : MonoBehaviour
         {
             case SpawnWall.Floor:
                 spawnPointX = Random.Range(-8f, 8f);
-                spawnPointY = -4.855f;
+                spawnPointY = -3.5f;
+                //spawnPointY = -4.855f;
                 rotationZ = 0;
                 break;
             case SpawnWall.FloorAdd:
                 spawnPointX = Random.Range(-8f, 8f);
-                spawnPointY = -4.855f;
+                spawnPointY = -3.5f;
+                //spawnPointY = -4.855f;
                 rotationZ = 0;
                 break;
             case SpawnWall.Ceiling:
                 spawnPointX = Random.Range(-8f, 8f);
-                spawnPointY = 4.855f;
+                spawnPointY = 3.2f;
+                //spawnPointY = -4.855f;
                 rotationZ = 180;
                 break;
             case SpawnWall.CeilingAdd:
                 spawnPointX = Random.Range(-8f, 8f);
-                spawnPointY = 4.855f;
+                spawnPointY = 3.2f;
+                //spawnPointY = -4.855f;
                 rotationZ = 180;
                 break;
             case SpawnWall.LeftWall:
                 spawnPointX = -8.75f;
-                spawnPointY = Random.Range(-4f, 4f);
+                spawnPointY = Random.Range(-3.3f, 3f);
+                //spawnPointY = Random.Range(-4f, 4f);
                 rotationZ = 270;
                 break;
             case SpawnWall.RightWall:
                 spawnPointX = 8.75f;
-                spawnPointY = Random.Range(-4f, 4f);
+                spawnPointY = Random.Range(-3.3f, 3f);
+                //spawnPointY = Random.Range(-4f, 4f);
                 rotationZ = 90;
                 break;
         }
