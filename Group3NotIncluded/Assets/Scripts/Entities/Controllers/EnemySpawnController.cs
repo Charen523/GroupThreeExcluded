@@ -16,15 +16,22 @@ public class EnemySpawnController : MonoBehaviour
     [SerializeField] private GameObject guidedShotEnemy;
 
     // 난이도 보정
-    private float difTime = 0;
     private bool multiEnemyFlag = false;
-    private int basicEnemyCount = 0;     // 몇번째 스폰인지 카운트
+    private int multiEnemyCount = 0;     // 몇번째 스폰인지 카운트
+    private int guidedEnemyCount = 0;    // 몇번째 스폰인지 카운트
     [SerializeField] private int HowOftenMultiEnemy = 5;  // 몇번째 스폰 타이밍마다 생성할 것인지
+    [SerializeField] private int HowOftenGuidedEnemy = 10;  // 몇번째 스폰 타이밍마다 생성할 것인지
     
 
     // 적 생성 시간
     private float time;
     [SerializeField] private float spawnTime = 3;
+
+
+    // 기본 적 생성 시간 : 2초, 멀티샷 적 5번째마다 생성, 유도샷 적 10번째마다 생성
+    //멀티샷 적 생성할 때마다 1번 감소 생성, 유도샷 적은 2번 감소
+    // 5 -> 4 -> 3 -> 2 -> 1,  10 -> 8 -> 6 -> 4 -> 2
+    // 최소 1, 2까지만 감소
 
     private void Awake()
     {
@@ -43,14 +50,14 @@ public class EnemySpawnController : MonoBehaviour
     private void Update()
     {
         time += Time.deltaTime;
-        difTime += Time.deltaTime;
 
         if (time >= spawnTime)
         {
             SpawnEnemy();
             time = 0;
 
-            if (multiEnemyFlag) CheckCreateMultiEnemy();
+            CheckCreateMultiEnemy();
+            CheckCreateGuidedEnemy()
         }
 
 
@@ -62,10 +69,16 @@ public class EnemySpawnController : MonoBehaviour
         Instantiate(basicEnemy, new Vector3( spawnPointX, spawnPointY, 0), Quaternion.Euler(0, 0, rotationZ) ,transform);
     }
 
-    private void SpawnMultipleShotEnemy()
+   public void SpawnMultipleShotEnemy()
     {
         SetSpawnPoint();
         Instantiate(multipleShotEnemy, new Vector3(spawnPointX, spawnPointY, 0), Quaternion.Euler(0, 0, rotationZ), transform);
+    }
+
+    public void SpawnGuidedShotEnemy()
+    {
+        SetSpawnPoint();
+        Instantiate(guidedShotEnemy, new Vector3(spawnPointX, spawnPointY, 0), Quaternion.Euler(0, 0, rotationZ), transform);
     }
 
     public float CallSpawnPointX()
@@ -122,29 +135,37 @@ public class EnemySpawnController : MonoBehaviour
                 break;
         }
     }
-
-    //TODO : 게임매니저로 옮겨주기
-    public float currentTime()
-    {
-        return difTime;
-    }
     
-    public void CheckMultiEnemuFlag()
+    public void CheckMultiEnemyFlag()
     {
         multiEnemyFlag = true;
     }
 
     private void CheckCreateMultiEnemy()
     {
-        if (basicEnemyCount >= HowOftenMultiEnemy)
+        if (multiEnemyCount >= HowOftenMultiEnemy)
         {
             SpawnMultipleShotEnemy();
 
-            basicEnemyCount = 0;
+            multiEnemyCount = 0;
+
+            HowOftenMultiEnemy = Mathf.Max(1, HowOftenMultiEnemy--);  // 얼마나 자주 생성할지 1 감소
         }
 
-        basicEnemyCount++;
+        multiEnemyCount++;
+    }
 
+    private void CheckCreateGuidedEnemy()
+    {
+        if (guidedEnemyCount >= HowOftenGuidedEnemy)
+        {
+            SpawnMultipleShotEnemy();
 
+            guidedEnemyCount = 0;
+
+            HowOftenGuidedEnemy = Mathf.Max(2, HowOftenGuidedEnemy - 2);  // 얼마나 자주 생성할지 1 감소
+        }
+
+        guidedEnemyCount++;
     }
 }

@@ -55,7 +55,7 @@ public class EnemyManager : MonoBehaviour
     {
         if (enemySpawnController.currentTime() >= 10)
         {
-            enemySpawnController.CheckMultiEnemuFlag();
+            enemySpawnController.CheckMultiEnemyFlag();
         }
         
     }
