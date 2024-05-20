@@ -4,10 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Enemy
   - Bullet
   - Player1HP
   - rankdata
+  - MSE
+  - GSE
+  - BE
   layers:
   - Default
   - TransparentFX

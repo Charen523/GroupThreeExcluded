@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 2732072319844758087}
   m_Layer: 6
   m_Name: MultipleShotEnemy
-  m_TagString: Enemy
+  m_TagString: MSE
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -170,6 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthChangeDelay: 0.5
+  MaxHealth: 0
   score: 1
 --- !u!1 &8348353016229339331
 GameObject:

@@ -55,5 +55,6 @@ public class Managers : MonoBehaviour
     public void OnGameOverEvent()
     {
         OnGameOver?.Invoke();
+        Debug.Log("¿Ö?");
     }
 }

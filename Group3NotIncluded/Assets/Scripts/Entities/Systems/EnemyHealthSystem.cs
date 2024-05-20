@@ -2,22 +2,19 @@
 
 public class EnemyHealthSystem : HealthSystem
 {
-    protected EnemyStatHandler enemyStatHandler;
+    private EnemyStatHandler statHandler;
 
     [SerializeField] [Range(1, 5)] private int score = 1;
 
-    public override float MaxHealth => enemyStatHandler.currentStat.maxHealth;
-
-    protected override void Awake()
+    protected void Awake()
     {
-        enemyStatHandler = GetComponent<EnemyStatHandler>();
+        statHandler = GetComponent<EnemyStatHandler>();
     }
 
-    protected override void Start()
+    protected void Start()
     {
-        CurrentHealth = enemyStatHandler.currentStat.maxHealth;
-
-        OnDeath += DestroyEnemy;
+        MaxHealth = statHandler.currentStat.maxHealth;
+        CurrentHealth = statHandler.currentStat.maxHealth;
     }
 
     protected override void Update()
@@ -25,15 +22,22 @@ public class EnemyHealthSystem : HealthSystem
         base.Update();
     }
 
-    public void SetHealth(float health)
+    public void SetHealth(int health)
     {
         CurrentHealth = health;
     }
 
-    protected override void DestroyEnemy()
+    protected override void DestroyEntity()
     {
-        Managers.Instance.OnEnemyDead(this.gameObject);
-        Destroy(gameObject);
+        base.DestroyEntity();
+        Managers.Instance.OnEnemyDead(gameObject);
+    }
+
+    public override bool ChangeHealth(float damage)
+    {
+        DestroyEntity();
+
+        return true;
     }
 
     public int CallScore()

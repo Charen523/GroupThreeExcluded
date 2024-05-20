@@ -1,45 +1,20 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthSystem : MonoBehaviour
+public class HealthSystem : MonoBehaviour 
 {
     [SerializeField] protected float healthChangeDelay = 0.5f; // 체력이 변할 때까지의 딜레이
 
-    protected PlayerStatHandler playerStatHandler;
-    protected float timeSinceLastChange = float.MaxValue;         // 마지막 체력 변화 이후의 시간
+    protected float timeSinceLastChange = float.MaxValue; // 마지막 체력 변화 이후의 시간
     protected bool isAttacked = false;
 
     // 체력이 변했을 때 할 행동들을 정의
-    public event Action OnDamage;
     public event Action OnHeal;
-    public event Action OnDeath;
     public event Action OnInvincibilityEnd;
+
+    public int MaxHealth;
     
-
-    // TODO : 플레이어 스탯 핸들러와 에너미 스탯 핸들러를 통합해야 할듯?
-    public virtual float MaxHealth => playerStatHandler.currentStat.maxHealth;
-    
-    public float CurrentHealth { get; protected set; }
-
-    protected virtual void Awake()
-    {
-
-        // TODO : 플레이어 스탯 핸들러와 에너미 스탯 핸들러를 통합해야 할듯?
-        playerStatHandler = GetComponent<PlayerStatHandler>();
-    }
-
-    protected virtual void Start()
-    {
-        CurrentHealth = playerStatHandler.currentStat.maxHealth;
-
-        // TODO : 지우기
-        // 테스트 용
-        OnDeath += DisabledHP;
-        OnDeath += DestroyEnemy;
-        OnDamage += DisabledHP;
-    }
+    public int CurrentHealth { get; protected set; }
 
     protected virtual void Update()
     {
@@ -49,54 +24,26 @@ public class HealthSystem : MonoBehaviour
             if (timeSinceLastChange >= healthChangeDelay)
             {
                 isAttacked = false;
+                OnInvincibilityEnd?.Invoke();
             }
         }
     }
 
-    public bool ChangeHealth(float change)
+    public virtual bool ChangeHealth(float damage)
     {
-        if (timeSinceLastChange < healthChangeDelay)
-        {
-            return false;
-        }
-
-        timeSinceLastChange = 0f;
-        CurrentHealth += change;
-
-        // 최솟값과 최댓값을 설정
-        CurrentHealth = Mathf.Clamp(CurrentHealth, 0, MaxHealth);
-
-        if (CurrentHealth <= 0)
-        {
-            CallDeath();
-            return true;
-        }
-
-        if (change >= 0)
-        {
-            OnHeal?.Invoke();
-        }
-        else
-        {
-            OnDamage?.Invoke();
-            isAttacked = true;
-        }
+        CurrentHealth += (int)damage;
 
         return true;
     }
-
-    protected void CallDeath()
+    
+    //자기자신 파괴.
+    protected virtual void DestroyEntity()
     {
-        OnDeath?.Invoke();
+        Destroy(gameObject);
     }
 
-    // 테스트용
-    protected virtual void DestroyEnemy()
+    protected void OnHealEvent()
     {
-        //Destroy(gameObject);
-    }
-
-    protected virtual void DisabledHP()
-    {
+        OnHeal?.Invoke();
     }
 }
