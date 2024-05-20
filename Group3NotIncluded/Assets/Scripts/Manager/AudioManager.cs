@@ -48,10 +48,6 @@ public class AudioManager : MonoBehaviour
             audioSource.clip = backgroundMusicClip[index];
             audioSource.Play();
         }
-        else
-        {
-            Debug.LogWarning("Background music index out of range: " + index);
-        }
     }
 
     // 효과음 재생 함수
@@ -60,10 +56,6 @@ public class AudioManager : MonoBehaviour
         if (index >= 0 && index < SFXClip.Length && audioSource != null)
         {
             audioSource.PlayOneShot(SFXClip[index]);
-        }
-        else
-        {
-            Debug.LogWarning("SFX index out of range or AudioSource is missing: " + index);
         }
     }
 
