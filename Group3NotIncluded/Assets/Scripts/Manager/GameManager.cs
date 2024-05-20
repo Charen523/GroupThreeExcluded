@@ -76,9 +76,9 @@ public class GameManager : MonoBehaviour
     }
 
     // 점수 증가
-    public void AddScore(int score)
+    public void AddScore(GameObject obj)
     {
-        currentScore += score;
+        //currentScore += score;
     }
 
     public int GetScore()
