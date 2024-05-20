@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -34,27 +35,15 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-        if (audioSource != null)
-        {
-            
-            PlayBackgroundMusic(0);
-            PlayBackgroundMusic(1);
-            PlayBackgroundMusic(2);
-            PlayBackgroundMusic(3);
-
-            PlaySFX(0);
-            PlaySFX(1);
-            PlaySFX(2);
-            PlaySFX(3);
-            PlaySFX(4);
-            PlaySFX(5);
-            PlaySFX(6);
-            PlaySFX(7);
-            PlaySFX(8);
-            PlaySFX(9);
-
-        }
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // 씬이 로드될 때 배경음악 재생
+        PlayBackgroundMusic(scene.buildIndex);
+    }
+
     public void PlayBackgroundMusic(int index)
     {
         if (index >= 0 && index < backgroundMusicClip.Length && audioSource != null)
