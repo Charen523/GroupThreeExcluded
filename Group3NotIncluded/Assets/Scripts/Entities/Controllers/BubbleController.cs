@@ -43,7 +43,7 @@ public class BubbleController : MonoBehaviour
         int randomItemNum = UnityEngine.Random.Range(0, 5);
 
         SpriteRenderer spriteRenderer = newBubble.GetComponent<SpriteRenderer>();
-        spriteRenderer.sprite = Resources.Load<Sprite>($"beffio/Icons/Icon{randomItemNum}");
+        spriteRenderer.sprite = Resources.Load<Sprite>($"beffio/Icons/Icon{0}");
 
         newBubble.transform.position = instantiatePos;
     }
@@ -51,6 +51,13 @@ public class BubbleController : MonoBehaviour
     public void InvokeItem0()
     {
         OnBulletElliminate?.Invoke();
+
+        GameObject[] bullets = GameObject.FindGameObjectsWithTag("Bullet");
+        foreach(GameObject bullet in bullets)
+        {
+            bullet.SetActive(false);
+        }
+        Debug.Log("Á¦°ÅµÊ");
     }
 
     public void InvokeItem1()
