@@ -16,6 +16,9 @@ public class EnemyManager : MonoBehaviour
     // 플레이어1 체력바 배열
     public GameObject[] player1HP = new GameObject[3];
 
+    // 에너미 스폰 컨트롤러 적용
+    public EnemySpawnController enemySpawnController;
+
     private void Awake()
     {
         // 에너미 매니저 셋팅
@@ -36,6 +39,8 @@ public class EnemyManager : MonoBehaviour
         // 플레이어1 HP 정렬 (오른쪽부터 0)
         SetPlayer1HP(player1HP);
 
+        //에너미 스폰 컨트롤러 가져오기
+        enemySpawnController = GetComponent<EnemySpawnController>();
 
     }
 
@@ -48,7 +53,10 @@ public class EnemyManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (enemySpawnController.currentTime() >= 10)
+        {
+            enemySpawnController.CheckMultiEnemuFlag();
+        }
         
     }
 

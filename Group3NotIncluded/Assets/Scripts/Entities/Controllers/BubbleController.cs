@@ -20,6 +20,11 @@ public class BubbleController : MonoBehaviour
         managers.OnEnemyDie += MakeBubble;
     }
 
+    private void OnDisable()
+    {
+        managers.OnEnemyDie -= MakeBubble;
+    }
+
     public void MakeBubble(GameObject enemy)
     {
         Vector3 instantiatePos = enemy.transform.position;
@@ -33,17 +38,26 @@ public class BubbleController : MonoBehaviour
         else
             instantiatePos.x -= 0.5f;
 
-        int randomNum = UnityEngine.Random.Range(0, 4);
-        if (true)
-        {
-            GameObject newBubble = Instantiate(itemBubble);
-            newBubble.transform.position = instantiatePos;
-        }
+        GameObject newBubble = Instantiate(itemBubble);
+
+        int randomItemNum = UnityEngine.Random.Range(0, 5);
+
+        SpriteRenderer spriteRenderer = newBubble.GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite = Resources.Load<Sprite>($"beffio/Icons/Icon{0}");
+
+        newBubble.transform.position = instantiatePos;
     }
 
     public void InvokeItem0()
     {
         OnBulletElliminate?.Invoke();
+
+        GameObject[] bullets = GameObject.FindGameObjectsWithTag("Bullet");
+        foreach(GameObject bullet in bullets)
+        {
+            bullet.SetActive(false);
+        }
+        Debug.Log("Á¦°ÅµÊ");
     }
 
     public void InvokeItem1()

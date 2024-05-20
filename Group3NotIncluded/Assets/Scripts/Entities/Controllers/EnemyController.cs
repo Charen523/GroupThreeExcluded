@@ -17,6 +17,10 @@ public class EnemyController : Controller
     private float positionY;
     private float rotationZ;
 
+    private float angryTime = 0;
+    private bool angry = false;
+    private float angrySpeed = 1f;
+
 
     protected void Awake()
     {   
@@ -36,6 +40,8 @@ public class EnemyController : Controller
 
         // 가장 가까운 플레이어 찾기
         SetClosestTarget();
+
+        AngryEnemy();
     }
 
     protected virtual void FixedUpdate()
@@ -89,5 +95,18 @@ public class EnemyController : Controller
         float distanceToPlayer2 = Vector2.Distance(transform.position, player2Pos.position);
 
         ClosestTarget = distanceToPlayer1 < distanceToPlayer2 ? player1Pos : player2Pos;
+    }
+
+    public void AngryEnemy()
+    {
+        angryTime += Time.deltaTime;
+
+        if (angry) return;
+
+        if (angryTime >= 10)
+        {
+            angry = true;
+            stats.currentStat.attackSO.delay -= angrySpeed;
+        }
     }
 }
