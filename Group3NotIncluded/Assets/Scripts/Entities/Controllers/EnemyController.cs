@@ -53,18 +53,7 @@ public class EnemyController : Controller
         LateObjectCheckTime += Time.deltaTime;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Enemy"))
-        {
-            if (LateObjectCheckTime >= 1) return;        //  생성된지 1초 지났다면 무시
 
-            Debug.Log("재생성");                   // 재생성 디버그
-
-            Destroy(gameObject);
-            Managers.Instance.enemyManager.enemySpawnController.SpawnEnemy();
-        }
-    }
 
 
     protected virtual void FixedUpdate()
@@ -138,5 +127,37 @@ public class EnemyController : Controller
         _renderer.color =
             new Color(_renderer.color.r, _renderer.color.g, _renderer.color.b, 1f);
             // 색깔 투명도 올리기
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (LateObjectCheckTime >= 1) return;        //  생성된지 1초 지났다면 무시
+
+        if (collision.CompareTag("Enemy1"))
+        {
+            Debug.Log("재생성1");                   // 재생성 디버그
+
+            Destroy(gameObject);
+            Managers.Instance.enemyManager.enemySpawnController.SpawnEnemy();
+            return;
+        }
+
+        //else if (collision.CompareTag("Enemy2"))
+        //{
+        //    Debug.Log("재생성2");                  
+
+        //    Destroy(gameObject);
+        //Managers.Instance.enemyManager.enemySpawnController.SpawnMultipleShotEnemy();
+        //    return;
+        //}
+
+        else
+        {
+            Debug.Log("재생성3");              
+
+            Destroy(gameObject);
+            Managers.Instance.enemyManager.enemySpawnController.SpawnGuidedShotEnemy();
+            return;
+        }
     }
 }
