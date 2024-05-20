@@ -1,9 +1,14 @@
-
-using Unity.VisualScripting;
+using System;
 using UnityEngine;
 
 public class BubbleController : MonoBehaviour
 {
+    public event Action OnBulletElliminate;
+    public event Action OnHealthIncrease;
+    public event Action OnInvincible;
+    public event Action OnBoostFull;
+    public event Action OnMultishot;
+
     [SerializeField] private GameObject itemBubble;
 
     private Managers managers;
@@ -12,17 +17,43 @@ public class BubbleController : MonoBehaviour
     {
         managers = Managers.Instance;
 
-        //managers.OnEnemyDie += MakeBubble;
+        managers.OnEnemyDie += MakeBubble;
     }
 
-    public void MakeBubble(int score)
+    public void MakeBubble(GameObject enemy)
     {
-        //score로 몬스터 종류를 받아 어려운 몬스터는 아이템 확률 높이기?
+        Vector3 instantiatePos = enemy.transform.position;
 
-        int randomNum = Random.Range(0, 4);
+        int randomNum = UnityEngine.Random.Range(0, 4);
         if (randomNum == 4)
         {
             Instantiate(gameObject);
+            gameObject.transform.position = instantiatePos;
         }
+    }
+
+    public void InvokeItem0()
+    {
+        OnBulletElliminate?.Invoke();
+    }
+
+    public void InvokeItem1()
+    {
+        OnHealthIncrease?.Invoke();
+    }
+
+    public void InvokeItem2()
+    {
+        OnInvincible?.Invoke();
+    }
+
+    public void InvokeItem3()
+    {
+        OnBoostFull?.Invoke();
+    }
+
+    public void InvokeItem4()
+    {
+        OnMultishot?.Invoke();
     }
 }

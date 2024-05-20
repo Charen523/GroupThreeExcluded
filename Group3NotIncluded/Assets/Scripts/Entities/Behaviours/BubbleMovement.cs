@@ -3,11 +3,7 @@ using UnityEngine;
 
 public class BubbleMovement : MonoBehaviour
 {
-    public event Action OnBulletElliminate;
-    public event Action OnHealthIncrease;
-    public event Action OnInvincible;
-    public event Action OnBoostFull;
-    public event Action OnMultiShot;
+    private BubbleController bubbleController;
 
     private Transform closestPlayer;
     private Rigidbody2D rb;
@@ -20,6 +16,8 @@ public class BubbleMovement : MonoBehaviour
 
     private void Start()
     {
+        bubbleController = FindObjectOfType<BubbleController>(); 
+
         // Rigidbody2D 컴포넌트 가져오기
         rb = GetComponent<Rigidbody2D>();
 
@@ -83,19 +81,19 @@ public class BubbleMovement : MonoBehaviour
         switch(eventName)
         {
             case "Icon0":
-                OnBulletElliminate?.Invoke();
+                bubbleController.InvokeItem0();
                 break;
             case "Icon1":
-                OnHealthIncrease?.Invoke();
+                bubbleController.InvokeItem1();
                 break;
             case "Icon2":
-                OnInvincible?.Invoke();
+                bubbleController.InvokeItem2();
                 break;
             case "Icon3":
-                OnBoostFull?.Invoke();
+                bubbleController.InvokeItem3();
                 break;
             case "Icon4":
-                OnMultiShot?.Invoke();
+                bubbleController.InvokeItem4();
                 break;
             default:
                 break;
