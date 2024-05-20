@@ -38,7 +38,21 @@ public class AudioManager : MonoBehaviour
         {
             
             PlayBackgroundMusic(0);
+            PlayBackgroundMusic(1);
+            PlayBackgroundMusic(2);
+            PlayBackgroundMusic(3);
+
             PlaySFX(0);
+            PlaySFX(1);
+            PlaySFX(2);
+            PlaySFX(3);
+            PlaySFX(4);
+            PlaySFX(5);
+            PlaySFX(6);
+            PlaySFX(7);
+            PlaySFX(8);
+            PlaySFX(9);
+
         }
     }
     public void PlayBackgroundMusic(int index)

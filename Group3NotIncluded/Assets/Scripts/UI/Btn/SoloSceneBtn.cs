@@ -10,4 +10,16 @@ public class SoloSceneBtn : MonoBehaviour
         if (Managers.Instance.enemyManager == null) return;
         Managers.Instance.enemyManager.ClearEnemyManager();
     }
+
+    void Start()
+    {
+        // 배경음악 재생
+        AudioManager.Instance.PlayBackgroundMusic(1);
+    }
+
+    public void PlayEffectSound()
+    {
+        //효과음 재생
+        AudioManager.Instance.PlaySFX(0);
+    }
 }
