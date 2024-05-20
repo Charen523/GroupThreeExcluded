@@ -50,7 +50,7 @@ public class RankingManager : MonoBehaviour
         SetRankData("kim2", 5);
         SetRankData("kang", 9);
         SetRankData("lee2", 7);
-        SetRankData("default", 6);
+        SetRankData("defaullt", 6);
 
         //출력 확인용, 실제로는 RankPanel이 활성화 될 때 실행
         //PrintSoloRankList();

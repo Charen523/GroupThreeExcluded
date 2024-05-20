@@ -1270,7 +1270,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 382397254}
-        m_TargetAssemblyTypeName: SoloSceneBtn, Assembly-CSharp
+        m_TargetAssemblyTypeName: EndPanelBtn, Assembly-CSharp
         m_MethodName: LoadSoloScene
         m_Mode: 1
         m_Arguments:
@@ -1328,7 +1328,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 382397249}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8927c3c01548e614dbc6d18310662b54, type: 3}
+  m_Script: {fileID: 11500000, guid: fd7a8ea0c990b2e409bfd0642a77f14d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &467633735
@@ -1469,10 +1469,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba1768c246377db48a6cb28d235d606f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartEnemyCount: 5
+  StartEnemyCount: 3
   basicEnemy: {fileID: 7973110710505284440, guid: 8b8db70f510d03649ae12b124f29f2a4, type: 3}
   multipleShotEnemy: {fileID: 0}
-  spawnTime: 3
+  spawnTime: 2
 --- !u!114 &607930954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5106,7 +5106,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1959779015}
-        m_TargetAssemblyTypeName: StartSceneBtn, Assembly-CSharp
+        m_TargetAssemblyTypeName: EndPanelBtn, Assembly-CSharp
         m_MethodName: LoadStartScene
         m_Mode: 1
         m_Arguments:
@@ -5164,7 +5164,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1959779010}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4a455b33b579c446b8ae041fff76dcd, type: 3}
+  m_Script: {fileID: 11500000, guid: fd7a8ea0c990b2e409bfd0642a77f14d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2000953254

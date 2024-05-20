@@ -9,9 +9,11 @@ public class GameManager : MonoBehaviour
 
     private bool isPaused;
     private int currentScore;
+    private string playerName;
     private float currentTime;
 
     private TMP_Text scoreTxt;
+    private TMP_InputField playerNameTxt;
     private GameObject endPanel;
 
     private void Awake()
@@ -52,6 +54,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         currentTime = 0f;
         currentScore = 0;
+        playerName = "";
         isPaused = false;
         //CreateHpUI();
     }
@@ -85,6 +88,20 @@ public class GameManager : MonoBehaviour
     public int GetScore()
     {
         return currentScore;
+    }
+
+    public string GetName()
+    {
+        playerNameTxt = GameObject.Find("Canvas").transform.Find("EndPanel").transform.Find("RankContainer").Find("NameInput").GetComponent<TMP_InputField>();
+        playerName = playerNameTxt.text;
+        if (playerName == "")
+            return "default";
+        else
+            return playerName;
+    }
+    public void RegisterDataToRank()
+    {
+        managers.rankingManager.SetRankData(GetName(),GetScore());
     }
 
     //게임종료 이벤트.
