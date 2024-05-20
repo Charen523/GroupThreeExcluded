@@ -77,6 +77,11 @@ public class BubbleMovement : MonoBehaviour
             eventName = gameObject.GetComponentInChildren<SpriteRenderer>().sprite.name;
             Destroy(gameObject);
         }
+        else if (collision.gameObject.layer == 6 || collision.gameObject.layer == 7)
+        {
+            Destroy(gameObject);
+            return;
+        }
 
         switch(eventName)
         {
