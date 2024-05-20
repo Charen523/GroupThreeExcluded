@@ -4,14 +4,14 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
 
-    public AudioSource audioSource;
-    public AudioClip clip; //여러 효과음 받을 것 대비해 배열로 바꾸는 것 추천.
+    private AudioSource audioSource;
+    public AudioClip[] backgroundMusiclip; //여러 효과음 받을 것 대비해 배열로 바꾸는 것 추천.
+    public AudioClip[] SFXClip;
 
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
 
-        audioSource.clip = this.clip;
         audioSource.Play();
     }
 
