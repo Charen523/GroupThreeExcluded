@@ -36,8 +36,9 @@ public class AudioManager : MonoBehaviour
     {
         if (audioSource != null)
         {
-            // 예제: 첫 번째 배경음악을 재생
+            
             PlayBackgroundMusic(0);
+            PlaySFX(0);
         }
     }
     public void PlayBackgroundMusic(int index)
