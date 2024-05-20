@@ -58,13 +58,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // 프리펩화 한 Hp UI를 playerHpCount수 만큼 생성
-    // 특정 좌표에 프리펩 생성, n만큼 x좌표 이동
-    private void CreateHpUI()
-    {
-        Vector3 position = new Vector3(10f, 0f, 0f); //좌표 수정 필요!
-    }
-
     //currentTime을 timeText에 전달하는 메서드.
     public float GetTime()
     {
@@ -86,8 +79,6 @@ public class GameManager : MonoBehaviour
     public void EndGame()
     {
         Time.timeScale = 0f;
-        //totalScore.text = gameScore.text;
-        //endPanel.SetActive(true);
     }
 
 }
