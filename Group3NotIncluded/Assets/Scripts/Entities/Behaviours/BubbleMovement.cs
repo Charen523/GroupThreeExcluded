@@ -1,14 +1,22 @@
+using System;
 using UnityEngine;
 
 public class BubbleMovement : MonoBehaviour
 {
-    public float speed = 1.5f;
-    public float wobbleIntensity = 0.7f;
-    public float wobbleSpeed = 5f;
+    public event Action OnItem0;
+    public event Action OnItem1;
+    public event Action OnItem2;
+    public event Action OnItem3;
+    public event Action OnItem4;
 
     private Transform closestPlayer;
     private Rigidbody2D rb;
     private Vector2 targetDirection;
+
+    /*버블움직임 상수*/
+    private float speed = 1.5f;
+    private float wobbleIntensity = 0.7f;
+    private float wobbleSpeed = 5f;
 
     private void Start()
     {
@@ -59,6 +67,39 @@ public class BubbleMovement : MonoBehaviour
             closestPlayer = players[0].transform;
         else
             closestPlayer = players[1].transform;
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        string eventName = "";
+
+        if (collision.CompareTag("Player"))
+        {
+            eventName = gameObject.GetComponentInChildren<SpriteRenderer>().sprite.name;
+            Destroy(gameObject);
+        }
+
+        switch(eventName)
+        {
+            case "Icon0":
+                OnItem0?.Invoke();
+                break;
+            case "Icon1":
+                OnItem1?.Invoke();
+                break;
+            case "Icon2":
+                OnItem2?.Invoke();
+                break;
+            case "Icon3":
+                OnItem3?.Invoke();
+                break;
+            case "Icon4":
+                OnItem4?.Invoke();
+                break;
+            default:
+                break;
+        }
 
     }
 }
