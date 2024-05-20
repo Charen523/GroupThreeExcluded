@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
-    public static EnemyManager Instance;
+
 
     public ObjectPool ObjectPool { get; private set; }  // 오브젝트 풀
 
@@ -16,21 +16,12 @@ public class EnemyManager : MonoBehaviour
     // 플레이어1 체력바 배열
     public GameObject[] player1HP = new GameObject[3];
 
-    // 적 파괴 점수
-    private int score = 0;
-
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        // 에너미 매니저 셋팅
+        SetEnemyManager();
 
-        ObjectPool = GetComponent<ObjectPool>();
+        ObjectPool = FindAnyObjectByType<ObjectPool>();
 
         // 플레이어 위치 담기
         int playerCount = GameObject.FindGameObjectsWithTag("Player").Length;
@@ -44,12 +35,14 @@ public class EnemyManager : MonoBehaviour
         player1HP = GameObject.FindGameObjectsWithTag("Player1HP");
         // 플레이어1 HP 정렬 (오른쪽부터 0)
         SetPlayer1HP(player1HP);
+
+
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -82,17 +75,15 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
-
-    // 점수 추가
-    public void AddScore(int score)
+    public void SetEnemyManager()
     {
-        this.score += score;
+        this.gameObject.transform.parent = Managers.Instance.transform;
+        Managers.Instance.enemyManager = this;
     }
-
-
-    // 현재 점수 반환
-    public int CallCurrentScore()
+    
+    public void ClearEnemyManager()
     {
-        return score;
+        Managers.Instance.enemyManager = null;
+        Destroy(this.gameObject);
     }
 }

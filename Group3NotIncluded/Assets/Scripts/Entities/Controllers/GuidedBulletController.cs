@@ -12,9 +12,6 @@ public class GuidedBulletController : ProjectileController
     public Transform front;
     public Transform back;
 
-    float xp = 0;
-    float yp = 0;
-
     protected override void Awake()
     {
         base.Awake();
@@ -38,7 +35,7 @@ public class GuidedBulletController : ProjectileController
         }
         
         // TODO : 타겟을 가장 가까운 타겟으로 설정하는 메커니즘 필요
-        Transform target = EnemyManager.Instance.CallPlayerPos(0);
+        Transform target = Managers.Instance.enemyManager.CallPlayerPos(0);
 
         SetDirection(target);
 

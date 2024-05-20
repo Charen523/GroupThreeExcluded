@@ -8,6 +8,7 @@
     protected override void Start()
     {
         base.Start();
+        OnDeath += Player1Dead;
     }
 
     protected override void Update()
@@ -20,10 +21,15 @@
         base.DestroyEnemy();
     }
 
+    protected void Player1Dead()
+    {
+        Managers.Instance.OnGameOverEvent();
+    }
+
     protected override void DisabledHP()
     {
         int num = (int)(CurrentHealth);
 
-        EnemyManager.Instance.player1HP[num].SetActive(false);
+        Managers.Instance.enemyManager.player1HP[num].SetActive(false);
     }
 }

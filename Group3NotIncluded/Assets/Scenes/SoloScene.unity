@@ -1391,7 +1391,7 @@ GameObject:
   - component: {fileID: 607930955}
   - component: {fileID: 607930954}
   m_Layer: 0
-  m_Name: EnemySpawner
+  m_Name: EnemyManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2498,6 +2498,7 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   audioManager: {fileID: 0}
   rankingManager: {fileID: 0}
+  enemyManager: {fileID: 0}
 --- !u!4 &974304174
 Transform:
   m_ObjectHideFlags: 0
@@ -2621,6 +2622,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1d66cdae002544488ec036fd3348c37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RankPanel: {fileID: 0}
   SoloRankBox: {fileID: 0}
   CoopRankBox: {fileID: 0}
   RankData: {fileID: 0}
