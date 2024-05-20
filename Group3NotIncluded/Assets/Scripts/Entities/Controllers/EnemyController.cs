@@ -21,17 +21,21 @@ public class EnemyController : Controller
     private bool angry = false;
     private float angrySpeed = 1f;
 
+    // 새로 생성됬는지 체크용
+    private float LateObjectCheckTime;
+    private SpriteRenderer _renderer;
+
 
     protected void Awake()
     {   
         stats = GetComponent<EnemyStatHandler>();
-
+        _renderer = GetComponentInChildren<SpriteRenderer>();
     }
     // Start is called before the first frame update
     protected virtual void Start()
     {
         enemyManager = Managers.Instance.enemyManager;
-        //ClosestTarget = gameManager.CallPlayerPos(0);
+        Invoke("OnEnemyColor", 0.1f);
     }
 
     protected override void Update()
@@ -42,7 +46,26 @@ public class EnemyController : Controller
         SetClosestTarget();
 
         AngryEnemy();
+
+
+        // 생성됬는지 체크
+        if (LateObjectCheckTime >= 1) return;        //  생성된지 1초 지났다면 무시
+        LateObjectCheckTime += Time.deltaTime;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy"))
+        {
+            if (LateObjectCheckTime >= 1) return;        //  생성된지 1초 지났다면 무시
+
+            Debug.Log("재생성");                   // 재생성 디버그
+
+            Destroy(gameObject);
+            Managers.Instance.enemyManager.enemySpawnController.SpawnEnemy();
+        }
+    }
+
 
     protected virtual void FixedUpdate()
     {
@@ -108,5 +131,12 @@ public class EnemyController : Controller
             angry = true;
             stats.currentStat.attackSO.delay -= angrySpeed;
         }
+    }
+
+    private void OnEnemyColor()
+    {
+        _renderer.color =
+            new Color(_renderer.color.r, _renderer.color.g, _renderer.color.b, 1f);
+            // 색깔 투명도 올리기
     }
 }
