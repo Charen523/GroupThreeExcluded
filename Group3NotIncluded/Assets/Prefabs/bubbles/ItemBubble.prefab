@@ -4842,6 +4842,7 @@ GameObject:
   - component: {fileID: 8544525814254528089}
   - component: {fileID: 8890402008575957055}
   - component: {fileID: 3157512417324003037}
+  - component: {fileID: 5969255573763523528}
   m_Layer: 0
   m_Name: ItemBubble
   m_TagString: Untagged
@@ -4979,3 +4980,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.28
+--- !u!114 &5969255573763523528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2292865611623699955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 628252bade92bb34895093770c7fb87a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1.5
+  wobbleIntensity: 0.7
+  wobbleSpeed: 5

@@ -2621,6 +2621,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1d66cdae002544488ec036fd3348c37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RankPanel: {fileID: 0}
   SoloRankBox: {fileID: 0}
   CoopRankBox: {fileID: 0}
   RankData: {fileID: 0}
