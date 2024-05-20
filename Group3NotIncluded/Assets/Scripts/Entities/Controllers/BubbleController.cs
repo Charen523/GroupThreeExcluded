@@ -57,7 +57,6 @@ public class BubbleController : MonoBehaviour
         {
             bullet.SetActive(false);
         }
-        Debug.Log("Á¦°ÅµÊ");
     }
 
     public void InvokeItem1()
