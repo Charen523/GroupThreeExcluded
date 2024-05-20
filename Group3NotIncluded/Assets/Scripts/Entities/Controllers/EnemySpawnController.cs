@@ -13,9 +13,12 @@ public class EnemySpawnController : MonoBehaviour
 
     [SerializeField] private GameObject basicEnemy;
     [SerializeField] private GameObject multipleShotEnemy;
+    [SerializeField] private GameObject guidedShotEnemy;
 
     // 난이도 보정
     private float difTime = 0;
+
+    
 
     // 적 생성 시간
     private float time;
