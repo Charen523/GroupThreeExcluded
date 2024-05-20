@@ -3,44 +3,16 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    //위치 UI스크립트 쪽으로 바꿔야 함.
-    //[Header ("UI")]
-    //public TextMeshProUGUI gameScore;//이런거 와이어프레임엔 없는데.
-    //public GameObject[] playerHpUI; 
-    //public int playerHpCount; 이거 왜 public?
-
-    //[Header("PanelList")]
-    //public GameObject endPanel;
-
-    //[Header("EndPanel")] //EndPanel에 들어갈 정보
-    //public TextMeshProUGUI totalScore; //gameScore 분리 이유?
-    //public TextMeshProUGUI endTime; //굳이?
-
     private Managers managers;
 
     private bool isPaused;
     private int score;
     private float currentTime;
 
-    // 플레이어 위치
-    [SerializeField] private Transform[] playerPos = new Transform[2];
-    public ObjectPool ObjectPool { get; private set; }  // 오브젝트 풀
-
     private void Awake()
     {
-        managers = GetComponent<Managers>();
+        
         SceneManager.sceneLoaded += OnSceneLoaded;
-
-
-        // 플레이어 위치 담기
-        int playerCount = GameObject.FindGameObjectsWithTag("Player").Length;
-        playerPos[0] = GameObject.FindGameObjectsWithTag("Player")[0].transform;
-        if (playerCount >= 2)
-        {
-            playerPos[1] = GameObject.FindGameObjectsWithTag("Player")[1].transform;
-        }
-
-        ObjectPool = GetComponent<ObjectPool>();
     }
 
     //씬 로드 시 데이터 초기화.
@@ -51,10 +23,11 @@ public class GameManager : MonoBehaviour
     
     void Start()
     {
+        InitializeGameData(); //게임 초기화
+        
+        managers = Managers.Instance;
         managers.OnPause += GetPauseStatus;
         managers.OnGameOver += EndGame;
-
-        InitializeGameData(); //게임 초기화
     }
 
     void Update()
@@ -122,9 +95,4 @@ public class GameManager : MonoBehaviour
         //endPanel.SetActive(true);
     }
 
-    // 플레이어 위치 반환
-    public Transform CallPlayerPos(int num = 0)
-    {
-        return playerPos[num];
-    }
 }

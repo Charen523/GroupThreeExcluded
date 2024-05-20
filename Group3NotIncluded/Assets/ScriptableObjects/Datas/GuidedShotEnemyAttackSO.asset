@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 470092131106e7042b48cbf94b7737b6, type: 3}
-  m_Name: BasicEnemyAttackSO
+  m_Name: GuidedShotEnemyAttackSO
   m_EditorClassIdentifier: 
-  size: 0.2
+  size: 0.1
   delay: 2
   power: 1
   speed: 5
   target:
     serializedVersion: 2
     m_Bits: 256
-  bulletNameTag: Bullet
+  bulletNameTag: GBullet
   duration: 10
   spread: 1
   numberOfProjectilesPerShot: 1

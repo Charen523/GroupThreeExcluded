@@ -1,9 +1,10 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StartSceneBtn : MonoBehaviour
 {
     public void LoadStartScene()
     {
-        Managers.Instance.screenManager.LoadStartScene();
+        SceneManager.LoadScene(0);
     }
 }

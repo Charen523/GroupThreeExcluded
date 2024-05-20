@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 7563843818220604403}
   - component: {fileID: 2732072319844758087}
   m_Layer: 6
-  m_Name: BasicEnemy
+  m_Name: MultipleShotEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -108,7 +108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseStats:
     maxHealth: 1
-    attackSO: {fileID: 11400000, guid: 03c2e56a505e8b44bb519f4fe580bc93, type: 2}
+    attackSO: {fileID: 11400000, guid: ef8a9a6dada90424fa1cb4e408b1862b, type: 2}
 --- !u!60 &7563843818220604403
 PolygonCollider2D:
   m_ObjectHideFlags: 0

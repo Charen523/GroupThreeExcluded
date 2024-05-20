@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 7563843818220604403}
   - component: {fileID: 2732072319844758087}
   m_Layer: 6
-  m_Name: BasicEnemy
+  m_Name: GuidedShotEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -108,7 +108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseStats:
     maxHealth: 1
-    attackSO: {fileID: 11400000, guid: 03c2e56a505e8b44bb519f4fe580bc93, type: 2}
+    attackSO: {fileID: 11400000, guid: eb734d55e353c48449c8c36eac062a9a, type: 2}
 --- !u!60 &7563843818220604403
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -170,6 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthChangeDelay: 0.5
+  score: 1
 --- !u!1 &8348353016229339331
 GameObject:
   m_ObjectHideFlags: 0

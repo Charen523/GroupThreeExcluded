@@ -6,9 +6,7 @@ public class Managers : MonoBehaviour
 {
     public static Managers Instance;
 
-    /*Hiearchy에서 부여안하면 자동으로 들어옴.*/
     public GameManager gameManager;
-    public ScreenManager screenManager;
     public AudioManager audioManager;
     public RankingManager rankingManager;
 
@@ -25,18 +23,9 @@ public class Managers : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
 
-            gameManager = gameObject.AddComponent<GameManager>();
-            screenManager = gameObject.AddComponent<ScreenManager>();
-
-            //inspector창에서 부여하면 안만듬.
-            if (audioManager == null)
-                audioManager = gameObject.AddComponent<AudioManager>();
-
-            //inspector창에서 부여하면 새로 안만듬.
-            if (rankingManager == null)
-            {
-                rankingManager = gameObject.AddComponent<RankingManager>();
-            }
+            gameManager = gameObject.GetComponent<GameManager>();
+            audioManager = gameObject.GetComponent<AudioManager>();
+            rankingManager = GetComponent<RankingManager>();
 
             isInitialized = true; // 초기화 완료
         }

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 470092131106e7042b48cbf94b7737b6, type: 3}
-  m_Name: BasicEnemyAttackSO
+  m_Name: MultipleShotEnemyAttackSO
   m_EditorClassIdentifier: 
   size: 0.2
   delay: 2
@@ -22,6 +22,6 @@ MonoBehaviour:
   bulletNameTag: Bullet
   duration: 10
   spread: 1
-  numberOfProjectilesPerShot: 1
-  multipleProjectilesAngle: 1
+  numberOfProjectilesPerShot: 3
+  multipleProjectilesAngle: 15
   projectileColor: {r: 1, g: 1, b: 1, a: 1}
