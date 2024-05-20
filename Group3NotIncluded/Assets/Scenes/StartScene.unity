@@ -5839,9 +5839,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1d66cdae002544488ec036fd3348c37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RankPanel: {fileID: 0}
   SoloRankBox: {fileID: 0}
   CoopRankBox: {fileID: 0}
-  RankData: {fileID: 0}
+  RankData: {fileID: 485479002373150865, guid: cd34f2c3282eb454992f921dd0742201, type: 3}
 --- !u!82 &2050053298
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5950,8 +5951,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f30b1cf6c78ceb84d9c899c3d4ef6099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 0}
-  clip: {fileID: 0}
+  backgroundMusiclip: []
+  SFXClip: []
 --- !u!114 &2050053301
 MonoBehaviour:
   m_ObjectHideFlags: 0

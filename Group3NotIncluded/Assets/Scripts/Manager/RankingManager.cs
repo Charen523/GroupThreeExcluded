@@ -9,6 +9,7 @@ public class RankingManager : MonoBehaviour
     // SoloScene으로 이동하면 오브젝트가 소멸되는 문제가 있음. 
     // StartScene이 시작될때 자동으로 오브젝트를 넣어주도록 수정 필요
 
+    public GameObject RankPanel;
     //배열로 바꾸거나 해서 랭킹 개수가 일정 이상 넘어가면 사라지게 할 필요있음. 모르면 튜터 찾아가셈.
     private List<float> soloRankTime; // 시간 기록들 저장할 리스트
     private List<int> soloRankScore; // 점수 기록들 저장할 리스트
@@ -26,6 +27,11 @@ public class RankingManager : MonoBehaviour
 
     private void Start()
     {
+
+        RankPanel = GameObject.Find("Canvas").transform.Find("RankPanel").gameObject;
+        SoloRankBox = RankPanel.transform.Find("SoloRank").gameObject;
+        CoopRankBox = RankPanel.transform.Find("CoopRank").gameObject;
+
         soloRankTime = new List<float>();
         soloRankScore = new List<int>();
         soloRankDataQueue = new Queue<TextMeshProUGUI>();
