@@ -21,4 +21,15 @@ public class PlayerStatHandler : UnitStatHandler<PlayerStat>
     {
         return currentStat.speed;
     }
+
+    public void GetMultiShot()
+    {
+        currentStat.attackSO.numberOfProjectilesPerShot = 3;
+        Invoke("OriginShot", 5f);
+    }
+
+    private void OriginShot()
+    {
+        currentStat.attackSO.numberOfProjectilesPerShot = 1;
+    }
 }
