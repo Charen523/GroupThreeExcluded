@@ -3,11 +3,11 @@ using UnityEngine;
 
 public class BubbleMovement : MonoBehaviour
 {
-    public event Action OnItem0;
-    public event Action OnItem1;
-    public event Action OnItem2;
-    public event Action OnItem3;
-    public event Action OnItem4;
+    public event Action OnBulletElliminate;
+    public event Action OnHealthIncrease;
+    public event Action OnInvincible;
+    public event Action OnBoostFull;
+    public event Action OnMultiShot;
 
     private Transform closestPlayer;
     private Rigidbody2D rb;
@@ -83,19 +83,19 @@ public class BubbleMovement : MonoBehaviour
         switch(eventName)
         {
             case "Icon0":
-                OnItem0?.Invoke();
+                OnBulletElliminate?.Invoke();
                 break;
             case "Icon1":
-                OnItem1?.Invoke();
+                OnHealthIncrease?.Invoke();
                 break;
             case "Icon2":
-                OnItem2?.Invoke();
+                OnInvincible?.Invoke();
                 break;
             case "Icon3":
-                OnItem3?.Invoke();
+                OnBoostFull?.Invoke();
                 break;
             case "Icon4":
-                OnItem4?.Invoke();
+                OnMultiShot?.Invoke();
                 break;
             default:
                 break;
