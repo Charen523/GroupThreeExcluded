@@ -17,7 +17,9 @@ public class EnemySpawnController : MonoBehaviour
 
     // 난이도 보정
     private float difTime = 0;
-
+    private bool multiEnemyFlag = false;
+    private int basicEnemyCount = 0;     // 몇번째 스폰인지 카운트
+    [SerializeField] private int HowOftenMultiEnemy = 5;  // 몇번째 스폰 타이밍마다 생성할 것인지
     
 
     // 적 생성 시간
@@ -46,17 +48,12 @@ public class EnemySpawnController : MonoBehaviour
         if (time >= spawnTime)
         {
             SpawnEnemy();
-
-            //난이도 증가
-            if (difTime >= 10)
-            {
-                //SpawnMultipleShotEnemy();
-            }
-
             time = 0;
 
-
+            if (multiEnemyFlag) CheckCreateMultiEnemy();
         }
+
+
     }
 
     private void SpawnEnemy()
@@ -96,39 +93,58 @@ public class EnemySpawnController : MonoBehaviour
             case SpawnWall.Floor:
                 spawnPointX = Random.Range(-8f, 8f);
                 spawnPointY = -3.5f;
-                //spawnPointY = -4.855f;
                 rotationZ = 0;
                 break;
             case SpawnWall.FloorAdd:
                 spawnPointX = Random.Range(-8f, 8f);
                 spawnPointY = -3.5f;
-                //spawnPointY = -4.855f;
                 rotationZ = 0;
                 break;
             case SpawnWall.Ceiling:
                 spawnPointX = Random.Range(-8f, 8f);
                 spawnPointY = 3.2f;
-                //spawnPointY = -4.855f;
                 rotationZ = 180;
                 break;
             case SpawnWall.CeilingAdd:
                 spawnPointX = Random.Range(-8f, 8f);
                 spawnPointY = 3.2f;
-                //spawnPointY = -4.855f;
                 rotationZ = 180;
                 break;
             case SpawnWall.LeftWall:
                 spawnPointX = -8.75f;
                 spawnPointY = Random.Range(-3.3f, 3f);
-                //spawnPointY = Random.Range(-4f, 4f);
                 rotationZ = 270;
                 break;
             case SpawnWall.RightWall:
                 spawnPointX = 8.75f;
                 spawnPointY = Random.Range(-3.3f, 3f);
-                //spawnPointY = Random.Range(-4f, 4f);
                 rotationZ = 90;
                 break;
         }
+    }
+
+    //TODO : 게임매니저로 옮겨주기
+    public float currentTime()
+    {
+        return difTime;
+    }
+    
+    public void CheckMultiEnemuFlag()
+    {
+        multiEnemyFlag = true;
+    }
+
+    private void CheckCreateMultiEnemy()
+    {
+        if (basicEnemyCount >= HowOftenMultiEnemy)
+        {
+            SpawnMultipleShotEnemy();
+
+            basicEnemyCount = 0;
+        }
+
+        basicEnemyCount++;
+
+
     }
 }

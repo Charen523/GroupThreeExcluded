@@ -24,4 +24,4 @@ MonoBehaviour:
   spread: 1
   numberOfProjectilesPerShot: 3
   multipleProjectilesAngle: 15
-  projectileColor: {r: 1, g: 1, b: 1, a: 1}
+  projectileColor: {r: 1, g: 0, b: 0, a: 1}
