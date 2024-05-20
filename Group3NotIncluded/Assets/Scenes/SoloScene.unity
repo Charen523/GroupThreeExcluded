@@ -409,6 +409,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 111947257}
   m_CullTransparentMesh: 1
+--- !u!1 &122949706
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 122949708}
+  - component: {fileID: 122949707}
+  m_Layer: 0
+  m_Name: BubbleController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &122949707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 122949706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28e6871ee498dcb40bd7f9dd115338cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemBubble: {fileID: 2292865611623699955, guid: a277c38d067dec544b6ef1501d4d5a54, type: 3}
+--- !u!4 &122949708
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 122949706}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &155136270
 GameObject:
   m_ObjectHideFlags: 0
@@ -1225,7 +1270,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 382397254}
-        m_TargetAssemblyTypeName: SoloSceneBtn, Assembly-CSharp
+        m_TargetAssemblyTypeName: EndPanelBtn, Assembly-CSharp
         m_MethodName: LoadSoloScene
         m_Mode: 1
         m_Arguments:
@@ -1283,7 +1328,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 382397249}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8927c3c01548e614dbc6d18310662b54, type: 3}
+  m_Script: {fileID: 11500000, guid: fd7a8ea0c990b2e409bfd0642a77f14d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &467633735
@@ -1424,10 +1469,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba1768c246377db48a6cb28d235d606f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartEnemyCount: 5
+  StartEnemyCount: 3
   basicEnemy: {fileID: 7973110710505284440, guid: 8b8db70f510d03649ae12b124f29f2a4, type: 3}
   multipleShotEnemy: {fileID: 0}
-  spawnTime: 3
+  spawnTime: 2
 --- !u!114 &607930954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5061,7 +5106,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1959779015}
-        m_TargetAssemblyTypeName: StartSceneBtn, Assembly-CSharp
+        m_TargetAssemblyTypeName: EndPanelBtn, Assembly-CSharp
         m_MethodName: LoadStartScene
         m_Mode: 1
         m_Arguments:
@@ -5119,7 +5164,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1959779010}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4a455b33b579c446b8ae041fff76dcd, type: 3}
+  m_Script: {fileID: 11500000, guid: fd7a8ea0c990b2e409bfd0642a77f14d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2000953254
@@ -5726,7 +5771,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4899725712812969836}
@@ -5814,8 +5859,8 @@ MonoBehaviour:
     maxHealth: 3
     attackSO: {fileID: 11400000, guid: d6a2816e841cc334f9ffe3063d2e8c8c, type: 2}
     statsChangeType: 0
-    speed: 20
-    maxBoostGage: 1
+    speed: 40
+    maxBoostGage: 2
 --- !u!223 &3000834987252839963
 Canvas:
   m_ObjectHideFlags: 0
@@ -6664,3 +6709,4 @@ SceneRoots:
   - {fileID: 974304174}
   - {fileID: 2269539656196227998}
   - {fileID: 607930952}
+  - {fileID: 122949708}
