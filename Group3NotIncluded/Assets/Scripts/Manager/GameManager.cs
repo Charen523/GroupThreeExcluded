@@ -6,12 +6,11 @@ public class GameManager : MonoBehaviour
     private Managers managers;
 
     private bool isPaused;
-    private int score;
+    private int currentScore;
     private float currentTime;
 
     private void Awake()
     {
-        
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
@@ -27,6 +26,7 @@ public class GameManager : MonoBehaviour
         
         managers = Managers.Instance;
         managers.OnPause += GetPauseStatus;
+        managers.OnEnemyDie += AddScore;
         managers.OnGameOver += EndGame;
     }
 
@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         currentTime = 0f;
-        score = 0;
+        currentScore = 0;
         isPaused = false;
         //CreateHpUI();
     }
@@ -72,20 +72,15 @@ public class GameManager : MonoBehaviour
     }
 
     // 점수 증가
-    public void AddScore()
+    public void AddScore(int score)
     {
-        score++; // 점수 계산 방식에 따라 조정 필요
-        //점수변화를 이벤트로 전송.
-        //gameScore.text = score.ToString();
+        currentScore += score;   
     }
 
-    //HealthSystem과 연계하는 것으로 수정 필요.
-    // 플레이어가 공격에 맞을 때 마다 호출
-    //public void DecreaseHp()
-    //{
-    //    Destroy(playerHpUI[playerHpCount - 1]);
-    //    playerHpCount--;
-    //}
+    public int GetScore()
+    {
+        return currentScore;
+    }
 
     //게임종료 이벤트.
     public void EndGame()

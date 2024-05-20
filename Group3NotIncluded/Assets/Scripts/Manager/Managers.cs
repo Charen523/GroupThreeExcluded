@@ -12,6 +12,7 @@ public class Managers : MonoBehaviour
 
     /*이벤트 모음*/
     public event Action<bool> OnPause;
+    public event Action<int> OnEnemyDie;
     public event Action OnGameOver;
 
     private bool isInitialized = false;
@@ -43,6 +44,11 @@ public class Managers : MonoBehaviour
     public void OnPauseEvent(bool pause)
     {
         OnPause?.Invoke(pause);
+    }
+
+    public void OnEnemyDead(int score)
+    {
+        OnEnemyDie?.Invoke(score);
     }
 
     public void OnGameOverEvent()
