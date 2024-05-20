@@ -1,5 +1,7 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,6 +10,9 @@ public class GameManager : MonoBehaviour
     private bool isPaused;
     private int currentScore;
     private float currentTime;
+
+    private TMP_Text scoreTxt;
+    private GameObject endPanel;
 
     private void Awake()
     {
@@ -27,7 +32,13 @@ public class GameManager : MonoBehaviour
         managers = Managers.Instance;
         managers.OnPause += GetPauseStatus;
         managers.OnEnemyDie += AddScore;
+
         managers.OnGameOver += EndGame;
+        managers.OnGameOver += FindTextLabel;
+        managers.OnGameOver += UpdateScoreText;
+        managers.OnGameOver += FindEndPanel;
+        managers.OnGameOver += SetEndPanel;
+
     }
 
     void Update()
@@ -67,7 +78,7 @@ public class GameManager : MonoBehaviour
     // 점수 증가
     public void AddScore(int score)
     {
-        currentScore += score;   
+        currentScore += score;
     }
 
     public int GetScore()
@@ -81,4 +92,23 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0f;
     }
 
+    public void FindTextLabel()
+    {
+        scoreTxt = GameObject.Find("Canvas").transform.Find("EndPanel").transform.Find("Score").Find("ScoreTxt").GetComponent<TMP_Text>();
+    }
+
+    public void UpdateScoreText()
+    {
+        scoreTxt.text = GetScore().ToString("D5");
+    }
+
+    public void FindEndPanel()
+    {
+        endPanel = GameObject.Find("Canvas").transform.Find("EndPanel").gameObject;
+    }
+
+    public void SetEndPanel()
+    {
+        endPanel.SetActive(true);
+    }
 }
