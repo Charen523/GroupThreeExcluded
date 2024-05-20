@@ -45,6 +45,10 @@ public class GuidedBulletController : ProjectileController
 
     private void SetDirection(Transform target)
     {
+        if (target == null)
+        {
+            return;
+        }
 
         // 현재 위치에서 타겟 위치로 향하는 방향
         direction = (target.position - transform.position).normalized;
@@ -62,5 +66,4 @@ public class GuidedBulletController : ProjectileController
         direction = (front.position - back.position).normalized;
 
     }
-
 } 
