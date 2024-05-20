@@ -92,7 +92,7 @@ public class EnemySpawnController : MonoBehaviour
         {
             case SpawnWall.Floor:
                 spawnPointX = Random.Range(-8f, 8f);
-                spawnPointY = -3.5633f;
+                spawnPointY = -3.5633f;  // -3.5f
                 rotationZ = 0;
                 break;
             case SpawnWall.FloorAdd:
@@ -102,7 +102,7 @@ public class EnemySpawnController : MonoBehaviour
                 break;
             case SpawnWall.Ceiling:
                 spawnPointX = Random.Range(-8f, 8f);
-                spawnPointY = 3.2634f;
+                spawnPointY = 3.2634f;  // 3.2f
                 rotationZ = 180;
                 break;
             case SpawnWall.CeilingAdd:
@@ -111,12 +111,12 @@ public class EnemySpawnController : MonoBehaviour
                 rotationZ = 180;
                 break;
             case SpawnWall.LeftWall:
-                spawnPointX = -8.75f;
+                spawnPointX = -8.802f;
                 spawnPointY = Random.Range(-3.3f, 3f);
                 rotationZ = 270;
                 break;
             case SpawnWall.RightWall:
-                spawnPointX = 8.75f;
+                spawnPointX = 8.802f;     // 8.75f
                 spawnPointY = Random.Range(-3.3f, 3f);
                 rotationZ = 90;
                 break;
