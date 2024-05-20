@@ -53,11 +53,7 @@ public class EnemyManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (enemySpawnController.currentTime() >= 10)
-        {
-            enemySpawnController.CheckMultiEnemyFlag();
-        }
-        
+
     }
 
     // 플레이어 위치 반환

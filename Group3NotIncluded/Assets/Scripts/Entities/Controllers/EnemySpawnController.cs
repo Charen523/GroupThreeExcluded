@@ -16,13 +16,11 @@ public class EnemySpawnController : MonoBehaviour
     [SerializeField] private GameObject guidedShotEnemy;
 
     // 난이도 보정
-    private bool multiEnemyFlag = false;
     private int multiEnemyCount = 0;     // 몇번째 스폰인지 카운트
     private int guidedEnemyCount = 0;    // 몇번째 스폰인지 카운트
     [SerializeField] private int HowOftenMultiEnemy = 5;  // 몇번째 스폰 타이밍마다 생성할 것인지
     [SerializeField] private int HowOftenGuidedEnemy = 10;  // 몇번째 스폰 타이밍마다 생성할 것인지
     
-
     // 적 생성 시간
     private float time;
     [SerializeField] private float spawnTime = 3;
@@ -57,7 +55,7 @@ public class EnemySpawnController : MonoBehaviour
             time = 0;
 
             CheckCreateMultiEnemy();
-            CheckCreateGuidedEnemy()
+            CheckCreateGuidedEnemy();
         }
 
 
@@ -136,10 +134,6 @@ public class EnemySpawnController : MonoBehaviour
         }
     }
     
-    public void CheckMultiEnemyFlag()
-    {
-        multiEnemyFlag = true;
-    }
 
     private void CheckCreateMultiEnemy()
     {
