@@ -12,7 +12,7 @@ public class BubbleController : MonoBehaviour
     {
         managers = Managers.Instance;
 
-        managers.OnEnemyDie += MakeBubble;
+        //managers.OnEnemyDie += MakeBubble;
     }
 
     public void MakeBubble(int score)
