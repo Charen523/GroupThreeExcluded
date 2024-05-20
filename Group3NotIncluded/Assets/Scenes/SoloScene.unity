@@ -420,7 +420,7 @@ GameObject:
   - component: {fileID: 122949708}
   - component: {fileID: 122949707}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: BubbleController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5771,7 +5771,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4899725712812969836}
@@ -5859,8 +5859,8 @@ MonoBehaviour:
     maxHealth: 3
     attackSO: {fileID: 11400000, guid: d6a2816e841cc334f9ffe3063d2e8c8c, type: 2}
     statsChangeType: 0
-    speed: 50
-    maxBoostGage: 1
+    speed: 40
+    maxBoostGage: 2
 --- !u!223 &3000834987252839963
 Canvas:
   m_ObjectHideFlags: 0
