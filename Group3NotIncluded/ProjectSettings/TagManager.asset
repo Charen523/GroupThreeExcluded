@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Bullet
   - Player1HP
+  - rankdata
   layers:
   - Default
   - TransparentFX

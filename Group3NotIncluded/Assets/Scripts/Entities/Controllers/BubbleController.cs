@@ -24,11 +24,20 @@ public class BubbleController : MonoBehaviour
     {
         Vector3 instantiatePos = enemy.transform.position;
 
+        if (instantiatePos.y < -3f)
+            instantiatePos.y += 0.5f;
+        else if (instantiatePos.y > 3f)
+            instantiatePos.y -= 0.5f;
+        else if (instantiatePos.x < -8.5f)
+            instantiatePos.x += 0.5f;
+        else
+            instantiatePos.x -= 0.5f;
+
         int randomNum = UnityEngine.Random.Range(0, 4);
-        if (randomNum == 4)
+        if (true)
         {
-            Instantiate(gameObject);
-            gameObject.transform.position = instantiatePos;
+            GameObject newBubble = Instantiate(itemBubble);
+            newBubble.transform.position = instantiatePos;
         }
     }
 
