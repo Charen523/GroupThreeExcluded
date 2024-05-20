@@ -1471,7 +1471,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartEnemyCount: 3
   basicEnemy: {fileID: 7973110710505284440, guid: 8b8db70f510d03649ae12b124f29f2a4, type: 3}
-  multipleShotEnemy: {fileID: 0}
+  multipleShotEnemy: {fileID: 7973110710505284440, guid: 5e275209170cb344f819de09a7181076, type: 3}
+  guidedShotEnemy: {fileID: 7973110710505284440, guid: f694ce60fc647d0429cf1748a1214015, type: 3}
+  HowOftenMultiEnemy: 5
   spawnTime: 2
 --- !u!114 &607930954
 MonoBehaviour:
@@ -1511,6 +1513,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  enemySpawnController: {fileID: 0}
 --- !u!1 &672007088
 GameObject:
   m_ObjectHideFlags: 0
