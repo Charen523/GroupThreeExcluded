@@ -9,6 +9,7 @@ public class Managers : MonoBehaviour
     public GameManager gameManager;
     public AudioManager audioManager;
     public RankingManager rankingManager;
+    public EnemyManager enemyManager;
 
     /*이벤트 모음*/
     public event Action<bool> OnPause;

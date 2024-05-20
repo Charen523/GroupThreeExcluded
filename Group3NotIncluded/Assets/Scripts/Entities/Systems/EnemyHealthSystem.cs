@@ -19,6 +19,7 @@ public class EnemyHealthSystem : HealthSystem
 
         OnDeath += DestroyEnemy;
         OnDeath += AddScore;
+
     }
 
     protected override void Update()
@@ -38,7 +39,6 @@ public class EnemyHealthSystem : HealthSystem
 
     protected void AddScore()
     {
-        EnemyManager.Instance.AddScore(score);
-        Debug.Log(EnemyManager.Instance.CallCurrentScore());
+        Managers.Instance.OnEnemyDead(score);
     }
 }

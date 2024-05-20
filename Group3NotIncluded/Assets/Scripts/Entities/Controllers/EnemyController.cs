@@ -26,7 +26,7 @@ public class EnemyController : Controller
     // Start is called before the first frame update
     protected virtual void Start()
     {
-        enemyManager = EnemyManager.Instance;
+        enemyManager = Managers.Instance.enemyManager;
         //ClosestTarget = gameManager.CallPlayerPos(0);
     }
 
@@ -47,6 +47,10 @@ public class EnemyController : Controller
 
     protected Vector2 DirectionToTarget()
     {
+        if (ClosestTarget == null)
+        {
+            return Vector2.zero;
+        }
         return (ClosestTarget.position - transform.position).normalized;
     }
 
