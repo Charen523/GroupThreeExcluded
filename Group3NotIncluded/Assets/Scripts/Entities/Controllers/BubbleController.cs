@@ -46,8 +46,6 @@ public class BubbleController : MonoBehaviour
         spriteRenderer.sprite = Resources.Load<Sprite>($"beffio/Icons/Icon{randomItemNum}");
 
         newBubble.transform.position = instantiatePos;
-
-        Debug.Log("¾ß");
     }
 
     public void InvokeItem0()
