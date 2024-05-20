@@ -14,6 +14,9 @@ public class BubbleMovement : MonoBehaviour
     private float wobbleIntensity = 0.7f;
     private float wobbleSpeed = 5f;
 
+    // 플레이어 객체 저장용
+    private GameObject player;
+
     private void Start()
     {
         bubbleController = FindObjectOfType<BubbleController>(); 
@@ -74,6 +77,7 @@ public class BubbleMovement : MonoBehaviour
 
         if (collision.CompareTag("Player"))
         {
+            player = collision.gameObject; // 플레이어 오브젝트 가져오기
             eventName = gameObject.GetComponentInChildren<SpriteRenderer>().sprite.name;
             Destroy(gameObject);
         }
@@ -99,6 +103,11 @@ public class BubbleMovement : MonoBehaviour
                 break;
             case "Icon4":
                 bubbleController.InvokeItem4();
+
+                //TODO : 함수로 빼서 이벤트에 묶어주기, 아이템 효과 모아둘 스크립트 따로 만들어서 오브젝트에 붙여주면 좋을것 같아요
+                player.GetComponent<PlayerStatHandler>().GetMultiShot();
+
+
                 break;
             default:
                 break;

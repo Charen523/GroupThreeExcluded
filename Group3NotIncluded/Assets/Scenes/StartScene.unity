@@ -488,6 +488,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 43881162}
+        m_TargetAssemblyTypeName: VersusSceneBtn, Assembly-CSharp
+        m_MethodName: PlayEffectSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &43881160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2132,6 +2144,18 @@ MonoBehaviour:
       - m_Target: {fileID: 768302088}
         m_TargetAssemblyTypeName: SoloSceneBtn, Assembly-CSharp
         m_MethodName: LoadSoloScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 768302088}
+        m_TargetAssemblyTypeName: SoloSceneBtn, Assembly-CSharp
+        m_MethodName: PlayEffectSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4529,6 +4553,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1651941319}
+        m_TargetAssemblyTypeName: CoopSceneBtn, Assembly-CSharp
+        m_MethodName: PlayEffectSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1651941317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5882,7 +5918,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -5978,8 +6014,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f30b1cf6c78ceb84d9c899c3d4ef6099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundMusiclip: []
-  SFXClip: []
+  backgroundMusicClip:
+  - {fileID: 8300000, guid: 1f2ad53bacc245642854dbdc8ea71a9b, type: 3}
+  - {fileID: 8300000, guid: 89f935015cc98724a862a586326fdf21, type: 3}
+  - {fileID: 8300000, guid: 35967e8a4dfb1664e9b066939272c0a4, type: 3}
+  - {fileID: 8300000, guid: fc5af015011ea3745b7f78ea1dd1049f, type: 3}
+  SFXClip:
+  - {fileID: 8300000, guid: a0f6b0b611d474beab95e07a195f851e, type: 3}
 --- !u!114 &2050053301
 MonoBehaviour:
   m_ObjectHideFlags: 0

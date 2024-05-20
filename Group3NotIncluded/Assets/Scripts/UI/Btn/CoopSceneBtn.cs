@@ -9,4 +9,16 @@ public class CoopSceneBtn : MonoBehaviour
     {
         SceneManager.LoadScene(2);
     }
+
+    void Start()
+    {
+        // 배경음악 재생
+        AudioManager.Instance.PlayBackgroundMusic(2);
+    }
+
+    public void PlayEffectSound()
+    {
+        //효과음 재생
+        AudioManager.Instance.PlaySFX(0);
+    }
 }

@@ -9,4 +9,15 @@ public class VersusSceneBtn : MonoBehaviour
     {
         SceneManager.LoadScene(3);
     }
+    void Start()
+    {
+        // 배경음악 재생
+        AudioManager.Instance.PlayBackgroundMusic(3);
+    }
+
+    public void PlayEffectSound()
+    {
+        //효과음 재생
+        AudioManager.Instance.PlaySFX(0);
+    }
 }
