@@ -1391,7 +1391,7 @@ GameObject:
   - component: {fileID: 607930955}
   - component: {fileID: 607930954}
   m_Layer: 0
-  m_Name: EnemySpawner
+  m_Name: EnemyManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2498,6 +2498,7 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   audioManager: {fileID: 0}
   rankingManager: {fileID: 0}
+  enemyManager: {fileID: 0}
 --- !u!4 &974304174
 Transform:
   m_ObjectHideFlags: 0
