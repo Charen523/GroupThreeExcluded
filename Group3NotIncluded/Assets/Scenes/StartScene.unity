@@ -803,6 +803,7 @@ GameObject:
   - component: {fileID: 218569262}
   - component: {fileID: 218569261}
   - component: {fileID: 218569264}
+  - component: {fileID: 218569265}
   m_Layer: 5
   m_Name: RankingBtn
   m_TagString: Untagged
@@ -875,9 +876,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 218569264}
-        m_TargetAssemblyTypeName: SetActiveToggleBtn, Assembly-CSharp
-        m_MethodName: ToggleGameObject
+      - m_Target: {fileID: 218569265}
+        m_TargetAssemblyTypeName: RankPanelBtn, Assembly-CSharp
+        m_MethodName: OpenRankPanel
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1211964957}
@@ -935,6 +936,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9c09d4a91838df449c98bd0f22ea77b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &218569265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218569259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59dafc964ff48d34289450ca533c0c98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &362054693
@@ -2366,7 +2379,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Content: {fileID: 556465505}
-  m_Horizontal: 1
+  m_Horizontal: 0
   m_Vertical: 1
   m_MovementType: 1
   m_Elasticity: 0.1
@@ -3048,6 +3061,7 @@ GameObject:
   - component: {fileID: 1325406292}
   - component: {fileID: 1325406291}
   - component: {fileID: 1325406294}
+  - component: {fileID: 1325406295}
   m_Layer: 5
   m_Name: RankCloseBtn
   m_TagString: Untagged
@@ -3119,9 +3133,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1325406294}
-        m_TargetAssemblyTypeName: SetActiveToggleBtn, Assembly-CSharp
-        m_MethodName: ToggleGameObject
+      - m_Target: {fileID: 1325406295}
+        m_TargetAssemblyTypeName: RankPanelBtn, Assembly-CSharp
+        m_MethodName: CloseRankPanel
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1211964957}
@@ -3179,6 +3193,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9c09d4a91838df449c98bd0f22ea77b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1325406295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1325406289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59dafc964ff48d34289450ca533c0c98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1363029867
@@ -4804,7 +4830,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Content: {fileID: 1363029868}
-  m_Horizontal: 1
+  m_Horizontal: 0
   m_Vertical: 1
   m_MovementType: 1
   m_Elasticity: 0.1
@@ -5812,6 +5838,7 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   audioManager: {fileID: 0}
   rankingManager: {fileID: 0}
+  enemyManager: {fileID: 0}
 --- !u!4 &2050053296
 Transform:
   m_ObjectHideFlags: 0

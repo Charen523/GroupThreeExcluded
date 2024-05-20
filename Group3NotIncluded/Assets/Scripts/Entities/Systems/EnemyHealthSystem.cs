@@ -18,8 +18,6 @@ public class EnemyHealthSystem : HealthSystem
         CurrentHealth = enemyStatHandler.currentStat.maxHealth;
 
         OnDeath += DestroyEnemy;
-        OnDeath += AddScore;
-
     }
 
     protected override void Update()
@@ -34,11 +32,12 @@ public class EnemyHealthSystem : HealthSystem
 
     protected override void DestroyEnemy()
     {
+        Managers.Instance.OnEnemyDead(this.gameObject);
         Destroy(gameObject);
     }
 
-    protected void AddScore()
+    public int CallScore()
     {
-        Managers.Instance.OnEnemyDead(score);
+        return score;
     }
 }

@@ -76,9 +76,10 @@ public class GameManager : MonoBehaviour
     }
 
     // 점수 증가
-    public void AddScore(int score)
+    public void AddScore(GameObject obj)
     {
-        currentScore += score;
+        currentScore += obj.Equals(null) ? 0 : obj.GetComponent<EnemyHealthSystem>().CallScore();
+        //currentScore += score;
     }
 
     public int GetScore()
