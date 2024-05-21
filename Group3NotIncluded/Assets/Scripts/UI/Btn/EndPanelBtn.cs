@@ -46,4 +46,10 @@ public class EndPanelBtn : MonoBehaviour
         Managers.Instance.enemyManager.ClearEnemyManager();
     }
 
+    public void PlayEffectSound()
+    {
+        //효과음 재생
+        AudioManager.Instance.PlaySFX(0);
+    }
+
 }

@@ -6240,6 +6240,15 @@ MonoBehaviour:
   - {fileID: 8300000, guid: fc5af015011ea3745b7f78ea1dd1049f, type: 3}
   SFXClip:
   - {fileID: 8300000, guid: a0f6b0b611d474beab95e07a195f851e, type: 3}
+  - {fileID: 8300000, guid: 622cdecfcf58444d7be5352e4209020a, type: 3}
+  - {fileID: 8300000, guid: 7e23cb852a3fd4e788aca72da6665245, type: 3}
+  - {fileID: 8300000, guid: 4f5bc64a69b9741b49c08897fbf40c67, type: 3}
+  - {fileID: 8300000, guid: 39d95322e08d84fc88a217e689779f38, type: 3}
+  - {fileID: 8300000, guid: a0f6b0b611d474beab95e07a195f851e, type: 3}
+  - {fileID: 8300000, guid: a0f6b0b611d474beab95e07a195f851e, type: 3}
+  - {fileID: 8300000, guid: a0f6b0b611d474beab95e07a195f851e, type: 3}
+  - {fileID: 8300000, guid: a0f6b0b611d474beab95e07a195f851e, type: 3}
+  - {fileID: 8300000, guid: a0f6b0b611d474beab95e07a195f851e, type: 3}
 --- !u!114 &2050053301
 MonoBehaviour:
   m_ObjectHideFlags: 0
