@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class EnemyController : Controller
 {
@@ -97,20 +98,46 @@ public class EnemyController : Controller
 
     public void SetClosestTarget()
     {
-        Transform player1Pos = enemyManager.CallPlayerPos(0);
+        Transform target1 = enemyManager.CallPlayerPos(0);
+        Transform target2 = enemyManager.CallPlayerPos(1);
 
-        if (enemyManager.CallPlayerPos(1) == null)
+        if (target1 == null)
         {
-            ClosestTarget = player1Pos;
+            ClosestTarget =  target2;
+            return;
+        }
+        else if (target2 == null)
+        {
+            ClosestTarget = target1;
             return;
         }
 
-        Transform player2Pos = enemyManager.CallPlayerPos(1);
-        
-        float distanceToPlayer1 = Vector2.Distance(transform.position, player1Pos.position);
-        float distanceToPlayer2 = Vector2.Distance(transform.position, player2Pos.position);
+        float distanceToTarget1 = Vector3.Distance(transform.position, target1.position);
+        float distanceToTarget2 = Vector3.Distance(transform.position, target2.position);
 
-        ClosestTarget = distanceToPlayer1 < distanceToPlayer2 ? player1Pos : player2Pos;
+        if (distanceToTarget1 < distanceToTarget2)
+        {
+            ClosestTarget = target1;
+        }
+        else
+        {
+            ClosestTarget = target2;
+        }
+
+        //Transform player1Pos = enemyManager.CallPlayerPos(0);
+
+        //if (enemyManager.CallPlayerPos(1) == null)
+        //{
+        //    ClosestTarget = player1Pos;
+        //    return;
+        //}
+
+        //Transform player2Pos = enemyManager.CallPlayerPos(1);
+
+        //float? distanceToPlayer1 = Vector2.Distance(transform.position, player1Pos.position);
+        //float? distanceToPlayer2 = Vector2.Distance(transform.position, player2Pos.position);
+
+        //ClosestTarget = distanceToPlayer1 < distanceToPlayer2 ? player1Pos : player2Pos;
     }
 
     public void AngryEnemy()

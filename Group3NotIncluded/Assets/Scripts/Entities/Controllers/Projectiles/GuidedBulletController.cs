@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 using System.Xml;
 using UnityEngine;
 
@@ -35,12 +36,43 @@ public class GuidedBulletController : ProjectileController
         }
         
         // TODO : 타겟을 가장 가까운 타겟으로 설정하는 메커니즘 필요
-        Transform target = Managers.Instance.enemyManager.CallPlayerPos(0);
+        Transform P1Pos = Managers.Instance.enemyManager.CallPlayerPos(0);
+        Transform P2Pos = Managers.Instance.enemyManager.CallPlayerPos(1);
 
+        Transform target = ClosestTarget(P1Pos, P2Pos);
         SetDirection(target);
 
         _rigidbody.velocity = direction * attackData.speed;
 
+    }
+
+    private Transform ClosestTarget(Transform target1 = null, Transform target2 = null)
+    {
+        // 오브젝트와 target1과 target2의 거리 중 짧은 것을 반환
+        if (target1 == null && target2 == null)
+        {
+            return null;
+        }
+        else if (target1 == null)
+        {
+            return target2;
+        }
+        else if (target2 == null)
+        {
+            return target1;
+        }
+
+        float distanceToTarget1 = Vector3.Distance(transform.position, target1.position);
+        float distanceToTarget2 = Vector3.Distance(transform.position, target2.position);
+
+        if (distanceToTarget1 < distanceToTarget2)
+        {
+            return target1;
+        }
+        else
+        {
+            return target2;
+        }
     }
 
     private void SetDirection(Transform target)
@@ -66,4 +98,5 @@ public class GuidedBulletController : ProjectileController
         direction = (front.position - back.position).normalized;
 
     }
+
 } 
