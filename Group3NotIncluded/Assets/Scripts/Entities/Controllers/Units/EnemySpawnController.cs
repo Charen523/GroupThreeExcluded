@@ -9,7 +9,9 @@ public class EnemySpawnController : MonoBehaviour
     float rotationZ;
     int spawnWall;
 
-    [SerializeField] [Range(1, 10)] private int StartEnemyCount;
+    //[SerializeField] [Range(1, 10)] private int StartEnemyCount = 3;
+    private int StartEnemyCount = 3;
+
 
     [SerializeField] private GameObject basicEnemy;
     [SerializeField] private GameObject multipleShotEnemy;
@@ -23,7 +25,8 @@ public class EnemySpawnController : MonoBehaviour
     
     // 적 생성 시간
     private float time;
-    [SerializeField] private float spawnTime = 3;
+    //[SerializeField] private float spawnTime = 2;
+    private float spawnTime = 2;
 
 
     // 기본 적 생성 시간 : 2초, 멀티샷 적 5번째마다 생성, 유도샷 적 10번째마다 생성

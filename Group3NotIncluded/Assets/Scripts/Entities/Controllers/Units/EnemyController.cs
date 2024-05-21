@@ -13,13 +13,13 @@ public class EnemyController : Controller
     protected EnemyStatHandler stats { get; private set; }
     protected Transform ClosestTarget { get; private set; }
 
-    private float positionX;
-    private float positionY;
-    private float rotationZ;
+    private float angryTime = 0;        // 분노 체크용 시간
+    private float angryLimit = 10;      // 분노까지 걸리는 시간
+    private bool angry = false;         // 분노 했는지
+    private float angrySpeed = 1.4f;      // 분노 했을때 줄어드는 공격 속도
+    private Animator _animator;         // 분노 애니메이션 설정용
 
-    private float angryTime = 0;
-    private bool angry = false;
-    private float angrySpeed = 1f;
+
 
     // 새로 생성됬는지 체크용
     private float LateObjectCheckTime;
@@ -30,12 +30,16 @@ public class EnemyController : Controller
     {   
         stats = GetComponent<EnemyStatHandler>();
         _renderer = GetComponentInChildren<SpriteRenderer>();
+        enemySpawnController = Managers.Instance.enemyManager.enemySpawnController;
+        _animator = GetComponentInChildren<Animator>();
     }
     // Start is called before the first frame update
     protected virtual void Start()
     {
         enemyManager = Managers.Instance.enemyManager;
-        Invoke("OnEnemyColor", 0.2f);               // 생성되고 0.2초 뒤 색깔 투명도 올리기
+
+        // 애니메이션 도입으로 필요없어짐
+        //Invoke("OnEnemyColor", 0.2f);               // 생성되고 0.2초 뒤 색깔 투명도 올리기
     }
 
     protected override void Update()
@@ -115,13 +119,15 @@ public class EnemyController : Controller
 
         if (angry) return;
 
-        if (angryTime >= 10)
+        if (angryTime >= angryLimit)
         {
             angry = true;
+            _animator.SetBool("isAngry", true);
             stats.currentStat.attackSO.delay -= angrySpeed;
         }
     }
 
+    // 애니메이션 도입으로 필요없어짐
     private void OnEnemyColor()
     {
         _renderer.color =
@@ -142,7 +148,7 @@ public class EnemyController : Controller
                 Debug.Log("재생성2");
 
                 Destroy(gameObject);
-                Managers.Instance.enemyManager.enemySpawnController.SpawnMultipleShotEnemy();
+                enemySpawnController.SpawnMultipleShotEnemy();
                 return;
             }
             else if (gameObject.tag == "GSE")
@@ -150,7 +156,7 @@ public class EnemyController : Controller
                 Debug.Log("재생성3");
 
                 Destroy(gameObject);
-                Managers.Instance.enemyManager.enemySpawnController.SpawnGuidedShotEnemy();
+                enemySpawnController.SpawnGuidedShotEnemy();
                 return;
             }
             else
@@ -158,7 +164,7 @@ public class EnemyController : Controller
                 Debug.Log("재생성1");                   // 재생성 디버그
 
                 Destroy(gameObject);
-                Managers.Instance.enemyManager.enemySpawnController.SpawnEnemy();
+                enemySpawnController.SpawnEnemy();
                 return;
             }
 
