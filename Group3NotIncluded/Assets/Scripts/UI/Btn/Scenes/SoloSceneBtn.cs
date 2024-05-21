@@ -11,10 +11,13 @@ public class SoloSceneBtn : MonoBehaviour
         Managers.Instance.enemyManager.ClearEnemyManager();
     }
 
-    void Start()
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // 첫 번째 배경음악 재생
-        AudioManager.Instance.PlayBackgroundMusic(1);
+        // SoloScene 씬에서 배경음악을 재생하려면 해당 인덱스를 전달합니다.
+        if (scene.name == "SoloScene")
+        {
+            AudioManager.Instance.PlayBackgroundMusic(1);
+        }
     }
 
     public void PlayEffectSound()

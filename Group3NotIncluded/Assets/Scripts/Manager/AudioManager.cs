@@ -9,6 +9,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip[] backgroundMusicClip; //여러 효과음 받을 것 대비해 배열로 바꾸는 것 추천.
     public AudioClip[] SFXClip;
 
+    public AudioClip[] backgroundMusicClips = new AudioClip[4];
     void Awake()
     {
         // 싱글톤 패턴 구현

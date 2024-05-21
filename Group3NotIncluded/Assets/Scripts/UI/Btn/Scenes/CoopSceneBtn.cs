@@ -13,10 +13,13 @@ public class CoopSceneBtn : MonoBehaviour
         Managers.Instance.enemyManager.ClearEnemyManager();
     }
 
-    void Start()
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // 배경음악 재생
-        AudioManager.Instance.PlayBackgroundMusic(2);
+        // SoloScene 씬에서 배경음악을 재생하려면 해당 인덱스를 전달합니다.
+        if (scene.name == "CoopScene")
+        {
+            AudioManager.Instance.PlayBackgroundMusic(2);
+        }
     }
 
     public void PlayEffectSound()
