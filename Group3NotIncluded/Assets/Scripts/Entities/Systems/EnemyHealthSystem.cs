@@ -11,10 +11,9 @@ public class EnemyHealthSystem : HealthSystem
         statHandler = GetComponent<EnemyStatHandler>();
     }
 
-    protected void Start()
+    protected override void Start()
     {
-        MaxHealth = statHandler.currentStat.maxHealth;
-        CurrentHealth = statHandler.currentStat.maxHealth;
+        //비어있는 상태 override.
     }
 
     protected override void Update()

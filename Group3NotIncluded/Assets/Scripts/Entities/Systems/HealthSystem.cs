@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class HealthSystem : MonoBehaviour 
@@ -6,25 +7,25 @@ public class HealthSystem : MonoBehaviour
     [SerializeField] protected float healthChangeDelay = 0.5f; // 체력이 변할 때까지의 딜레이
 
     protected float timeSinceLastChange = float.MaxValue; // 마지막 체력 변화 이후의 시간
-    protected bool isAttacked = false;
+    protected bool isInvincible = false;
 
-    // 체력이 변했을 때 할 행동들을 정의
-    public event Action OnHeal;
-    public event Action OnInvincibilityEnd;
-
+    public int StartHealth;
     public int MaxHealth;
-    
     public int CurrentHealth { get; protected set; }
+
+    protected virtual void Start()
+    {
+        StartCoroutine(OnInvincibleEvent());
+    }
 
     protected virtual void Update()
     {
-        if (isAttacked && timeSinceLastChange < healthChangeDelay)
+        if (isInvincible && timeSinceLastChange < healthChangeDelay)
         {
             timeSinceLastChange += Time.deltaTime;
             if (timeSinceLastChange >= healthChangeDelay)
             {
-                isAttacked = false;
-                OnInvincibilityEnd?.Invoke();
+                isInvincible = false;
             }
         }
     }
@@ -42,8 +43,17 @@ public class HealthSystem : MonoBehaviour
         Destroy(gameObject);
     }
 
-    protected void OnHealEvent()
+    public virtual void EnableHP()
     {
-        OnHeal?.Invoke();
+        
+    }
+
+    public IEnumerator OnInvincibleEvent()
+    {
+        isInvincible = true;
+
+        yield return new WaitForSeconds(3);
+        
+        isInvincible = false;
     }
 }

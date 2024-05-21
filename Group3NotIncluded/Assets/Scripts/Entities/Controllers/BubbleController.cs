@@ -3,13 +3,19 @@ using UnityEngine;
 
 public class BubbleController : MonoBehaviour
 {
+    /*아이템 별 이벤트 모음*/
     public event Action OnBulletElliminate;
     public event Action OnHealthIncrease;
     public event Action OnInvincible;
     public event Action OnBoostFull;
     public event Action OnMultishot;
 
+    [Header("Players")]
+    public GameObject[] players;
+
+    [Header("ItemPrefab")]
     [SerializeField] private GameObject itemBubble;
+
 
     private Managers managers;
 
@@ -43,7 +49,7 @@ public class BubbleController : MonoBehaviour
         int randomItemNum = UnityEngine.Random.Range(0, 5);
 
         SpriteRenderer spriteRenderer = newBubble.GetComponent<SpriteRenderer>();
-        spriteRenderer.sprite = Resources.Load<Sprite>($"beffio/Icons/Icon{0}");
+        spriteRenderer.sprite = Resources.Load<Sprite>($"beffio/Icons/Icon{1}");
 
         newBubble.transform.position = instantiatePos;
     }

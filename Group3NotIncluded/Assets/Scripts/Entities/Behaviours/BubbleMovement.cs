@@ -48,8 +48,8 @@ public class BubbleMovement : MonoBehaviour
 
     private void FindClosestPlayer()
     {
-        // 태그가 "Player"인 모든 게임 오브젝트 찾기
-        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        // players 참조로 받아오기.
+        GameObject[] players = bubbleController.players;
 
         //플레이어가 하나일때.
         if (players.Length == 1)
@@ -94,6 +94,7 @@ public class BubbleMovement : MonoBehaviour
                 break;
             case "Icon1":
                 bubbleController.InvokeItem1();
+                player.GetComponent<PlayerHealthSystem>().EnableHP();
                 break;
             case "Icon2":
                 bubbleController.InvokeItem2();
@@ -106,8 +107,6 @@ public class BubbleMovement : MonoBehaviour
 
                 //TODO : 함수로 빼서 이벤트에 묶어주기, 아이템 효과 모아둘 스크립트 따로 만들어서 오브젝트에 붙여주면 좋을것 같아요
                 player.GetComponent<PlayerStatHandler>().GetMultiShot();
-
-
                 break;
             default:
                 break;
