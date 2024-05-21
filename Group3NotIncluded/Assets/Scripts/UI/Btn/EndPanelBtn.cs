@@ -31,6 +31,9 @@ public class EndPanelBtn : MonoBehaviour
         Managers.Instance.gameManager.RegisterDataToRank();
 
         SceneManager.LoadScene(2);
+
+        if (Managers.Instance.enemyManager == null) return;
+        Managers.Instance.enemyManager.ClearEnemyManager();
     }
 
     public void LoadVersusScene()
@@ -38,6 +41,9 @@ public class EndPanelBtn : MonoBehaviour
         Managers.Instance.gameManager.RegisterDataToRank();
 
         SceneManager.LoadScene(3);
+
+        if (Managers.Instance.enemyManager == null) return;
+        Managers.Instance.enemyManager.ClearEnemyManager();
     }
 
 }

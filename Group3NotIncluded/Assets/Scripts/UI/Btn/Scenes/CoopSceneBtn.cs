@@ -8,6 +8,9 @@ public class CoopSceneBtn : MonoBehaviour
     public void LoadCoopScene()
     {
         SceneManager.LoadScene(2);
+
+        if (Managers.Instance.enemyManager == null) return;
+        Managers.Instance.enemyManager.ClearEnemyManager();
     }
 
     void Start()
