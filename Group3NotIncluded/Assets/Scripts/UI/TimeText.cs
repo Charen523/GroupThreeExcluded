@@ -34,6 +34,7 @@ public class TimeText : MonoBehaviour
 
     private void UpdateTimeText(bool pause)
     {
+        if (managers == null) return;
         if (!pause)
         {
             timeTxt.text = (managers.gameManager.GetTime().ToString("N2"));
