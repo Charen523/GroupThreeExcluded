@@ -4978,7 +4978,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2000953255
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5201,7 +5201,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e53e0a76231659f44afaea3897f8e4c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneBackgroundMusics: []
 --- !u!1 &2108446735
 GameObject:
   m_ObjectHideFlags: 0
@@ -7140,6 +7139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthChangeDelay: 0.5
   StartHealth: 3
+  MaxHealth: 0
   PlayerHealthUI:
   - {fileID: 1256605231765209298}
   - {fileID: 3730953511910933282}
