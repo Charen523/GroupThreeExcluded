@@ -13,6 +13,7 @@ public class EndPanelBtn : MonoBehaviour
 
         if (Managers.Instance.enemyManager == null) return;
         Managers.Instance.enemyManager.ClearEnemyManager();
+        AudioManager.Instance.PlaySFX(0);
     }
 
     public void LoadSoloScene()
@@ -23,6 +24,7 @@ public class EndPanelBtn : MonoBehaviour
 
         if (Managers.Instance.enemyManager == null) return;
         Managers.Instance.enemyManager.ClearEnemyManager();
+        AudioManager.Instance.PlaySFX(0);
     }
 
 

@@ -24,5 +24,6 @@ public class PausePanel : MonoBehaviour
     {
         //Panel의 SetActive가 true일 때 pause.
         managers.OnPauseEvent(false);
+        AudioManager.Instance.PlaySFX(0);
     }
 }
