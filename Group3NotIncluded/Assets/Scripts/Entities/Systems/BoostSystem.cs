@@ -8,6 +8,8 @@ public class BoostSystem : MonoBehaviour
 	private PlayerInputController controller;
 	private PlayerStatHandler statHandler;
 
+    public Animator boostanim;
+
 	public float CurrentBoostGage { get; private set; }
     public bool CanBoost => CurrentBoostGage > 0;
 
@@ -29,6 +31,7 @@ public class BoostSystem : MonoBehaviour
         MaxBoostGage = statHandler.currentStat.maxBoostGage;
         CurrentBoostGage = MaxBoostGage;
         controller.OnBoostEvent += OnBoost;
+        controller.OnBoostEvent += BoostAnim;
     }
 
 	private void Update()
@@ -64,6 +67,11 @@ public class BoostSystem : MonoBehaviour
         {
             isBoosting = false;
         }
+    }
+
+    public void BoostAnim(bool onBoost)
+    {
+        boostanim.SetBool("useBoost", onBoost);
     }
 
     public void OnBoostFullEvent()
