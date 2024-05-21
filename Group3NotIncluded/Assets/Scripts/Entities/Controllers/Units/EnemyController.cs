@@ -14,7 +14,7 @@ public class EnemyController : Controller
     protected Transform ClosestTarget { get; private set; }
 
     private float angryTime = 0;        // 분노 체크용 시간
-    private float angryLimit = 10;      // 분노까지 걸리는 시간
+    private float angryLimit = 20;      // 분노까지 걸리는 시간
     private bool angry = false;         // 분노 했는지
     private float angrySpeed = 1.4f;      // 분노 했을때 줄어드는 공격 속도
     private Animator _animator;         // 분노 애니메이션 설정용
