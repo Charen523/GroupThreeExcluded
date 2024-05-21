@@ -93,23 +93,23 @@ public class BubbleMovement : MonoBehaviour
         switch(eventName)
         {
             case "Icon0":
-                bubbleController.InvokeItem0();
+                player.GetComponent<Animator>().SetTrigger("NoBullet");
+                GameObject[] bullets = GameObject.FindGameObjectsWithTag("Bullet");
+                foreach (GameObject bullet in bullets)
+                {
+                    bullet.SetActive(false);
+                }
                 break;
             case "Icon1":
-                bubbleController.InvokeItem1();
                 player.GetComponent<PlayerHealthSystem>().EnableHP();
                 break;
             case "Icon2":
-                bubbleController.InvokeItem2();
                 player.GetComponent<PlayerHealthSystem>().OnInvincibleEvent();
                 break;
             case "Icon3":
-                bubbleController.InvokeItem3();
                 player.GetComponent<BoostSystem>().OnBoostFullEvent();
                 break;
             case "Icon4":
-                bubbleController.InvokeItem4();
-
                 //TODO : 함수로 빼서 이벤트에 묶어주기, 아이템 효과 모아둘 스크립트 따로 만들어서 오브젝트에 붙여주면 좋을것 같아요
                 player.GetComponent<PlayerStatHandler>().GetMultiShot();
                 break;
