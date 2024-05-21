@@ -25,6 +25,7 @@ public class EnemyHealthSystem : HealthSystem
     {
         base.DestroyEntity();
         Managers.Instance.OnEnemyDead(gameObject);
+        AudioManager.Instance.PlaySFX(4);
     }
 
     public override bool ChangeHealth(float damage)

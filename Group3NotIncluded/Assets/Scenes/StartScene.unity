@@ -5864,7 +5864,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 1f2ad53bacc245642854dbdc8ea71a9b, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.2
   m_Pitch: 1
@@ -5969,6 +5969,22 @@ MonoBehaviour:
   - {fileID: 8300000, guid: fc5af015011ea3745b7f78ea1dd1049f, type: 3}
   SFXClip:
   - {fileID: 8300000, guid: a0f6b0b611d474beab95e07a195f851e, type: 3}
+  - {fileID: 8300000, guid: 622cdecfcf58444d7be5352e4209020a, type: 3}
+  - {fileID: 8300000, guid: 42ae225fdb1904702a92e22093424549, type: 3}
+  - {fileID: 8300000, guid: 4f5bc64a69b9741b49c08897fbf40c67, type: 3}
+  - {fileID: 8300000, guid: 39d95322e08d84fc88a217e689779f38, type: 3}
+  - {fileID: 8300000, guid: c5098bc7b068245b0b8711f6fa803845, type: 3}
+  - {fileID: 8300000, guid: 094c3c6c93b1049099a8b1a7e972b40a, type: 3}
+  - {fileID: 8300000, guid: a0fbeb571ed114dc29e75de4226e56c5, type: 3}
+  - {fileID: 8300000, guid: 16c2014c8ef50476c8d7b7b8f1e3205f, type: 3}
+  - {fileID: 8300000, guid: af2435b78ba5d44beab25e91ad49efb7, type: 3}
+  - {fileID: 8300000, guid: 7cc7d37818ed341adae32e6fe9d640b5, type: 3}
+  - {fileID: 8300000, guid: 07c8c6970cafb486785f35942b7fbe7c, type: 3}
+  backgroundMusicClips:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &2050053301
 MonoBehaviour:
   m_ObjectHideFlags: 0

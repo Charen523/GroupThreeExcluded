@@ -114,19 +114,24 @@ public class BubbleMovement : MonoBehaviour
                 {
                     bullet.SetActive(false);
                 }
+                    AudioManager.Instance.PlaySFX(11);
                 break;
             case "Icon1":
                 player.GetComponent<PlayerHealthSystem>().EnableHP();
+                AudioManager.Instance.PlaySFX(8);
                 break;
             case "Icon2":
                 player.GetComponent<PlayerHealthSystem>().OnInvincibleEvent();
+                AudioManager.Instance.PlaySFX(10);
                 break;
             case "Icon3":
                 player.GetComponent<BoostSystem>().OnBoostFullEvent();
+                AudioManager.Instance.PlaySFX(7);
                 break;
             case "Icon4":
                 //TODO : 함수로 빼서 이벤트에 묶어주기, 아이템 효과 모아둘 스크립트 따로 만들어서 오브젝트에 붙여주면 좋을것 같아요
                 player.GetComponent<PlayerStatHandler>().GetMultiShot();
+                AudioManager.Instance.PlaySFX(9);
                 break;
             default:
                 break;

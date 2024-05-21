@@ -50,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Boost(bool isPressed)
     {
-        isBoost = isPressed;    
+        isBoost = isPressed;
     }
 
     private void ApplyMovement(Vector2 direction)

@@ -32,7 +32,9 @@ public class PlayerInputController : Controller
     public void OnBoost(InputAction.CallbackContext context)
     {
         OnBoostEvent?.Invoke(context.phase == InputActionPhase.Performed);
+        AudioManager.Instance.PlaySFX(5);
     }
+
 
     protected override void HandleAttackDelay()
     {
@@ -46,6 +48,7 @@ public class PlayerInputController : Controller
         {
             timeSinceLastAttack = 0;
             CallAttackEvent(stats.currentStat.attackSO);
+            AudioManager.Instance.PlaySFX(1);
         }
     }
 }

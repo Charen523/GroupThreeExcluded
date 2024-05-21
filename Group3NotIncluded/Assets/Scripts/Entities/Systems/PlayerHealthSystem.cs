@@ -54,11 +54,13 @@ public class PlayerHealthSystem : HealthSystem
             
             Managers.Instance.OnGameOverEvent();
         }
+        AudioManager.Instance.PlaySFX(3);
     }
 
     protected void DisableHP()
     {
         PlayerHealthUI[CurrentHealth].SetActive(false);
+        AudioManager.Instance.PlaySFX(2);
     }
     
     public void EnableHP()
