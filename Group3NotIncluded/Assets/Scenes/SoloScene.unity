@@ -4978,7 +4978,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2000953255
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5201,6 +5201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e53e0a76231659f44afaea3897f8e4c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneBackgroundMusics: []
 --- !u!1 &2108446735
 GameObject:
   m_ObjectHideFlags: 0
@@ -5577,7 +5578,7 @@ GameObject:
   - component: {fileID: 4999253497544844035}
   - component: {fileID: 2431287154243133595}
   m_Layer: 8
-  m_Name: FrontCheck
+  m_Name: BulletFire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6731,10 +6732,11 @@ GameObject:
   - component: {fileID: 6362885174349047874}
   - component: {fileID: 2747128723658232124}
   - component: {fileID: 3225500274980780109}
+  - component: {fileID: 8663756123298277377}
+  - component: {fileID: 8663756123298277376}
   - component: {fileID: 8020152171965218239}
   - component: {fileID: 3656783490627329961}
-  - component: {fileID: 8663756123298277376}
-  - component: {fileID: 8663756123298277377}
+  - component: {fileID: 8663756123298277379}
   m_Layer: 8
   m_Name: Player1
   m_TagString: Player
@@ -7137,9 +7139,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d8fda951da68cb499abe7090a7433e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthChangeDelay: 0.5
   StartHealth: 3
-  MaxHealth: 0
+  healthChangeDelay: 0.5
   PlayerHealthUI:
   - {fileID: 1256605231765209298}
   - {fileID: 3730953511910933282}
@@ -7158,6 +7159,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cc472c6da628f048a721edd57a2666c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &8663756123298277379
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6856310359849622830}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e30dcbd4fae168d47afba31e6c9f68fd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &8678114078696700623
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,59 +1,40 @@
-using System;
-using System.Collections;
 using UnityEngine;
 
-public class HealthSystem : MonoBehaviour 
+public abstract class HealthSystem : MonoBehaviour 
 {
+    /*체력변수*/
+    [SerializeField] protected int StartHealth; //게임 시작시
     [SerializeField] protected float healthChangeDelay = 0.5f; // 체력이 변할 때까지의 딜레이
+    protected int MaxHealth; //최대 체력
+    protected int CurrentHealth;
 
-    protected float timeSinceLastChange = float.MaxValue; // 마지막 체력 변화 이후의 시간
+    /*무적변수*/
+    protected float hitDuration = float.MaxValue; // 마지막 체력 변화 이후의 시간
     protected bool isInvincible = false;
-
-    public int StartHealth;
-    public int MaxHealth;
-    public int CurrentHealth { get; protected set; }
-
-    protected virtual void Start()
-    {
-        StartCoroutine(OnInvincibleEvent());
-    }
-
-    protected virtual void Update()
-    {
-        if (isInvincible && timeSinceLastChange < healthChangeDelay)
-        {
-            timeSinceLastChange += Time.deltaTime;
-            if (timeSinceLastChange >= healthChangeDelay)
-            {
-                isInvincible = false;
-            }
-        }
-    }
-
-    public virtual bool ChangeHealth(float damage)
-    {
-        CurrentHealth += (int)damage;
-
-        return true;
-    }
     
+    //체력변화 추상클래스
+    public abstract bool ChangeHealth(float damage);
+
     //자기자신 파괴.
     protected virtual void DestroyEntity()
     {
         Destroy(gameObject);
     }
 
-    public virtual void EnableHP()
+    protected virtual void Start()
     {
         
     }
 
-    public IEnumerator OnInvincibleEvent()
+    protected virtual void Update()
     {
-        isInvincible = true;
-
-        yield return new WaitForSeconds(3);
-        
-        isInvincible = false;
+        if (isInvincible && hitDuration < healthChangeDelay)
+        {
+            hitDuration += Time.deltaTime;
+            if (hitDuration >= healthChangeDelay)
+            {
+                isInvincible = false;
+            }
+        }
     }
 }

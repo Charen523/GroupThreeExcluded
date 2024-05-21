@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BubbleMovement : MonoBehaviour
@@ -19,7 +21,8 @@ public class BubbleMovement : MonoBehaviour
 
     private void Start()
     {
-        bubbleController = FindObjectOfType<BubbleController>(); 
+        bubbleController = FindObjectOfType<BubbleController>();
+        
 
         // Rigidbody2D 컴포넌트 가져오기
         rb = GetComponent<Rigidbody2D>();
@@ -98,9 +101,11 @@ public class BubbleMovement : MonoBehaviour
                 break;
             case "Icon2":
                 bubbleController.InvokeItem2();
+                player.GetComponent<PlayerHealthSystem>().OnInvincibleEvent();
                 break;
             case "Icon3":
                 bubbleController.InvokeItem3();
+                player.GetComponent<BoostSystem>().OnBoostFullEvent();
                 break;
             case "Icon4":
                 bubbleController.InvokeItem4();
