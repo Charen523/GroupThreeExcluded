@@ -2242,7 +2242,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 860000746}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a2832d43c874b2429268ec8e65a7041, type: 3}
+  m_Script: {fileID: 11500000, guid: 8cc472c6da628f048a721edd57a2666c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &860000754
@@ -2271,6 +2271,14 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents:
   - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d77f0f38-5095-4a8f-b7c1-d54bb73ffaa5
+    m_ActionName: Player1/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4dc237f2-aab9-437e-abc3-a3776b835f98
+    m_ActionName: Player1/Boost[/Keyboard/r]
+  - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 860000753}
         m_TargetAssemblyTypeName: PlayerInputController, Assembly-CSharp
@@ -2284,8 +2292,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: d77f0f38-5095-4a8f-b7c1-d54bb73ffaa5
-    m_ActionName: Player1/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+    m_ActionId: 8da5bcf9-e342-4e77-8641-f1f7c30e02bf
+    m_ActionName: Player2/Move[/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 860000753}
@@ -2300,35 +2308,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 4dc237f2-aab9-437e-abc3-a3776b835f98
-    m_ActionName: Player1/Boost[/Keyboard/r]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 8da5bcf9-e342-4e77-8641-f1f7c30e02bf
-    m_ActionName: Player2/Move[/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
-  - m_PersistentCalls:
-      m_Calls: []
     m_ActionId: bc68465e-ef1e-4ec1-9b4e-646637ea1195
     m_ActionName: Player2/Boost[/Keyboard/comma]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SetActiveToggleBtn, Assembly-CSharp
-        m_MethodName: ToggleGameObject
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: b6db78ea-f121-4543-97b0-a0d4338851ba
     m_ActionName: Player1/CallMenu[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: KeyboardMouse
-  m_DefaultActionMap: Player1
+  m_DefaultActionMap: Player2
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!4 &860000755
@@ -5533,7 +5521,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1498987486}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a2832d43c874b2429268ec8e65a7041, type: 3}
+  m_Script: {fileID: 11500000, guid: 8cc472c6da628f048a721edd57a2666c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1498987494
@@ -5603,12 +5591,12 @@ MonoBehaviour:
     m_ActionName: Player2/Boost[/Keyboard/comma]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 811599750}
         m_TargetAssemblyTypeName: SetActiveToggleBtn, Assembly-CSharp
         m_MethodName: ToggleGameObject
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgument: {fileID: 2127911991}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
