@@ -438,6 +438,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28e6871ee498dcb40bd7f9dd115338cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  players:
+  - {fileID: 6856310359849622830}
   itemBubble: {fileID: 2292865611623699955, guid: a277c38d067dec544b6ef1501d4d5a54, type: 3}
 --- !u!4 &122949708
 Transform:
@@ -1615,13 +1617,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 386ada8ca6d85b54491cf1319a97934c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartEnemyCount: 5
   basicEnemy: {fileID: 7973110710505284440, guid: 8b8db70f510d03649ae12b124f29f2a4, type: 3}
   multipleShotEnemy: {fileID: 7973110710505284440, guid: 5e275209170cb344f819de09a7181076, type: 3}
   guidedShotEnemy: {fileID: 7973110710505284440, guid: f694ce60fc647d0429cf1748a1214015, type: 3}
   HowOftenMultiEnemy: 5
   HowOftenGuidedEnemy: 10
-  spawnTime: 3
 --- !u!114 &607930954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2829,9 +2829,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1d66cdae002544488ec036fd3348c37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RankPanel: {fileID: 0}
-  SoloRankBox: {fileID: 0}
-  CoopRankBox: {fileID: 0}
   RankData: {fileID: 0}
 --- !u!114 &974304178
 MonoBehaviour:
@@ -5869,7 +5866,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseStats:
-    maxHealth: 3
+    maxHealth: 5
     attackSO: {fileID: 11400000, guid: d6a2816e841cc334f9ffe3063d2e8c8c, type: 2}
     statsChangeType: 0
     speed: 40
@@ -7142,7 +7139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthChangeDelay: 0.5
-  MaxHealth: 0
+  StartHealth: 3
   PlayerHealthUI:
   - {fileID: 1256605231765209298}
   - {fileID: 3730953511910933282}

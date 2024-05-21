@@ -11,10 +11,13 @@ public class PlayerHealthSystem : HealthSystem
         statHandler = GetComponent<PlayerStatHandler>();
     }
 
-    protected void Start()
+    protected override void Start()
     {
+        base.Start();
+
+        StartHealth = 3;
+        CurrentHealth = StartHealth;
         MaxHealth = statHandler.currentStat.maxHealth;
-        CurrentHealth = statHandler.currentStat.maxHealth;
     }
 
     protected override void Update()
@@ -30,10 +33,20 @@ public class PlayerHealthSystem : HealthSystem
         //TODO: 모든 플레이어가 파괴됐을 때.
     }
 
-    protected void DisabledHP()
+    protected void DisableHP()
     {
-        int num = CurrentHealth;
-        PlayerHealthUI[num].SetActive(false);
+        PlayerHealthUI[CurrentHealth].SetActive(false);
+    }
+
+    public override void EnableHP()
+    {
+        Debug.Log("전 "+ CurrentHealth);
+        if (CurrentHealth < MaxHealth)
+        {
+            PlayerHealthUI[CurrentHealth].SetActive(true);
+            CurrentHealth += 1;
+        }
+        Debug.Log("후 " + CurrentHealth);
     }
 
     public override bool ChangeHealth(float change)
@@ -51,21 +64,18 @@ public class PlayerHealthSystem : HealthSystem
 
         if (CurrentHealth <= 0)
         {
-            DisabledHP();
+            DisableHP();
             DestroyEntity();
             return true;
         }
-
-        if (change > 0)
-        {
-            OnHealEvent();
-        }
         else
         {
-            DisabledHP();
-            isAttacked = true;
+            DisableHP();
+            isInvincible = true;
         }
 
         return true;
     }
+
+    
 }
