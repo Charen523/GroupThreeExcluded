@@ -105,6 +105,7 @@ public class BubbleMovement : MonoBehaviour
                 break;
             case "Icon3":
                 bubbleController.InvokeItem3();
+                player.GetComponent<BoostSystem>().OnBoostFullEvent();
                 break;
             case "Icon4":
                 bubbleController.InvokeItem4();
