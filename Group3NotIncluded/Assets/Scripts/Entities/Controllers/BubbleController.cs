@@ -49,7 +49,7 @@ public class BubbleController : MonoBehaviour
         int randomItemNum = UnityEngine.Random.Range(0, 5);
 
         SpriteRenderer spriteRenderer = newBubble.GetComponent<SpriteRenderer>();
-        spriteRenderer.sprite = Resources.Load<Sprite>($"beffio/Icons/Icon{2}");
+        spriteRenderer.sprite = Resources.Load<Sprite>($"beffio/Icons/Icon{randomItemNum}");
 
         newBubble.transform.position = instantiatePos;
     }

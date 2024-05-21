@@ -66,6 +66,11 @@ public class BoostSystem : MonoBehaviour
         }
     }
 
+    public void OnBoostFullEvent()
+    {
+        CurrentBoostGage = MaxBoostGage;
+    }
+
     private void ConsumeBoost()
 	{
         CurrentBoostGage -= boostConsume * Time.deltaTime;
