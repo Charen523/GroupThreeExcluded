@@ -55,10 +55,25 @@ public class BubbleMovement : MonoBehaviour
         GameObject[] players = bubbleController.players;
 
         //플레이어가 하나일때.
-        if (players.Length == 1)
+        //if (players.Length == 1)
+        //{
+        //    closestPlayer = players[0].transform;
+        //    return; //아래 생략.
+        //}
+
+        if (players[0] == null && players[1] == null)
+        {
+            return;
+        }
+        else if (players[1] == null)
         {
             closestPlayer = players[0].transform;
-            return; //아래 생략.
+            return;
+        }
+        else if (players[0] == null)
+        {
+            closestPlayer = players[1].transform;
+            return;
         }
 
         //플레이어가 둘일때.
