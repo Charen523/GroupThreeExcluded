@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RankingManager : MonoBehaviour
 {
@@ -35,6 +36,10 @@ public class RankingManager : MonoBehaviour
     {
         string json = JsonConvert.SerializeObject(soloRankData);
         PlayerPrefs.SetString("SoloRankData", json);
+
+        string coopjson = JsonConvert.SerializeObject(coopRankData);
+        PlayerPrefs.SetString("CoopRankData", coopjson);
+
         PlayerPrefs.Save();
     }
 
@@ -42,22 +47,47 @@ public class RankingManager : MonoBehaviour
     {
         string json = PlayerPrefs.GetString("SoloRankData", "{}");
         soloRankData = JsonConvert.DeserializeObject<Dictionary<string, List<int>>>(json);
+
+        string coopjson = PlayerPrefs.GetString("CoopRankData", "{}");
+        coopRankData = JsonConvert.DeserializeObject<Dictionary<string, List<int>>>(coopjson);
     }
 
 
     // 이름, 점수 기록 저장 함수
     public void SetRankData(string playerName, int score)
     {
-        if (soloRankData.ContainsKey(playerName))
+        Scene currentScene = SceneManager.GetActiveScene();
+        if(currentScene.name == "SoloScene")
         {
-            // 이미 존재하는 키에 값을 추가
-            soloRankData[playerName].Add(score);
+            if (soloRankData.ContainsKey(playerName))
+            {
+                // 이미 존재하는 키에 값을 추가
+                soloRankData[playerName].Add(score);
+            }
+            else
+            {
+                // 새로운 키-값 쌍 추가
+                soloRankData.Add(playerName, new List<int> { score });
+            }
         }
-        else
+        else if (currentScene.name == "CoopScene")
         {
-            // 새로운 키-값 쌍 추가
-            soloRankData.Add(playerName, new List<int> { score });
+            if (coopRankData.ContainsKey(playerName))
+            {
+                // 이미 존재하는 키에 값을 추가
+                coopRankData[playerName].Add(score);
+            }
+            else
+            {
+                // 새로운 키-값 쌍 추가
+                coopRankData.Add(playerName, new List<int> { score });
+            }
         }
+        else if (currentScene.name == "VersusScene")
+        {
+           
+        }
+
 
         // 데이터 저장
         SaveDictionaryToPlayerPrefs();
@@ -138,8 +168,8 @@ public class RankingManager : MonoBehaviour
             RankData.text = "name: " + score.Key + "\n" + "score: " + score.Value.ToString();
 
             TextMeshProUGUI data = Instantiate(RankData, position, rotation);
-            data.transform.SetParent(SoloRankBox.transform, false); //프리펩 위치를 SoloRank의 자식으로 이동
-            soloRankDataList.Add(data);
+            data.transform.SetParent(CoopRankBox.transform, false); //프리펩 위치를 SoloRank의 자식으로 이동
+            coopRankDataList.Add(data);
 
             i++;
         }
