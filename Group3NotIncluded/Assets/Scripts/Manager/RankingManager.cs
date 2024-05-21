@@ -1,3 +1,4 @@
+using Newtonsoft.Json;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,24 +8,14 @@ using UnityEngine;
 
 public class RankingManager : MonoBehaviour
 {
-    // 현재는 Inspector에서 오브젝트(RankPanel의 SoloRank, CoopRank)를 수동으로 넣어주는 형식. 
-    // SoloScene으로 이동하면 오브젝트가 소멸되는 문제가 있음. 
-    // StartScene이 시작될때 자동으로 오브젝트를 넣어주도록 수정 필요
 
-    public GameObject RankPanel;
-    //배열로 바꾸거나 해서 랭킹 개수가 일정 이상 넘어가면 사라지게 할 필요있음. 모르면 튜터 찾아가셈.
-    //private List<float> soloRankTime; // 시간 기록들 저장할 리스트
-    //private List<int> soloRankScore; // 점수 기록들 저장할 리스트
-    //private Dictionary<string, int> soloRankData = new Dictionary<string, int>(); //이름, 점수 저장하는 딕셔너리
+    private GameObject RankPanel;
     private Dictionary<string, List<int>> soloRankData = new Dictionary<string, List<int>>(); //이름, 점수 저장하는 딕셔너리
-    public GameObject SoloRankBox;
+    private GameObject SoloRankBox;
     private List<TextMeshProUGUI> soloRankDataList; // 기록 출력하는 텍스트 프리펩 모아놓을 리스트
 
-    //위와 마찬가지. 그리고 데이터 관리를 할 때 list가 아니라 dictionary로 해서 우리가 입력받을 이름과 점수데이터 연결 필요.
-    //private List<float> coopRankTime; // 시간 기록들 저장할 리스트
-    //private List<int> coopRankScore; // 점수 기록들 저장할 리스트
     private Dictionary<string, List<int>> coopRankData = new Dictionary<string, List<int>>(); //이름, 점수 저장하는 딕셔너리
-    public GameObject CoopRankBox;
+    private GameObject CoopRankBox;
     private List<TextMeshProUGUI> coopRankDataList; // 기록 출력하는 텍스트 프리펩 모아놓을 리스트
 
     public TextMeshProUGUI RankData; // 기록 출력하는 텍스트 프리펩
@@ -33,32 +24,25 @@ public class RankingManager : MonoBehaviour
  
     private void Start()
     {
-
-
-        //soloRankTime = new List<float>();
-        //soloRankScore = new List<int>();
-
         soloRankDataList = new List<TextMeshProUGUI>();
-
-        //coopRankTime = new List<float>();
-        //coopRankScore = new List<int>();
         coopRankDataList = new List<TextMeshProUGUI>();
 
-        //출력 확인용
-        //SetRankData("kim", 1);
-        //SetRankData("park", 6);
-        //SetRankData("lee", 2);
-        //SetRankData("kim", 4);
-        //SetRankData("kim", 5);
-        //SetRankData("kang", 9);
-        //SetRankData("lee", 7);
-        //SetRankData("default", 6);
-
-        //출력 확인용, 실제로는 RankPanel이 활성화 될 때 실행
-        //PrintSoloRankList();
-        //PrintCoopRankList();
+        // 데이터 로드
+        LoadDictionaryFromPlayerPrefs();
     }
 
+    public void SaveDictionaryToPlayerPrefs()
+    {
+        string json = JsonConvert.SerializeObject(soloRankData);
+        PlayerPrefs.SetString("SoloRankData", json);
+        PlayerPrefs.Save();
+    }
+
+    private void LoadDictionaryFromPlayerPrefs()
+    {
+        string json = PlayerPrefs.GetString("SoloRankData", "{}");
+        soloRankData = JsonConvert.DeserializeObject<Dictionary<string, List<int>>>(json);
+    }
 
 
     // 이름, 점수 기록 저장 함수
@@ -74,6 +58,9 @@ public class RankingManager : MonoBehaviour
             // 새로운 키-값 쌍 추가
             soloRankData.Add(playerName, new List<int> { score });
         }
+
+        // 데이터 저장
+        SaveDictionaryToPlayerPrefs();
 
     }
 
@@ -115,6 +102,7 @@ public class RankingManager : MonoBehaviour
 
                 i++;
         }
+
     }
 
     public void PrintCoopRankList()
