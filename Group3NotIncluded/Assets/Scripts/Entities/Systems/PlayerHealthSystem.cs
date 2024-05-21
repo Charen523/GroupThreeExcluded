@@ -42,9 +42,10 @@ public class PlayerHealthSystem : HealthSystem
     protected override void DestroyEntity()
     {
         base.DestroyEntity();
-        Managers.Instance.OnGameOverEvent();
 
         //TODO: 모든 플레이어가 파괴됐을 때.
+        //if (GameObject.FindGameObjectWithTag("Player") == null)
+            Managers.Instance.OnGameOverEvent();
     }
 
     protected void DisableHP()
