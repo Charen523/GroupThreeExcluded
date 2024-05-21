@@ -27,12 +27,13 @@ public class EnemyManager : MonoBehaviour
         ObjectPool = FindAnyObjectByType<ObjectPool>();
 
         // 플레이어 위치 담기
-        int playerCount = GameObject.FindGameObjectsWithTag("Player").Length;
-        playerPos[0] = GameObject.FindGameObjectsWithTag("Player")[0].transform;
-        if (playerCount >= 2)
-        {
-            playerPos[1] = GameObject.FindGameObjectsWithTag("Player")[1].transform;
-        }
+        // 오브젝트에서 미리 담아두기
+        //int playerCount = GameObject.FindGameObjectsWithTag("Player").Length;
+        //playerPos[0] = GameObject.FindGameObjectsWithTag("Player")[0].transform;
+        //if (playerCount >= 2)
+        //{
+        //    playerPos[1] = GameObject.FindGameObjectsWithTag("Player")[1].transform;
+        //}
 
         // 플레이어1 HP 수집
         player1HP = GameObject.FindGameObjectsWithTag("Player1HP");
