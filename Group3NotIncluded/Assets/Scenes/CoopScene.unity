@@ -6292,8 +6292,6 @@ GameObject:
   - component: {fileID: 1699157929}
   - component: {fileID: 1699157928}
   - component: {fileID: 1699157927}
-  - component: {fileID: 1699157926}
-  - component: {fileID: 1699157925}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -6301,42 +6299,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1699157925
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1699157924}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0caf5be8adc1f7e4fbd628e10be6f2ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Pools:
-  - tag: Bullet
-    prefab: {fileID: 4886392530267407625, guid: 8a1e27aeca5c0d84cadc47ca331257f4, type: 3}
-    size: 200
---- !u!114 &1699157926
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1699157924}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceaaa86ed64b4cc40894531ff385872c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerPos:
-  - {fileID: 0}
-  - {fileID: 0}
-  player1HP:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  enemySpawnController: {fileID: 0}
 --- !u!114 &1699157927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7882,7 +7844,7 @@ MonoBehaviour:
   Pools:
   - tag: Bullet
     prefab: {fileID: 4886392530267407625, guid: 8a1e27aeca5c0d84cadc47ca331257f4, type: 3}
-    size: 200
+    size: 20
   - tag: GBullet
     prefab: {fileID: 4886392530267407625, guid: d667aef160f27244185d7d29df4eef1c, type: 3}
     size: 20
