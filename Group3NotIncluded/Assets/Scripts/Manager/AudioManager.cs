@@ -49,8 +49,11 @@ public class AudioManager : MonoBehaviour
         if (index >= 0 && index < backgroundMusicClip.Length && audioSource != null)
         {
             // 배경음악을 교체하고 재생
-            audioSource.clip = backgroundMusicClip[index];
-            audioSource.Play();
+            if (audioSource.clip != backgroundMusicClip[index])
+            {
+                audioSource.clip = backgroundMusicClip[index];
+                audioSource.Play();
+            }
         }
     }
 
@@ -70,5 +73,9 @@ public class AudioManager : MonoBehaviour
         {
             audioSource.volume = Mathf.Clamp(volume, 0f, 1f);
         }
+    }
+    public float GetVolume()
+    {
+        return audioSource != null ? audioSource.volume : 0.2f;
     }
 }
