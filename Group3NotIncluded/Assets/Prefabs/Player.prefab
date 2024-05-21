@@ -529,7 +529,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2269539654589608646}
   - component: {fileID: 8663756123830736551}
-  - component: {fileID: 2459481112570952778}
+  - component: {fileID: 6443203874765913279}
   - component: {fileID: 6362885174889830682}
   - component: {fileID: 2747128722043641956}
   - component: {fileID: 3225500275521587477}
@@ -587,7 +587,7 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2459481112570952778}
+      - m_Target: {fileID: 6443203874765913279}
         m_TargetAssemblyTypeName: PlayerInputController, Assembly-CSharp
         m_MethodName: OnMove
         m_Mode: 0
@@ -603,7 +603,7 @@ MonoBehaviour:
     m_ActionName: Player1/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2459481112570952778}
+      - m_Target: {fileID: 6443203874765913279}
         m_TargetAssemblyTypeName: PlayerInputController, Assembly-CSharp
         m_MethodName: OnBoost
         m_Mode: 0
@@ -625,12 +625,16 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: bc68465e-ef1e-4ec1-9b4e-646637ea1195
     m_ActionName: Player2/Boost[/Keyboard/comma]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b6db78ea-f121-4543-97b0-a0d4338851ba
+    m_ActionName: Player1/CallMenu[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: KeyboardMouse
   m_DefaultActionMap: Player1
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &2459481112570952778
+--- !u!114 &6443203874765913279
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -639,7 +643,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6856310360390904950}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a2832d43c874b2429268ec8e65a7041, type: 3}
+  m_Script: {fileID: 11500000, guid: 8cc472c6da628f048a721edd57a2666c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &6362885174889830682
@@ -654,6 +658,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 488f33f7eab7ffa418eb4516d7b7ef54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectileSpawnPoint: {fileID: 0}
 --- !u!114 &2747128722043641956
 MonoBehaviour:
   m_ObjectHideFlags: 0

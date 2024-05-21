@@ -488,18 +488,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 43881162}
-        m_TargetAssemblyTypeName: VersusSceneBtn, Assembly-CSharp
-        m_MethodName: PlayEffectSound
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &43881160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -547,7 +535,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 43881157}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a088a38c13b7e06478fcb2ee19552bd7, type: 3}
+  m_Script: {fileID: 11500000, guid: 79249142335bf8d46af01f1544a11c7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &51939738
@@ -2153,18 +2141,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 768302088}
-        m_TargetAssemblyTypeName: SoloSceneBtn, Assembly-CSharp
-        m_MethodName: PlayEffectSound
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &768302086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2212,9 +2188,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 768302083}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8927c3c01548e614dbc6d18310662b54, type: 3}
+  m_Script: {fileID: 11500000, guid: e53e0a76231659f44afaea3897f8e4c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneBackgroundMusics: []
 --- !u!1 &797036298
 GameObject:
   m_ObjectHideFlags: 0
@@ -2919,7 +2896,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1211964957}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fa4511ee6b23b34f8356c0e119fa13d, type: 3}
+  m_Script: {fileID: 11500000, guid: 59dafc964ff48d34289450ca533c0c98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1250147044
@@ -3840,7 +3817,6 @@ GameObject:
   - component: {fileID: 1502334398}
   - component: {fileID: 1502334400}
   - component: {fileID: 1502334399}
-  - component: {fileID: 1502334401}
   m_Layer: 5
   m_Name: MenuPanel
   m_TagString: Untagged
@@ -3909,18 +3885,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1502334397}
   m_CullTransparentMesh: 1
---- !u!114 &1502334401
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1502334397}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd847611ac3243c45bd93e9184832eec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1524017853
 GameObject:
   m_ObjectHideFlags: 0
@@ -4553,18 +4517,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1651941319}
-        m_TargetAssemblyTypeName: CoopSceneBtn, Assembly-CSharp
-        m_MethodName: PlayEffectSound
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1651941317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4612,7 +4564,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1651941314}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd17a4c628569aa4082e84e469558e5e, type: 3}
+  m_Script: {fileID: 11500000, guid: fddfdc55344245e43a00bc0f40ef33df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1661746813

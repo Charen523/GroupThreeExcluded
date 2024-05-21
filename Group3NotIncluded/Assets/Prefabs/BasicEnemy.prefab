@@ -40,11 +40,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7919333433184180094}
-  - component: {fileID: 2273676812043380523}
+  - component: {fileID: -8696428373568801078}
   - component: {fileID: 7869766898412596046}
   - component: {fileID: 2067742443420752822}
-  - component: {fileID: 7563843818220604403}
   - component: {fileID: 2732072319844758087}
+  - component: {fileID: 7563843818220604403}
   - component: {fileID: 8877302999862083729}
   m_Layer: 6
   m_Name: BasicEnemy
@@ -70,7 +70,7 @@ Transform:
   - {fileID: 3043196658260363013}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2273676812043380523
+--- !u!114 &-8696428373568801078
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -79,7 +79,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7973110710505284440}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c8842ea21a31a54390f2adb311f2c0e, type: 3}
+  m_Script: {fileID: 11500000, guid: 09ba834b1fde6b549bb88ecc76f3bff4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &7869766898412596046
@@ -110,6 +110,21 @@ MonoBehaviour:
   baseStats:
     maxHealth: 1
     attackSO: {fileID: 11400000, guid: 03c2e56a505e8b44bb519f4fe580bc93, type: 2}
+--- !u!114 &2732072319844758087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7973110710505284440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddb13ff20f8c9654ba3b7d96796588bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthChangeDelay: 0.5
+  MaxHealth: 0
+  score: 1
 --- !u!60 &7563843818220604403
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -158,21 +173,6 @@ PolygonCollider2D:
       - {x: -0.5, y: -0.28865}
       - {x: 0.5, y: -0.28865}
   m_UseDelaunayMesh: 0
---- !u!114 &2732072319844758087
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7973110710505284440}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddb13ff20f8c9654ba3b7d96796588bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthChangeDelay: 0.5
-  MaxHealth: 0
-  score: 1
 --- !u!50 &8877302999862083729
 Rigidbody2D:
   serializedVersion: 4
