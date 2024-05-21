@@ -107,8 +107,8 @@ public class EnemyController : Controller
 
         Transform player2Pos = enemyManager.CallPlayerPos(1);
         
-        float distanceToPlayer1 = Vector2.Distance(transform.position, player1Pos.position);
-        float distanceToPlayer2 = Vector2.Distance(transform.position, player2Pos.position);
+        float? distanceToPlayer1 = Vector2.Distance(transform.position, player1Pos.position);
+        float? distanceToPlayer2 = Vector2.Distance(transform.position, player2Pos.position);
 
         ClosestTarget = distanceToPlayer1 < distanceToPlayer2 ? player1Pos : player2Pos;
     }

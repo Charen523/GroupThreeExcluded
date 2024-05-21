@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerHealthSystem : HealthSystem
 {
@@ -44,8 +45,15 @@ public class PlayerHealthSystem : HealthSystem
         base.DestroyEntity();
 
         //TODO: 모든 플레이어가 파괴됐을 때.
-        //if (GameObject.FindGameObjectWithTag("Player") == null)
+        GameObject tempP1 = GameObject.Find("Player1");
+        GameObject tempP2 = GameObject.Find("Player2");
+
+        if ((tempP1 == null || tempP1.GetComponent<PlayerHealthSystem>().CurrentHealth == 0) 
+            && (tempP2 == null || tempP2.GetComponent<PlayerHealthSystem>().CurrentHealth == 0))
+        {
+            
             Managers.Instance.OnGameOverEvent();
+        }
     }
 
     protected void DisableHP()
