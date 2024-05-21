@@ -2,9 +2,9 @@
 
 public class EnemyHealthSystem : HealthSystem
 {
-    private EnemyStatHandler statHandler;
-
     [SerializeField] [Range(1, 5)] private int score = 1;
+
+    private EnemyStatHandler statHandler;
 
     protected void Awake()
     {
@@ -14,11 +14,6 @@ public class EnemyHealthSystem : HealthSystem
     protected override void Start()
     {
         //비어있는 상태 override.
-    }
-
-    protected override void Update()
-    {
-        base.Update();
     }
 
     public void SetHealth(int health)

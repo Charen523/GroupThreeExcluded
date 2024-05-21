@@ -1,22 +1,20 @@
-using System;
-
 using UnityEngine;
-using UnityEngine.Experimental.XR.Interaction;
 
 public abstract class HealthSystem : MonoBehaviour 
 {
+    /*체력변수*/
+    [SerializeField] protected int StartHealth; //게임 시작시
     [SerializeField] protected float healthChangeDelay = 0.5f; // 체력이 변할 때까지의 딜레이
+    protected int MaxHealth; //최대 체력
+    protected int CurrentHealth;
 
-    protected float timeSinceLastChange = float.MaxValue; // 마지막 체력 변화 이후의 시간
-    public bool isInvincible = false;
-
+    /*무적변수*/
+    protected float hitDuration = float.MaxValue; // 마지막 체력 변화 이후의 시간
+    protected bool isInvincible = false;
     
-
-    public int StartHealth;
-    public int MaxHealth;
-    public int CurrentHealth { get; protected set; }
-
+    //체력변화 추상클래스
     public abstract bool ChangeHealth(float damage);
+
     //자기자신 파괴.
     protected virtual void DestroyEntity()
     {
@@ -30,10 +28,10 @@ public abstract class HealthSystem : MonoBehaviour
 
     protected virtual void Update()
     {
-        if (isInvincible && timeSinceLastChange < healthChangeDelay)
+        if (isInvincible && hitDuration < healthChangeDelay)
         {
-            timeSinceLastChange += Time.deltaTime;
-            if (timeSinceLastChange >= healthChangeDelay)
+            hitDuration += Time.deltaTime;
+            if (hitDuration >= healthChangeDelay)
             {
                 isInvincible = false;
             }

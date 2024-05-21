@@ -4,14 +4,17 @@ using UnityEngine;
 public class PlayerHealthSystem : HealthSystem
 {
     public GameObject[] PlayerHealthUI;
+    private Animator PlayerAnim;
 
     private PlayerStatHandler statHandler;
-
     private Coroutine invincibleCoroutine;
+
+    private readonly int invicibleItemTime = 3;
 
     protected void Awake()
     {
         statHandler = GetComponent<PlayerStatHandler>();
+        PlayerAnim = GetComponent<Animator>();
     }
 
     protected override void Start()
@@ -26,6 +29,14 @@ public class PlayerHealthSystem : HealthSystem
     protected override void Update()
     {
         base.Update();
+
+        if (hitDuration < healthChangeDelay)
+            PlayerAnim.SetBool("Hit", true);
+        else
+        {
+            PlayerAnim.SetBool("Hit", false);
+            PlayerAnim.SetBool("IsInvincible", isInvincible);
+        }
     }
 
     protected override void DestroyEntity()
@@ -40,31 +51,24 @@ public class PlayerHealthSystem : HealthSystem
     {
         PlayerHealthUI[CurrentHealth].SetActive(false);
     }
-
+    
     public void EnableHP()
     {
-        Debug.Log("전 "+ CurrentHealth);
         if (CurrentHealth < MaxHealth)
         {
             PlayerHealthUI[CurrentHealth].SetActive(true);
             CurrentHealth += 1;
         }
-        Debug.Log("후 " + CurrentHealth);
     }
 
     public override bool ChangeHealth(float change)
     {
-        if (timeSinceLastChange < healthChangeDelay)
+        if (hitDuration < healthChangeDelay || isInvincible)
         {
-            return false;
-        }
-        else if (isInvincible)
-        {
-            Debug.Log("Currently invincible, no damage taken.");
             return false;
         }
 
-        timeSinceLastChange = 0f;
+        hitDuration = 0f;
         CurrentHealth += (int)change;
 
         // 최솟값과 최댓값을 설정
@@ -74,27 +78,31 @@ public class PlayerHealthSystem : HealthSystem
         {
             DisableHP();
             DestroyEntity();
-            return true;
         }
         else
         {
             DisableHP();
             isInvincible = true;
+            StartCoroutine(HitInvincible());
         }
 
         return true;
     }
 
-    private IEnumerator StatusToggle()
+    private IEnumerator HitInvincible()
+    {
+        PlayerAnim.SetTrigger("Hit");  // 피격 애니메이션 트리거
+        yield return new WaitForSeconds(hitDuration);
+    }
+
+    private IEnumerator ItemInvicible()
     {
         isInvincible = true;
-        Debug.Log("Invincibility started");
 
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(invicibleItemTime);
 
         isInvincible = false;
         invincibleCoroutine = null;
-        Debug.Log("Invincibility ended");
     }
 
     public void OnInvincibleEvent()
@@ -106,6 +114,6 @@ public class PlayerHealthSystem : HealthSystem
         }
 
         //새로 3초 무적시간 적용.
-        invincibleCoroutine = StartCoroutine(StatusToggle());
+        invincibleCoroutine = StartCoroutine(ItemInvicible());
     }
 }
