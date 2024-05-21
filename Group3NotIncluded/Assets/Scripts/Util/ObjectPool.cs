@@ -43,6 +43,15 @@ public class ObjectPool : MonoBehaviour
         //가장 오래된 것부터 꺼내기.
         GameObject obj = PoolDictionary[tag].Dequeue(); //TODO:사용중일 때 예외처리.
         PoolDictionary[tag].Enqueue(obj);
+
+        // obj 가 null 인 경우가 생기는 이유는?
+
+
+        if (obj == null)
+        {
+            Debug.Log("으악!");
+        }
+            
         obj.SetActive(true);
         return obj;
     }
