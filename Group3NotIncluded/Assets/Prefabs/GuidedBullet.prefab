@@ -115,8 +115,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   RotationSpeed: 0.1
-  front: {fileID: 0}
-  back: {fileID: 0}
+  front: {fileID: 8433492122878426061}
+  back: {fileID: 4624770483763533457}
 --- !u!1 &6290639173210500861
 GameObject:
   m_ObjectHideFlags: 0
