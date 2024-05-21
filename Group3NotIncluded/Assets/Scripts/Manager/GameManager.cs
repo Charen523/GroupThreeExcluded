@@ -8,13 +8,20 @@ public class GameManager : MonoBehaviour
     private Managers managers;
 
     private bool isPaused;
-    private int currentScore;
+    private int currentKillCount;
     private string playerName;
     private float currentTime;
 
     private TMP_Text scoreTxt;
     private TMP_InputField playerNameTxt;
     private GameObject endPanel;
+
+
+    // 점수 계산용 
+    private float scoreFactor1 = 199f;
+    private float scoreFactor2 = 1.7f;
+    private int maxScore = 99999;
+    private float killScore = 500f;
 
     private void Awake()
     {
@@ -33,7 +40,7 @@ public class GameManager : MonoBehaviour
         
         managers = Managers.Instance;
         managers.OnPause += GetPauseStatus;
-        managers.OnEnemyDie += AddScore;
+        managers.OnEnemyDie += AddKillCount;
 
         managers.OnGameOver += EndGame;
         managers.OnGameOver += FindTextLabel;
@@ -53,7 +60,7 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         currentTime = 0f;
-        currentScore = 0;
+        currentKillCount = 0;
         playerName = "";
         isPaused = false;
         //CreateHpUI();
@@ -79,15 +86,17 @@ public class GameManager : MonoBehaviour
     }
 
     // 점수 증가
-    public void AddScore(GameObject obj)
+    public void AddKillCount(GameObject obj)
     {
-        currentScore += obj.Equals(null) ? 0 : obj.GetComponent<EnemyHealthSystem>().CallScore();
+        currentKillCount += obj.Equals(null) ? 0 : obj.GetComponent<EnemyHealthSystem>().CallScore();
         //currentScore += score;
     }
 
     public int GetScore()
     {
-        return currentScore;
+        // 점수 계산 로직, 현재 시간 * 199 * 1.7 (소수점 버림) + (적 처치 수 * 500) (Max 99999)
+        return
+            Mathf.Min(Mathf.FloorToInt((currentTime * scoreFactor1 * scoreFactor2) + (currentKillCount * killScore)), maxScore); ;
     }
 
     public string GetName()
