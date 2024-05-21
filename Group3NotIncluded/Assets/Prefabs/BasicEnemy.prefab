@@ -48,7 +48,7 @@ GameObject:
   - component: {fileID: 8877302999862083729}
   m_Layer: 6
   m_Name: BasicEnemy
-  m_TagString: Enemy
+  m_TagString: BE
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -171,6 +171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthChangeDelay: 0.5
+  MaxHealth: 0
   score: 1
 --- !u!50 &8877302999862083729
 Rigidbody2D:

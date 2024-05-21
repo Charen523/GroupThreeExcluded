@@ -35,7 +35,7 @@ public class EnemyController : Controller
     protected virtual void Start()
     {
         enemyManager = Managers.Instance.enemyManager;
-        Invoke("OnEnemyColor", 0.1f);
+        Invoke("OnEnemyColor", 0.2f);               // 생성되고 0.2초 뒤 색깔 투명도 올리기
     }
 
     protected override void Update()
@@ -133,31 +133,35 @@ public class EnemyController : Controller
     {
         if (LateObjectCheckTime >= 1) return;        //  생성된지 1초 지났다면 무시
 
-        if (collision.CompareTag("Enemy1"))
+        if (collision.CompareTag("BE")
+            || collision.CompareTag("MSE")
+            || collision.CompareTag("GSE"))  // 적과 겹쳤는지 체크
         {
-            Debug.Log("재생성1");                   // 재생성 디버그
+            if (gameObject.tag == "MSE")
+            {
+                Debug.Log("재생성2");
 
-            Destroy(gameObject);
-            Managers.Instance.enemyManager.enemySpawnController.SpawnEnemy();
-            return;
-        }
+                Destroy(gameObject);
+                Managers.Instance.enemyManager.enemySpawnController.SpawnMultipleShotEnemy();
+                return;
+            }
+            else if (gameObject.tag == "GSE")
+            {
+                Debug.Log("재생성3");
 
-        //else if (collision.CompareTag("Enemy2"))
-        //{
-        //    Debug.Log("재생성2");                  
+                Destroy(gameObject);
+                Managers.Instance.enemyManager.enemySpawnController.SpawnGuidedShotEnemy();
+                return;
+            }
+            else
+            {
+                Debug.Log("재생성1");                   // 재생성 디버그
 
-        //    Destroy(gameObject);
-        //Managers.Instance.enemyManager.enemySpawnController.SpawnMultipleShotEnemy();
-        //    return;
-        //}
+                Destroy(gameObject);
+                Managers.Instance.enemyManager.enemySpawnController.SpawnEnemy();
+                return;
+            }
 
-        else
-        {
-            Debug.Log("재생성3");              
-
-            Destroy(gameObject);
-            Managers.Instance.enemyManager.enemySpawnController.SpawnGuidedShotEnemy();
-            return;
         }
     }
 }

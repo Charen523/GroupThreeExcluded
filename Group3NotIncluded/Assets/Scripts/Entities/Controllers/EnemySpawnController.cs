@@ -103,31 +103,32 @@ public class EnemySpawnController : MonoBehaviour
         {
             case SpawnWall.Floor:
                 spawnPointX = Random.Range(-8f, 8f);
-                spawnPointY = -3.5633f;  // -3.5f
+                //spawnPointY = -3.5533f;  // -3.5f
+                spawnPointY = -3.52f;
                 rotationZ = 0;
                 break;
             case SpawnWall.FloorAdd:
                 spawnPointX = Random.Range(-8f, 8f);
-                spawnPointY = -3.5633f;
+                spawnPointY = -3.52f;
                 rotationZ = 0;
                 break;
             case SpawnWall.Ceiling:
                 spawnPointX = Random.Range(-8f, 8f);
-                spawnPointY = 3.2634f;  // 3.2f
+                spawnPointY = 3.22f; // 3.2534
                 rotationZ = 180;
                 break;
             case SpawnWall.CeilingAdd:
                 spawnPointX = Random.Range(-8f, 8f);
-                spawnPointY = 3.2634f;
+                spawnPointY = 3.22f;
                 rotationZ = 180;
                 break;
             case SpawnWall.LeftWall:
-                spawnPointX = -8.802f;
+                spawnPointX = -8.75f;    // -8.79f
                 spawnPointY = Random.Range(-3.3f, 3f);
                 rotationZ = 270;
                 break;
             case SpawnWall.RightWall:
-                spawnPointX = 8.802f;     // 8.75f
+                spawnPointX = 8.75f;     // 8.75f
                 spawnPointY = Random.Range(-3.3f, 3f);
                 rotationZ = 90;
                 break;
@@ -153,7 +154,7 @@ public class EnemySpawnController : MonoBehaviour
     {
         if (guidedEnemyCount >= HowOftenGuidedEnemy)
         {
-            SpawnMultipleShotEnemy();
+            SpawnGuidedShotEnemy();
 
             guidedEnemyCount = 0;
 
