@@ -2338,9 +2338,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d8fda951da68cb499abe7090a7433e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthChangeDelay: 0.5
   StartHealth: 3
-  MaxHealth: 0
+  healthChangeDelay: 0.5
   PlayerHealthUI:
   - {fileID: 1521066199}
   - {fileID: 675234986}
@@ -3583,7 +3582,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boostSystem: {fileID: 860000750}
-  fillBar: {fileID: 2066531992}
+  fillBar: {fileID: 1730152491}
 --- !u!1 &1170060502
 GameObject:
   m_ObjectHideFlags: 0
@@ -5643,9 +5642,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d8fda951da68cb499abe7090a7433e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthChangeDelay: 0.5
   StartHealth: 3
-  MaxHealth: 0
+  healthChangeDelay: 0.5
   PlayerHealthUI:
   - {fileID: 1814381056}
   - {fileID: 1669473836}
