@@ -12,6 +12,7 @@ public class CreditPanel : MonoBehaviour
 
     public void ShowCredits()
     {
+        AudioManager.Instance.PlaySFX(0);
         gameObject.SetActive(true);
         StartCoroutine(CreditDelay());
     }
