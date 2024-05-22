@@ -3,13 +3,6 @@ using UnityEngine;
 
 public class BubbleController : MonoBehaviour
 {
-    /*아이템 별 이벤트 모음*/
-    public event Action OnBulletElliminate;
-    public event Action OnHealthIncrease;
-    public event Action OnInvincible;
-    public event Action OnBoostFull;
-    public event Action OnMultishot;
-
     [Header("Players")]
     public GameObject[] players;
 
@@ -52,36 +45,5 @@ public class BubbleController : MonoBehaviour
         spriteRenderer.sprite = Resources.Load<Sprite>($"beffio/Icons/Icon{randomItemNum}");
 
         newBubble.transform.position = instantiatePos;
-    }
-
-    public void InvokeItem0()
-    {
-        OnBulletElliminate?.Invoke();
-
-        GameObject[] bullets = GameObject.FindGameObjectsWithTag("Bullet");
-        foreach(GameObject bullet in bullets)
-        {
-            bullet.SetActive(false);
-        }
-    }
-
-    public void InvokeItem1()
-    {
-        OnHealthIncrease?.Invoke();
-    }
-
-    public void InvokeItem2()
-    {
-        OnInvincible?.Invoke();
-    }
-
-    public void InvokeItem3()
-    {
-        OnBoostFull?.Invoke();
-    }
-
-    public void InvokeItem4()
-    {
-        OnMultishot?.Invoke();
     }
 }
