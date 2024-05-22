@@ -129,7 +129,6 @@ public class BubbleMovement : MonoBehaviour
                 AudioManager.Instance.PlaySFX(7);
                 break;
             case "Icon4":
-                //TODO : 함수로 빼서 이벤트에 묶어주기, 아이템 효과 모아둘 스크립트 따로 만들어서 오브젝트에 붙여주면 좋을것 같아요
                 player.GetComponent<PlayerStatHandler>().GetMultiShot();
                 AudioManager.Instance.PlaySFX(9);
                 break;
