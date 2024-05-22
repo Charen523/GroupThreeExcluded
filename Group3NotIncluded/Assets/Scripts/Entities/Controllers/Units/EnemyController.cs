@@ -155,17 +155,9 @@ public class EnemyController : Controller
         }
     }
 
-    // 애니메이션 도입으로 필요없어짐
-    private void OnEnemyColor()
-    {
-        _renderer.color =
-            new Color(_renderer.color.r, _renderer.color.g, _renderer.color.b, 1f);
-            // 색깔 투명도 올리기
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (LateObjectCheckTime >= 1) return;        //  생성된지 1초 지났다면 무시
+        if (LateObjectCheckTime >= 1) return; //생성된지 1초 지났다면 무시
 
         if (collision.CompareTag("BE")
             || collision.CompareTag("MSE")
@@ -173,24 +165,18 @@ public class EnemyController : Controller
         {
             if (gameObject.tag == "MSE")
             {
-                Debug.Log("재생성2");
-
                 Destroy(gameObject);
                 enemySpawnController.SpawnMultipleShotEnemy();
                 return;
             }
             else if (gameObject.tag == "GSE")
             {
-                Debug.Log("재생성3");
-
                 Destroy(gameObject);
                 enemySpawnController.SpawnGuidedShotEnemy();
                 return;
             }
             else
             {
-                Debug.Log("재생성1");                   // 재생성 디버그
-
                 Destroy(gameObject);
                 enemySpawnController.SpawnEnemy();
                 return;
