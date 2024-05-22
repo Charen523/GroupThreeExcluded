@@ -2503,7 +2503,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 488f33f7eab7ffa418eb4516d7b7ef54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileSpawnPoint: {fileID: 0}
+  projectileSpawnPoint: {fileID: 1531649659}
 --- !u!114 &860000753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5803,7 +5803,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 488f33f7eab7ffa418eb4516d7b7ef54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileSpawnPoint: {fileID: 0}
+  projectileSpawnPoint: {fileID: 256271315}
 --- !u!114 &1498987493
 MonoBehaviour:
   m_ObjectHideFlags: 0
