@@ -5,13 +5,22 @@ using Random = UnityEngine.Random;
 public class Shooting : MonoBehaviour
 {
     [SerializeField] private Transform projectileSpawnPosition;
-    private Vector2 aimDirection = Vector2.zero;
+    [SerializeField] private Animator bulletAnim;
 
     private Controller controller;
+    private Vector2 aimDirection = Vector2.zero;
+
+    private bool isPlayer;
 
     private void Awake()
     {
         controller = GetComponent<Controller>();
+
+        if (gameObject.CompareTag("Player"))
+        {
+            isPlayer = true;
+        }
+        else isPlayer = false;
     }
 
     private void Start()
@@ -41,6 +50,15 @@ public class Shooting : MonoBehaviour
             float randomSpread = Random.Range(-attackSO.spread, attackSO.spread);
             angle += randomSpread;
             CreateProjectile(attackSO, angle);
+        }
+
+        //총알 발사 직후 애니메이션 작동.
+        if (isPlayer)
+        {
+            if (gameObject.GetComponent<PlayerStatHandler>().currentStat.attackSO.numberOfProjectilesPerShot == 1)
+                bulletAnim.SetTrigger("Shoot");
+            else
+                bulletAnim.SetTrigger("MultiShoot");
         }
     }
 
