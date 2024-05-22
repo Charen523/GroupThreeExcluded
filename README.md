@@ -71,4 +71,18 @@
 --- 
 
 ### ✨ 트러블슈팅
+
+1. COOP 모드의 Player1 미작동.
 ![image](https://github.com/Charen523/GroupThreeNotIncluded/assets/144107013/209a5656-6408-4cbf-b2df-b602dc33ea81)
+
+2. 무한 부스트 시스템.
+![image](https://github.com/Charen523/GroupThreeNotIncluded/assets/144107013/c3f657fe-74eb-464a-a53a-eb045505f0e2)
+
+3. 피할 수 없는 유도탄.
+![image](https://github.com/Charen523/GroupThreeNotIncluded/assets/144107013/6f0faec6-2c11-458d-91ce-37c05d70bbec)
+
+4. 중복 불가능한 랭킹 이름.
+![image](https://github.com/Charen523/GroupThreeNotIncluded/assets/144107013/32816322-c572-44b1-8195-6ee9db0f9ebe)
+
+5. 랜덤 BGM.
+![image](https://github.com/Charen523/GroupThreeNotIncluded/assets/144107013/12887de9-58dc-4e9b-bd9b-5503db0a76fd)
