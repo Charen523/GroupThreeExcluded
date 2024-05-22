@@ -93,7 +93,6 @@ public class EnemyController : Controller
         {
             timeSinceLastAttack = 0;
             CallAttackEvent(stats.currentStat.attackSO);
-            AudioManager.Instance.PlaySFX(6); // 플레이어도 소리가나서 겹침 
         }
     }
 
