@@ -27,6 +27,9 @@ public class Shooting : MonoBehaviour
             return;
         }
 
+        // 총알 발사 전에 효과음을 재생합니다.
+        AudioManager.Instance.PlaySFX(6);
+
         float projectilesAngleSpace = attackSO.multipleProjectilesAngle;
         int numberOfProjectilesPerShot = attackSO.numberOfProjectilesPerShot;
 

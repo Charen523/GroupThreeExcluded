@@ -75,7 +75,18 @@ public class AudioManager : MonoBehaviour
             audioSource.volume = Mathf.Clamp(volume, 0f, 1f);
         }
     }
-    public float GetVolume()
+
+    // 볼륨을 설정할 수 있는 효과음 재생 메서드
+    public void PlaySFX(int index, float volume)
+    {
+        if (index >= 0 && index < SFXClip.Length && audioSource != null)
+        {
+            AudioSource.PlayClipAtPoint(SFXClip[index], transform.position, volume);
+        }
+    }
+
+        // 불륨 기본값
+        public float GetVolume()
     {
         return audioSource != null ? audioSource.volume : 0.2f;
     }

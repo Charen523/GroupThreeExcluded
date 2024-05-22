@@ -61,6 +61,10 @@ public class BoostSystem : MonoBehaviour
 
         if (onBoost && CurrentBoostGage > 0)
         {
+            if (!isBoosting) // 부스트가 아직 시작되지 않은 경우에만 사운드 재생
+            {
+                AudioManager.Instance.PlaySFX(5, 0.7f);
+            }
             isBoosting = true;
         }
         else
