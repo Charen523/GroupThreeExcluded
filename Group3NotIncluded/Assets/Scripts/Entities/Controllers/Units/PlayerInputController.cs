@@ -32,7 +32,6 @@ public class PlayerInputController : Controller
     public void OnBoost(InputAction.CallbackContext context)
     {
         OnBoostEvent?.Invoke(context.phase == InputActionPhase.Performed);
-        AudioManager.Instance.PlaySFX(5);
     }
 
 
