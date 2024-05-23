@@ -95,4 +95,5 @@
 ![image](https://github.com/Charen523/GroupThreeNotIncluded/assets/144107013/32816322-c572-44b1-8195-6ee9db0f9ebe)
 
 5. 랜덤 BGM.
+
 ![image](https://github.com/Charen523/GroupThreeNotIncluded/assets/144107013/12887de9-58dc-4e9b-bd9b-5503db0a76fd)
