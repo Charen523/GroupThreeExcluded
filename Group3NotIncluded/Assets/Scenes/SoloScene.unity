@@ -7336,7 +7336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 17f92931d11d62f4b9eb83b4224c7eac, type: 3}
+  m_Actions: {fileID: -944628639613478452, guid: acb03813b413c044faabdd16d8e6babc, type: 3}
   m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
@@ -7363,8 +7363,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: d77f0f38-5095-4a8f-b7c1-d54bb73ffaa5
-    m_ActionName: Player1/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+    m_ActionId: 68bbb0a9-06bc-4f0b-8ac3-11cb87923cc9
+    m_ActionName: P1Controller/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 8663756123298277378}
@@ -7379,16 +7379,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 4dc237f2-aab9-437e-abc3-a3776b835f98
-    m_ActionName: Player1/Boost[/Keyboard/r]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 8da5bcf9-e342-4e77-8641-f1f7c30e02bf
-    m_ActionName: Player2/Move[/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: bc68465e-ef1e-4ec1-9b4e-646637ea1195
-    m_ActionName: Player2/Boost[/Keyboard/comma]
+    m_ActionId: 730051d7-2f71-405f-ad90-ce033a067b0e
+    m_ActionName: P1Controller/Boost[/Keyboard/space]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 302838092}
@@ -7401,13 +7393,13 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: b6db78ea-f121-4543-97b0-a0d4338851ba
-    m_ActionName: Player1/CallMenu[/Keyboard/escape]
+    m_ActionId: 891cb624-132d-4b4e-b5f1-0d4952b4a0f9
+    m_ActionName: P1Controller/CallMenu[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: KeyboardMouse
-  m_DefaultActionMap: Player1
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: P1Controller
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!114 &8663756123298277376
