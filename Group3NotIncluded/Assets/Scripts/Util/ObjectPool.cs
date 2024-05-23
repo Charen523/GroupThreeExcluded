@@ -41,7 +41,7 @@ public class ObjectPool : MonoBehaviour
             return null;
 
         //가장 오래된 것부터 꺼내기.
-        GameObject obj = PoolDictionary[tag].Dequeue(); //TODO:사용중일 때 예외처리.
+        GameObject obj = PoolDictionary[tag].Dequeue();
         PoolDictionary[tag].Enqueue(obj);
 
         obj.SetActive(true);

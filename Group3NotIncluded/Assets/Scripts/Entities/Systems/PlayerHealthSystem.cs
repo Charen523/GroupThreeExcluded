@@ -44,7 +44,6 @@ public class PlayerHealthSystem : HealthSystem
     {
         base.DestroyEntity();
 
-        //TODO: 모든 플레이어가 파괴됐을 때.
         GameObject tempP1 = GameObject.Find("Player1");
         GameObject tempP2 = GameObject.Find("Player2");
 
@@ -118,7 +117,6 @@ public class PlayerHealthSystem : HealthSystem
 
     public void OnInvincibleEvent()
     {
-        //이미 실행중인 코루틴이 있으면 중지.
         if (invincibleCoroutine != null)
         {
             StopCoroutine(invincibleCoroutine);

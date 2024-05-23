@@ -35,7 +35,6 @@ public class GuidedBulletController : ProjectileController
             DestroyProjectile();
         }
         
-        // TODO : 타겟을 가장 가까운 타겟으로 설정하는 메커니즘 필요
         Transform P1Pos = Managers.Instance.enemyManager.CallPlayerPos(0);
         Transform P2Pos = Managers.Instance.enemyManager.CallPlayerPos(1);
 
