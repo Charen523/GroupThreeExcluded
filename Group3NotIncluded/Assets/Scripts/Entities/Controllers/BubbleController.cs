@@ -9,13 +9,11 @@ public class BubbleController : MonoBehaviour
     [Header("ItemPrefab")]
     [SerializeField] private GameObject itemBubble;
 
-
     private Managers managers;
 
     private void Start()
     {
         managers = Managers.Instance;
-
         managers.OnEnemyDie += MakeBubble;
     }
 
@@ -26,24 +24,20 @@ public class BubbleController : MonoBehaviour
 
     public void MakeBubble(GameObject enemy)
     {
-        Vector3 instantiatePos = enemy.transform.position;
-
-        if (instantiatePos.y < -3f)
-            instantiatePos.y += 0.5f;
-        else if (instantiatePos.y > 3f)
-            instantiatePos.y -= 0.5f;
-        else if (instantiatePos.x < -8.5f)
-            instantiatePos.x += 0.5f;
-        else
-            instantiatePos.x -= 0.5f;
-
-        GameObject newBubble = Instantiate(itemBubble);
-
+        Vector3 instantiatePos = AdjustPosition(enemy.transform.position);
+        GameObject newBubble = Instantiate(itemBubble, instantiatePos, Quaternion.identity);
         int randomItemNum = UnityEngine.Random.Range(0, 5);
-
         SpriteRenderer spriteRenderer = newBubble.GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = Resources.Load<Sprite>($"beffio/Icons/Icon{randomItemNum}");
+    }
 
-        newBubble.transform.position = instantiatePos;
+    private Vector3 AdjustPosition(Vector3 position)
+    {
+        if (position.y < -3f) position.y += 0.5f;
+        else if (position.y > 3f) position.y -= 0.5f;
+        else if (position.x < -8.5f) position.x += 0.5f;
+        else position.x -= 0.5f;
+
+        return position;
     }
 }

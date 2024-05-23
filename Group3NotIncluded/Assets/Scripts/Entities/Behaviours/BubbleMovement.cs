@@ -6,60 +6,42 @@ using UnityEngine;
 public class BubbleMovement : MonoBehaviour
 {
     private BubbleController bubbleController;
-
     private Transform closestPlayer;
     private Rigidbody2D rb;
     private Vector2 targetDirection;
 
-    /*버블움직임 상수*/
-    private float speed = 1.5f;
-    private float wobbleIntensity = 0.7f;
-    private float wobbleSpeed = 5f;
-
-    // 플레이어 객체 저장용
-    private GameObject player;
+    [Header("BubbleMovement")]
+    [SerializeField] private float speed = 1.5f;
+    [SerializeField] private float wobbleIntensity = 0.7f;
+    [SerializeField] private float wobbleSpeed = 5f;
 
     private void Start()
     {
         bubbleController = FindObjectOfType<BubbleController>();
-        
-
-        // Rigidbody2D 컴포넌트 가져오기
         rb = GetComponent<Rigidbody2D>();
-
         FindClosestPlayer();
 
         if (closestPlayer != null)
         {
-            // Player를 향한 방향 계산
             targetDirection = (closestPlayer.position - transform.position).normalized;
         }
     }
 
     private void Update()
     {
-        // 비틀거림 추가
+        ApplyWobbleMovement();
+    }
+
+    private void ApplyWobbleMovement()
+    {
         float wobbleAngle = Mathf.Sin(Time.time * wobbleSpeed) * wobbleIntensity;
         Vector2 wobbleOffset = new Vector2(Mathf.Cos(wobbleAngle), Mathf.Sin(wobbleAngle)) * wobbleIntensity;
-
-        // 최종 방향 설정
-        Vector2 finalDirection = (targetDirection + wobbleOffset).normalized;
-
-        // Rigidbody2D를 사용하여 이동
-        rb.velocity = finalDirection * speed;
+        rb.velocity = (targetDirection + wobbleOffset).normalized * speed;
     }
 
     private void FindClosestPlayer()
     {
-        // players 참조로 받아오기.
         GameObject[] players = bubbleController.players;
-
-        //플레이어가 하나일때.
-        //if (players.Length == 1)
-        //{
-        //    closestPlayer = players[0].transform;
-        //    return; //아래 생략.
-        //}
 
         if (players[0] == null && players[1] == null)
         {
@@ -76,7 +58,7 @@ public class BubbleMovement : MonoBehaviour
             return;
         }
 
-        //플레이어가 둘일때.
+        //멀티라면.
         float distance1 = Vector2.Distance(transform.position, players[0].transform.position);
         float distance2 = Vector2.Distance(transform.position, players[1].transform.position);
 
@@ -91,30 +73,29 @@ public class BubbleMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        string eventName = "";
-
         if (collision.CompareTag("Player"))
         {
-            player = collision.gameObject; // 플레이어 오브젝트 가져오기
-            eventName = gameObject.GetComponentInChildren<SpriteRenderer>().sprite.name;
-            Destroy(gameObject);
+            HandlePlayerCollision(collision.gameObject);
         }
         else if (collision.gameObject.layer == 6 || collision.gameObject.layer == 7)
         {
             Destroy(gameObject);
-            return;
         }
+    }
 
-        switch(eventName)
+    private void HandlePlayerCollision(GameObject player)
+    {
+        string iconName = GetComponentInChildren<SpriteRenderer>().sprite.name;
+        Destroy(gameObject);
+        ExecutePowerUp(iconName, player);
+    }
+
+    private void ExecutePowerUp(string iconName, GameObject player)
+    {
+        switch (iconName)
         {
             case "Icon0":
-                player.GetComponent<Animator>().SetTrigger("NoBullet");
-                GameObject[] bullets = GameObject.FindGameObjectsWithTag("Bullet");
-                foreach (GameObject bullet in bullets)
-                {
-                    bullet.SetActive(false);
-                }
-                    AudioManager.Instance.PlaySFX(11);
+                HandleNoBulletPowerUp(player);
                 break;
             case "Icon1":
                 player.GetComponent<PlayerHealthSystem>().EnableHP();
@@ -135,6 +116,15 @@ public class BubbleMovement : MonoBehaviour
             default:
                 break;
         }
+    }
 
+    private void HandleNoBulletPowerUp(GameObject player)
+    {
+        player.GetComponent<Animator>().SetTrigger("NoBullet");
+        foreach (GameObject bullet in GameObject.FindGameObjectsWithTag("Bullet"))
+        {
+            bullet.SetActive(false);
+        }
+        AudioManager.Instance.PlaySFX(11);
     }
 }
